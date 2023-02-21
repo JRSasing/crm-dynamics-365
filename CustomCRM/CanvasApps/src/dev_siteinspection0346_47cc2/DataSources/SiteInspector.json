@@ -1,0 +1,27 @@
+[
+  {
+    "Data": "[{\"Address\":\"11155 NE 8th\",\"City\":\"Bellevue\",\"Description\":\"Big 86934 sq ft lot with 4-story 48568sq ft reinforced concrete building. Building has elevators, sprinklers, and parking for 100\\u002B vehicles.\",\"ID\":1,\"IsGPSCoordinates\":true,\"Latitude\":47.617187,\"Longitude\":-122.191686,\"Notes\":\"Buidling built  in 1980 with significant renovations in 1990\",\"State\":\"WA\",\"SubTitle\":\"Bellevue Campus\",\"Title\":\"Contoso Building 3\",\"Zip\":98004},{\"Address\":\"555 110th Ave NE\",\"City\":\"Bellevue\",\"Description\":\"Large 128,700 sq ft lot with 50826 sq ft masonry building. 25 ft freestanding lighted sign and parking for 80\\u002B vehicles \",\"ID\":2,\"IsGPSCoordinates\":true,\"Latitude\":47.614843,\"Longitude\":-122.19417,\"Notes\":\"Parking lot has parking space for 80\\u002B vehicles and has two access points to the street\",\"State\":\"WA\",\"SubTitle\":\"Bellevue Campus\",\"Title\":\"Contoso Building 5\",\"Zip\":98004},{\"Address\":\"434 Kirkland Way\",\"City\":\"Kirkland\",\"Description\":\"Grand 538699 sq ft office space with multliple reinforced concrete office buildings. Built in 1973, this property has a public sewer and public road access. \",\"ID\":3,\"IsGPSCoordinates\":true,\"Latitude\":47.676254,\"Longitude\":-122.19974,\"Notes\":\"Newly renovated outdoor spaces to facilitate use\",\"State\":\"WA\",\"SubTitle\":\"Kirkland Campus\",\"Title\":\"Contoso Building 15\",\"Zip\":98033},{\"Address\":\"18200 NE Union Hill Road\",\"City\":\"Redmond\",\"Description\":\"Modern one story addition to existing property with underground parking for 60\\u002B vehicles and 8 reserved handicapped parking stalls\",\"ID\":4,\"IsGPSCoordinates\":true,\"Latitude\":47.676511,\"Longitude\":-122.097351,\"Notes\":\"Recently added smoking pavillion\",\"State\":\"WA\",\"SubTitle\":\"Redmond Campus\",\"Title\":\"Contoso Building 16\",\"Zip\":98052},{\"Address\":\"3850 148th Ave NE\",\"City\":\"Redmond\",\"Description\":\"Big 106687 sq ft lot with public sewer and paved public road access. Renovation plans have been submitted for approval.\",\"ID\":5,\"IsGPSCoordinates\":true,\"Latitude\":47.643452,\"Longitude\":-122.141044,\"Notes\":\"Property in commercial zone\",\"State\":\"WA\",\"SubTitle\":\"Redmond Campus\",\"Title\":\"Contoso Building 26\",\"Zip\":98052}]",
+    "IsSampleData": false,
+    "IsWritable": false,
+    "Name": "SiteInspector",
+    "OrderedColumnNames": [
+      "ID",
+      "Title",
+      "SubTitle",
+      "Description",
+      "Notes",
+      "State",
+      "City",
+      "Zip",
+      "Latitude",
+      "Longitude",
+      "Address",
+      "IsGPSCoordinates"
+    ],
+    "OriginalName": "SiteInspector",
+    "OriginalSchema": "*[Address:s, City:s, Description:s, ID:n, IsGPSCoordinates:b, Latitude:n, Longitude:n, Notes:s, State:s, SubTitle:s, Title:s, Zip:n]",
+    "Schema": "*[Address:s, City:s, Description:s, ID:n, IsGPSCoordinates:b, Latitude:n, Longitude:n, Notes:s, State:s, SubTitle:s, Title:s, Zip:n]",
+    "Token": "{77D684C8-829C-4E4A-AAA6-09B4331BCA30}",
+    "Type": "StaticDataSourceInfo"
+  }
+]

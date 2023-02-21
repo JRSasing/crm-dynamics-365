@@ -1,0 +1,129 @@
+CameraScreen As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    photogallery As gallery.imageGalleryHorizontal:
+        DisabledBorderColor: =photogallery.BorderColor
+        DisabledFill: =photogallery.Fill
+        Height: =146
+        HoverBorderColor: =photogallery.BorderColor
+        HoverFill: =photogallery.Fill
+        Items: =CameraPhotos
+        PressedBorderColor: =photogallery.BorderColor
+        PressedFill: =photogallery.Fill
+        TemplateSize: =If(photogallery.Layout = Layout.Horizontal, photogallery.Height, photogallery.Width-60)
+        Visible: =If(IsBlank(CameraPhotos),false,true)
+        Width: =983.9026720784714
+        X: =20
+        Y: =509
+        ZIndex: =2
+
+        Image4_3 As image:
+            ApplyEXIFOrientation: =false
+            AutoDisableOnSelect: =false
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Height: =photogallery.TemplateHeight 
+            HoverBorderColor: =ColorFade(Image4_3.BorderColor, 20%)
+            HoverFill: =ColorFade(Image4_3.Fill, 20%)
+            Image: =ThisItem.Photo
+            ImagePosition: =Fit
+            OnSelect: |-
+                =Navigate(EditImageScreen_1,ScreenTransition.Fade,{ImageRecord:ThisItem,reset:true,IsAddImage:IsAddImage})
+            PressedBorderColor: =ColorFade(Image4_3.BorderColor, -20%)
+            PressedFill: =ColorFade(Image4_3.Fill, -20%)
+            Width: =photogallery.TemplateWidth
+            ZIndex: =1
+
+        TextBox1 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(0, 0, 0, 0.6)
+            Height: =29
+            HoverBorderColor: =TextBox1.BorderColor
+            HoverColor: =TextBox1.Color
+            HoverFill: =TextBox1.Fill
+            PressedBorderColor: =TextBox1.BorderColor
+            PressedColor: =TextBox1.Color
+            PressedFill: =TextBox1.Fill
+            Text: =ThisItem.Note
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =!IsBlank(TextBox1.Text)
+            Width: =146
+            Y: =107
+            ZIndex: =2
+
+    camera1 As camera:
+        Camera: =0
+        Height: =455
+        OnSelect: |-
+            =If(CountRows(CameraPhotos) <=7 ,Collect(CameraPhotos, {Note:"",Photo :camera1.Photo, PhotoId : CountRows(CameraPhotos)}))
+        Width: =1024
+        ZIndex: =3
+
+    TextBox2_2 As label:
+        Align: =Center
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(179, 179, 179, 1)
+        Height: =60
+        HoverBorderColor: =TextBox2_2.BorderColor
+        HoverColor: =TextBox2_2.Color
+        HoverFill: =TextBox2_2.Fill
+        PressedBorderColor: =TextBox2_2.BorderColor
+        PressedColor: =TextBox2_2.Color
+        PressedFill: =TextBox2_2.Fill
+        Text: ="Tap anywhere above to take a photo"
+        VerticalAlign: =Middle
+        Visible: =CountRows(CameraPhotos)=0
+        Width: =1024
+        Y: =552
+        ZIndex: =4
+
+    Button1_14 As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade(Button1_14.Fill, -15%)
+        BorderThickness: =0
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =ColorFade(Button1_14.BorderColor, 70%)
+        Fill: =RGBA(91,26,16,1)
+        Height: =50
+        HoverBorderColor: =Button1_14.BorderColor
+        HoverColor: =Button1_14.Color
+        HoverFill: =Button1_14.Fill
+        OnSelect: |
+            =If(IsBlank(Record.ID),Navigate(NewInspectionScreen, ScreenTransition.Fade),If(!IsBlank(LookUp(CameraPhotos,PhotoId=0,PhotoId)),Collect(SitePhotosCollect,{PhotoId:Value(Max(SitePhotosCollect, PhotoId)+1),Photo:LookUp(CameraPhotos,PhotoId=0,Photo),ID:Value(Record.ID),Note:Text(LookUp(CameraPhotos,PhotoId=0,Note))}));If(!IsBlank(LookUp(CameraPhotos,PhotoId=1,PhotoId)),Collect(SitePhotosCollect,{PhotoId:Value(Max(SitePhotosCollect, PhotoId)+1),Photo:LookUp(CameraPhotos,PhotoId=1,Photo),ID:Value(Record.ID),Note:Text(LookUp(CameraPhotos,PhotoId=1,Note))}));If(!IsBlank(LookUp(CameraPhotos,PhotoId=2,PhotoId)),Collect(SitePhotosCollect,{PhotoId:Value(Max(SitePhotosCollect, PhotoId)+1),Photo:LookUp(CameraPhotos,PhotoId=2,Photo),ID:Value(Record.ID),Note:Text(LookUp(CameraPhotos,PhotoId=2,Note))}));If(!IsBlank(LookUp(CameraPhotos,PhotoId=3,PhotoId)),Collect(SitePhotosCollect,{PhotoId:Value(Max(SitePhotosCollect, PhotoId)+1),Photo:LookUp(CameraPhotos,PhotoId=3,Photo),ID:Value(Record.ID),Note:Text(LookUp(CameraPhotos,PhotoId=3,Note))}));If(!IsBlank(LookUp(CameraPhotos,PhotoId=4,PhotoId)),Collect(SitePhotosCollect,{PhotoId:Value(Max(SitePhotosCollect, PhotoId)+1),Photo:LookUp(CameraPhotos,PhotoId=4,Photo),ID:Value(Record.ID),Note:Text(LookUp(CameraPhotos,PhotoId=4,Note))}));If(!IsBlank(LookUp(CameraPhotos,PhotoId=5,PhotoId)),Collect(SitePhotosCollect,{PhotoId:Value(Max(SitePhotosCollect, PhotoId)+1),Photo:LookUp(CameraPhotos,PhotoId=5,Photo),ID:Value(Record.ID),Note:Text(LookUp(CameraPhotos,PhotoId=5,Note))}));If(!IsBlank(LookUp(CameraPhotos,PhotoId=6,PhotoId)),Collect(SitePhotosCollect,{PhotoId:Value(Max(SitePhotosCollect, PhotoId)+1),Photo:LookUp(CameraPhotos,PhotoId=6,Photo),ID:Value(Record.ID),Note:Text(LookUp(CameraPhotos,PhotoId=6,Note))}));Navigate(EditInspectionScreen,ScreenTransition.Fade);Clear(CameraPhotos))
+        PressedBorderColor: =Button1_14.Fill
+        PressedColor: =Button1_14.Color
+        PressedFill: =ColorFade(Button1_14.Fill, 10%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="Done"
+        Width: =512
+        X: =512
+        Y: =718
+        ZIndex: =7
+
+    Button1_15 As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade(Button1_15.Fill, -15%)
+        BorderThickness: =0
+        DisabledBorderColor: =ColorFade(Button1_15.BorderColor, 70%)
+        Fill: =RGBA(132,45,33,1)
+        Height: =50
+        HoverBorderColor: =Button1_15.BorderColor
+        HoverColor: =Button1_15.Color
+        HoverFill: =Button1_15.Fill
+        OnSelect: =If(IsBlank(Record.ID),Navigate(NewInspectionScreen,ScreenTransition.None);Clear(CameraPhotos),Navigate(EditInspectionScreen,ScreenTransition.None);Clear(CameraPhotos))
+        PressedBorderColor: =Button1_15.Fill
+        PressedColor: =Button1_15.Color
+        PressedFill: =ColorFade(Button1_15.Fill, 10%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="Cancel"
+        Width: =512
+        Y: =718
+        ZIndex: =8
+
