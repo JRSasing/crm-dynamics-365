@@ -1,0 +1,586 @@
+EditInspectionScreen As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    OnVisible: |-
+        =UpdateContext({Required:false});
+        UpdateContext({editfield:false});UpdateContext({mapStaticImage:If(Record.IsGPSCoordinates, "https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/"&Record.Latitude&","&Record.Longitude&"/15?mapSize=400,400&pp="&Record.Latitude&","&Record.Longitude&"&key=wg9mvoY3hN6AVoUPutnZ~y8lVN1szjh6d5E8Vs8h48A~AtTHu5h2www6JiWYy5l3eKT8Cfl7SDg4f4jJUiwVL9beAGFEPcLyCe2iBvkF--_9", "https://dev.virtualearth.net/REST/V1/Imagery/Map/Road/"&Concatenate(Record.Address," ",Record.City," ",Record.State)&"?key=wg9mvoY3hN6AVoUPutnZ~y8lVN1szjh6d5E8Vs8h48A~AtTHu5h2www6JiWYy5l3eKT8Cfl7SDg4f4jJUiwVL9beAGFEPcLyCe2iBvkF--_9")})
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Rectangle1_7 As rectangle:
+        BorderColor: =RGBA(204, 204, 204, .8)
+        DisabledFill: =Rectangle1_7.Fill
+        Fill: =RGBA(230,230,230,1)
+        Height: =624
+        HoverFill: =Rectangle1_7.Fill
+        PressedFill: =Rectangle1_7.Fill
+        TabIndex: =0
+        Width: =1
+        X: =511.5
+        Y: =44
+        ZIndex: =1
+
+    Rectangle1_23 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle1_23.Fill
+        Fill: =RGBA(219,75,47,1)
+        Height: =60
+        HoverFill: =Rectangle1_23.Fill
+        PressedFill: =Rectangle1_23.Fill
+        TabIndex: =0
+        Width: =1024
+        ZIndex: =2
+
+    Rectangle1_18 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle1_18.Fill
+        Fill: =RGBA(219,75,47,1)
+        Height: =60
+        HoverFill: =Rectangle1_18.Fill
+        PressedFill: =Rectangle1_18.Fill
+        TabIndex: =0
+        Width: =60
+        X: =964
+        ZIndex: =3
+
+    TextBox1_14 As label:
+        Align: =Align.Center
+        Height: =60
+        HoverBorderColor: =TextBox1_14.BorderColor
+        HoverColor: =TextBox1_14.Color
+        HoverFill: =TextBox1_14.Fill
+        PressedBorderColor: =TextBox1_14.BorderColor
+        PressedColor: =TextBox1_14.Color
+        PressedFill: =TextBox1_14.Fill
+        Size: =20
+        Text: ="Edit inspection"
+        VerticalAlign: =Middle
+        Width: =229
+        X: =397.5
+        ZIndex: =4
+
+    TextBox6_3 As label:
+        Color: =RGBA(86,86,86,1)
+        FontWeight: =Normal
+        Height: =30
+        HoverBorderColor: =TextBox6_3.BorderColor
+        HoverColor: =TextBox6_3.Color
+        HoverFill: =TextBox6_3.Fill
+        PressedBorderColor: =TextBox6_3.BorderColor
+        PressedColor: =TextBox6_3.Color
+        PressedFill: =TextBox6_3.Fill
+        Text: ="Title *"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =219.408501490881
+        X: =14.923076923076925
+        Y: =80.76449275362331
+        ZIndex: =5
+
+    TextBox6_16 As label:
+        Color: =RGBA(86,86,86,1)
+        FontWeight: =Normal
+        Height: =30
+        HoverBorderColor: =TextBox6_16.BorderColor
+        HoverColor: =TextBox6_16.Color
+        HoverFill: =TextBox6_16.Fill
+        PressedBorderColor: =TextBox6_16.BorderColor
+        PressedColor: =TextBox6_16.Color
+        PressedFill: =TextBox6_16.Fill
+        Text: ="Sub title *"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =219.408501490881
+        X: =14
+        Y: =178.9408996800302
+        ZIndex: =6
+
+    TextBox6_17 As label:
+        Color: =RGBA(86,86,86,1)
+        FontWeight: =Normal
+        Height: =30
+        HoverBorderColor: =TextBox6_17.BorderColor
+        HoverColor: =TextBox6_17.Color
+        HoverFill: =TextBox6_17.Fill
+        PressedBorderColor: =TextBox6_17.BorderColor
+        PressedColor: =TextBox6_17.Color
+        PressedFill: =TextBox6_17.Fill
+        Text: ="Notes"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =219.408501490881
+        X: =13.384615384615383
+        Y: =277.10242112833094
+        ZIndex: =7
+
+    TextBox6_18 As label:
+        Color: =RGBA(86,86,86,1)
+        FontWeight: =Normal
+        Height: =30
+        HoverBorderColor: =TextBox6_18.BorderColor
+        HoverColor: =TextBox6_18.Color
+        HoverFill: =TextBox6_18.Fill
+        PressedBorderColor: =TextBox6_18.BorderColor
+        PressedColor: =TextBox6_18.Color
+        PressedFill: =TextBox6_18.Fill
+        Text: ="Description"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =219.408501490881
+        X: =13.381306865177824
+        Y: =375.18998781403775
+        ZIndex: =8
+
+    TitleEditText As text:
+        BorderColor: =RGBA(204, 204, 204, .8)
+        Default: =Record.Title
+        FocusedBorderThickness: =3
+        Height: =44
+        HoverBorderColor: =RGBA(230,230,230,1)
+        HoverFill: =ColorFade(RGBA(190, 202, 226, 0), 30%)
+        PressedBorderColor: =TitleEditText.HoverBorderColor
+        PressedColor: =TitleEditText.Color
+        PressedFill: =TitleEditText.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Reset: =Button1_13.Pressed
+        Width: =470
+        X: =20.608767576509507
+        Y: =113.25827556655522
+        ZIndex: =9
+
+    SubtitleEditText As text:
+        BorderColor: =RGBA(204, 204, 204, .8)
+        Default: =Record.SubTitle
+        FocusedBorderThickness: =3
+        Height: =44
+        HoverBorderColor: =RGBA(230,230,230,1)
+        HoverFill: =ColorFade(RGBA(190, 202, 226, 0), 30%)
+        PressedBorderColor: =SubtitleEditText.HoverBorderColor
+        PressedColor: =SubtitleEditText.Color
+        PressedFill: =SubtitleEditText.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Reset: =Button1_13.Pressed
+        Width: =470
+        X: =20.615384615384613
+        Y: =211.49851307321
+        ZIndex: =10
+
+    NotesEditText As text:
+        BorderColor: =RGBA(204, 204, 204, .8)
+        Default: =Record.Notes
+        FocusedBorderThickness: =3
+        Height: =44
+        HoverBorderColor: =RGBA(230,230,230,1)
+        HoverFill: =ColorFade(RGBA(190, 202, 226, 0), 30%)
+        PressedBorderColor: =NotesEditText.HoverBorderColor
+        PressedColor: =NotesEditText.Color
+        PressedFill: =NotesEditText.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Reset: =Button1_13.Pressed
+        Width: =470
+        X: =20.615384615384613
+        Y: =309.601331841956
+        ZIndex: =11
+
+    DescriptionEditText As text:
+        BorderColor: =RGBA(204, 204, 204, .8)
+        Default: =Record.Description
+        FocusedBorderThickness: =3
+        Height: =132
+        HoverBorderColor: =RGBA(230,230,230,1)
+        HoverFill: =ColorFade(RGBA(190, 202, 226, 0), 30%)
+        Mode: =MultiLine
+        PressedBorderColor: =DescriptionEditText.HoverBorderColor
+        PressedColor: =DescriptionEditText.Color
+        PressedFill: =DescriptionEditText.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Reset: =Button1_13.Pressed
+        Width: =470
+        X: =20.452488687782832
+        Y: =407.94763099020787
+        ZIndex: =12
+
+    Rectangle4_7 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle4_7.Fill
+        Fill: =RGBA(219,75,47,.4)
+        Height: =1
+        HoverFill: =Rectangle4_7.Fill
+        PressedFill: =Rectangle4_7.Fill
+        TabIndex: =0
+        Width: =512
+        Y: =564.2576847544805
+        ZIndex: =13
+
+    Rectangle4_12 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle4_12.Fill
+        Fill: =RGBA(219,75,47,.4)
+        Height: =1
+        HoverFill: =Rectangle4_12.Fill
+        PressedFill: =Rectangle4_12.Fill
+        TabIndex: =0
+        Width: =512
+        Y: =666.7227134844224
+        ZIndex: =14
+
+    TextBox1_7 As label:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Height: =102
+        HoverBorderColor: =TextBox1_7.BorderColor
+        HoverColor: =TextBox1_7.Color
+        HoverFill: =TextBox1_7.Fill
+        OnSelect: |-
+            =If(CountRows(Filter(SitePhotosCollect,ID=Record.ID)) > 0, Navigate(EditImageScreen,Fade,{ImageRecord:LookUp(SitePhotosCollect,PhotoId=Gallery2.Selected.PhotoId),delete:true,IsAddImage:false}),Navigate(CameraScreen, ScreenTransition.Fade,{IsAddImage:true}))
+        PaddingLeft: =20
+        PaddingTop: =40
+        PressedBorderColor: =TextBox1_7.BorderColor
+        PressedColor: =TextBox1_7.Color
+        PressedFill: =TextBox1_7.Fill
+        Size: =17
+        Text: =If(CountRows(Filter(SitePhotosCollect,ID=Record.ID)) > 0  , "View photos "&"("&CountRows(Filter(SitePhotosCollect,ID=Record.ID))&")","Add photos")
+        VerticalAlign: =VerticalAlign.Top
+        Width: =513
+        Y: =565.2756972118344
+        ZIndex: =15
+
+    icon1_2 As icon.ChevronRight:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(86,86,86,1)
+        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+        DisabledFill: =icon1_2.Fill
+        Height: =22
+        HoverBorderColor: =ColorFade(icon1_2.BorderColor, 20%)
+        HoverColor: =ColorFade(icon1_2.Color, 20%)
+        HoverFill: =icon1_2.Fill
+        Icon: =Icon.ChevronRight
+        OnSelect: |-
+            =If(CountRows(Filter(SitePhotosCollect,ID=Record.ID)) > 0, Navigate(EditImageScreen,Fade,{ImageRecord:LookUp(SitePhotosCollect,PhotoId=Gallery2.Selected.PhotoId),delete:true,IsAddImage:false}),Navigate(CameraScreen, ScreenTransition.Fade,{IsAddImage:true}))
+        PressedBorderColor: =ColorFade(icon1_2.BorderColor, -20%)
+        PressedColor: =ColorFade(icon1_2.Color, -20%)
+        PressedFill: =icon1_2.Fill
+        TabIndex: =0
+        Width: =22
+        X: =466.7246376811551
+        Y: =605.275697211834
+        ZIndex: =16
+
+    Image2_1 As image:
+        ApplyEXIFOrientation: =false
+        AutoDisableOnSelect: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Height: =488
+        HoverBorderColor: =ColorFade(Image2_1.BorderColor, 20%)
+        HoverFill: =ColorFade(Image2_1.Fill, 20%)
+        Image: =mapStaticImage
+        ImagePosition: =Fill
+        PressedBorderColor: =ColorFade(Image2_1.BorderColor, -20%)
+        PressedFill: =ColorFade(Image2_1.Fill, -20%)
+        Visible: =Radio1_1.SelectedText.Value="Use GPS for current Location"
+        Width: =511.68421052631765
+        X: =512.315789473682
+        Y: =179
+        ZIndex: =17
+
+    TextBox6_27 As label:
+        Color: =RGBA(86,86,86,1)
+        FontWeight: =Normal
+        Height: =30
+        HoverBorderColor: =TextBox6_27.BorderColor
+        HoverColor: =TextBox6_27.Color
+        HoverFill: =TextBox6_27.Fill
+        PressedBorderColor: =TextBox6_27.BorderColor
+        PressedColor: =TextBox6_27.Color
+        PressedFill: =TextBox6_27.Fill
+        Text: ="Enter site address *"
+        VerticalAlign: =VerticalAlign.Top
+        Visible: =Radio1_1.SelectedText.Value="Enter my address"
+        Width: =219.408501490881
+        X: =526
+        Y: =179
+        ZIndex: =19
+
+    addressEditText As text:
+        BorderColor: =RGBA(204, 204, 204, .8)
+        Default: =Record.Address
+        FocusedBorderThickness: =3
+        Height: =44
+        HoverBorderColor: =RGBA(230,230,230,1)
+        HoverFill: =ColorFade(RGBA(190, 202, 226, 0), 30%)
+        PressedBorderColor: =addressEditText.HoverBorderColor
+        PressedColor: =addressEditText.Color
+        PressedFill: =addressEditText.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Reset: =Button1_13.Pressed
+        Visible: =Radio1_1.SelectedText.Value="Enter my address"
+        Width: =470
+        X: =531.316455696203
+        Y: =211.2538394981611
+        ZIndex: =20
+
+    TextBox6_28 As label:
+        Color: =RGBA(86,86,86,1)
+        FontWeight: =Normal
+        Height: =30
+        HoverBorderColor: =TextBox6_28.BorderColor
+        HoverColor: =TextBox6_28.Color
+        HoverFill: =TextBox6_28.Fill
+        PressedBorderColor: =TextBox6_28.BorderColor
+        PressedColor: =TextBox6_28.Color
+        PressedFill: =TextBox6_28.Fill
+        Text: ="City *"
+        VerticalAlign: =VerticalAlign.Top
+        Visible: =Radio1_1.SelectedText.Value="Enter my address"
+        Width: =219.408501490881
+        X: =526
+        Y: =276.68556701030934
+        ZIndex: =21
+
+    TextBox6_29 As label:
+        Color: =RGBA(86,86,86,1)
+        FontWeight: =Normal
+        Height: =30
+        HoverBorderColor: =TextBox6_29.BorderColor
+        HoverColor: =TextBox6_29.Color
+        HoverFill: =TextBox6_29.Fill
+        PressedBorderColor: =TextBox6_29.BorderColor
+        PressedColor: =TextBox6_29.Color
+        PressedFill: =TextBox6_29.Fill
+        Text: ="State *"
+        VerticalAlign: =VerticalAlign.Top
+        Visible: =Radio1_1.SelectedText.Value="Enter my address"
+        Width: =219.408501490881
+        X: =759.7695175234161
+        Y: =276.93730520258924
+        ZIndex: =22
+
+    TextBox6_30 As label:
+        Color: =RGBA(86,86,86,1)
+        FontWeight: =Normal
+        Height: =30
+        HoverBorderColor: =TextBox6_30.BorderColor
+        HoverColor: =TextBox6_30.Color
+        HoverFill: =TextBox6_30.Fill
+        PressedBorderColor: =TextBox6_30.BorderColor
+        PressedColor: =TextBox6_30.Color
+        PressedFill: =TextBox6_30.Fill
+        Text: ="Zip *"
+        VerticalAlign: =VerticalAlign.Top
+        Visible: =Radio1_1.SelectedText.Value="Enter my address"
+        Width: =99
+        X: =868.0258200444251
+        Y: =276.93730520258924
+        ZIndex: =23
+
+    cityEditText As text:
+        BorderColor: =RGBA(204, 204, 204, .8)
+        Default: =Record.City
+        FocusedBorderThickness: =3
+        Height: =44
+        HoverBorderColor: =RGBA(230,230,230,1)
+        HoverFill: =ColorFade(RGBA(190, 202, 226, 0), 30%)
+        PressedBorderColor: =cityEditText.HoverBorderColor
+        PressedColor: =cityEditText.Color
+        PressedFill: =cityEditText.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Reset: =Button1_13.Pressed
+        Visible: =Radio1_1.SelectedText.Value="Enter my address"
+        Width: =206
+        X: =532
+        Y: =309.507751937984
+        ZIndex: =24
+
+    stateEditText As text:
+        BorderColor: =RGBA(204, 204, 204, .8)
+        Default: =Record.State
+        FocusedBorderThickness: =3
+        Height: =44
+        HoverBorderColor: =RGBA(230,230,230,1)
+        HoverFill: =ColorFade(RGBA(190, 202, 226, 0), 30%)
+        PressedBorderColor: =stateEditText.HoverBorderColor
+        PressedColor: =stateEditText.Color
+        PressedFill: =stateEditText.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Reset: =Button1_13.Pressed
+        Visible: =Radio1_1.SelectedText.Value="Enter my address"
+        Width: =80
+        X: =766.003152510086
+        Y: =309.53836947579947
+        ZIndex: =25
+
+    zipEditText As text:
+        BorderColor: =RGBA(204, 204, 204, .8)
+        Default: =Record.Zip
+        FocusedBorderThickness: =3
+        Height: =44
+        HoverBorderColor: =RGBA(230,230,230,1)
+        HoverFill: =ColorFade(RGBA(190, 202, 226, 0), 30%)
+        PressedBorderColor: =zipEditText.HoverBorderColor
+        PressedColor: =zipEditText.Color
+        PressedFill: =zipEditText.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Reset: =Button1_13.Pressed
+        Visible: =Radio1_1.SelectedText.Value="Enter my address"
+        Width: =127
+        X: =874.397811559482
+        Y: =309.6252619647542
+        ZIndex: =26
+
+    TextBox5_2 As label:
+        Align: =Center
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(237, 28, 36, 1)
+        Fill: =RGBA(230, 230, 230, 1)
+        FontWeight: =Lighter
+        HoverBorderColor: =TextBox5_2.BorderColor
+        HoverColor: =TextBox5_2.Color
+        HoverFill: =TextBox5_2.Fill
+        PaddingTop: =9
+        PressedBorderColor: =TextBox5_2.BorderColor
+        PressedColor: =TextBox5_2.Color
+        PressedFill: =TextBox5_2.Fill
+        Text: ="Please fill out the required fields *"
+        VerticalAlign: =VerticalAlign.Top
+        Visible: =Required
+        Width: =1024
+        Y: =678
+        ZIndex: =27
+
+    Button3 As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade(Button3.Fill, -15%)
+        DisabledBorderColor: =ColorFade(Button3.BorderColor, 70%)
+        Fill: =RGBA(0,0,0,0)
+        Height: =60
+        HoverBorderColor: =RGBA(0,0,0,0)
+        HoverColor: =Button3.Color
+        HoverFill: =ColorFade(Button3.Fill, 20%)
+        OnSelect: =
+        PressedBorderColor: =RGBA(0,0,0,0)
+        PressedColor: =RGBA(0,0,0,0)
+        PressedFill: =RGBA(0,0,0,0)
+        Text: =""
+        Width: =513
+        Y: =708
+        ZIndex: =28
+
+    Button1_13 As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade(Button1_13.Fill, -15%)
+        BorderThickness: =0
+        DisabledBorderColor: =ColorFade(Button1_13.BorderColor, 70%)
+        Fill: =RGBA(132,45,33,1)
+        Height: =50
+        HoverBorderColor: =Button1_13.BorderColor
+        HoverColor: =Button1_13.Color
+        HoverFill: =Button1_13.Fill
+        OnSelect: =Navigate(DashboardScreen,ScreenTransition.None)
+        PressedBorderColor: =Button1_13.Fill
+        PressedColor: =Button1_13.Color
+        PressedFill: =ColorFade(Button1_13.Fill, 10%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="Cancel"
+        Width: =512
+        Y: =718
+        ZIndex: =29
+
+    Button1_16 As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade(Button1_16.Fill, -15%)
+        BorderThickness: =0
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =ColorFade(Button1_16.BorderColor, 70%)
+        Fill: =RGBA(91,26,16,1)
+        Height: =50
+        HoverBorderColor: =Button1_16.BorderColor
+        HoverColor: =Button1_16.Color
+        HoverFill: =Button1_16.Fill
+        OnSelect: |-
+            =If(!IsBlank(TitleEditText.Text) && !IsBlank(SubtitleEditText.Text)&& !IsBlank(addressEditText.Text)&& !IsBlank(stateEditText.Text)&& !IsBlank(cityEditText.Text)&& !IsBlank(zipEditText.Text)||!IsBlank(TitleEditText.Text)&&!IsBlank(SubtitleEditText.Text)&&Radio1_1.SelectedText.Value="Use GPS for current Location",UpdateIf(SiteInspectorcollect,ID=Record.ID,{Title:TitleEditText.Text,SubTitle:SubtitleEditText.Text,Description:DescriptionEditText.Text,Address:addressEditText.Text,City:cityEditText.Text,State:stateEditText.Text,Zip:Value(zipEditText.Text),Notes:NotesEditText.Text,Latitude:If(Radio1_1.SelectedText.Value="Use GPS for current Location",Value(Location.Latitude),""),Longitude:If(Radio1_1.SelectedText.Value="Use GPS for current Location",Value(Location.Longitude),""),IsGPSCoordinates:If(Radio1_1.SelectedText.Value="Use GPS for current Location",true,false)});Navigate(DashboardScreen, ScreenTransition.Fade));If(IsBlank(TitleEditText.Text)||IsBlank(SubtitleEditText.Text)||IsBlank(addressEditText.Text)||IsBlank(cityEditText.Text)||IsBlank(stateEditText.Text)||IsBlank(zipEditText.Text),UpdateContext({Required:true}),UpdateContext({Required:false}))
+        PressedBorderColor: =Button1_16.Fill
+        PressedColor: =Button1_16.Color
+        PressedFill: =ColorFade(Button1_16.Fill, 10%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="Done"
+        Width: =512
+        X: =512
+        Y: =718
+        ZIndex: =30
+
+    Rectangle4_16 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle4_16.Fill
+        Fill: =RGBA(204, 204, 204, .8)
+        Height: =1
+        HoverFill: =Rectangle4_16.Fill
+        PressedFill: =Rectangle4_16.Fill
+        TabIndex: =0
+        Width: =511.726730125385
+        X: =512.2732698746149
+        Y: =666.667638483965
+        ZIndex: =32
+
+    TextBox1_15 As label:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        FontWeight: =Normal
+        Height: =34.6521739130435
+        HoverBorderColor: =TextBox1_15.BorderColor
+        HoverColor: =TextBox1_15.Color
+        HoverFill: =TextBox1_15.Fill
+        PressedBorderColor: =TextBox1_15.BorderColor
+        PressedColor: =TextBox1_15.Color
+        PressedFill: =TextBox1_15.Fill
+        Size: =18
+        Text: ="Location"
+        VerticalAlign: =VerticalAlign.Top
+        X: =525.155172413793
+        Y: =79.22413793103452
+        ZIndex: =34
+
+    Radio1_1 As radio:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(86,86,86,1)
+        Default: =If(Record.IsGPSCoordinates,"Use GPS for current Location","Enter my address")
+        Height: =75
+        HoverColor: =RGBA(0,0,0,.8)
+        HoverFill: =Radio1_1.Fill
+        Items: =["Use GPS for current Location","Enter my address"]
+        OnChange: |-
+            =If(Radio1_1.SelectedText.Value = "Use GPS for current Location", UpdateContext({mapStaticImage:"https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/" & Location.Latitude &"," & Location.Longitude & "/15?mapSize=400,400&pp="& Location.Latitude &"," & Location.Longitude &";"&"&key=wg9mvoY3hN6AVoUPutnZ~y8lVN1szjh6d5E8Vs8h48A~AtTHu5h2www6JiWYy5l3eKT8Cfl7SDg4f4jJUiwVL9beAGFEPcLyCe2iBvkF--_9"}))
+        OnSelect: =true
+        PressedColor: =Radio1_1.Color
+        PressedFill: =Radio1_1.Fill
+        RadioBorderColor: =RGBA(179,179,179,1)
+        RadioSelectionFill: =RGBA(219,75,47,1)
+        RadioSize: =24
+        Reset: =Button1_8.Pressed
+        Size: =10
+        Width: =322
+        X: =520.2758620689656
+        Y: =104
+        ZIndex: =35
+

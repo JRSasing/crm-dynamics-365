@@ -1,0 +1,542 @@
+DashboardScreen As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    OnVisible: =
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Rectangle1_10 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle1_10.Fill
+        Fill: =RGBA(219,75,47,1)
+        Height: =60
+        HoverFill: =Rectangle1_10.Fill
+        PressedFill: =Rectangle1_10.Fill
+        TabIndex: =0
+        Width: =1024
+        ZIndex: =1
+
+    TextBox1_13 As label:
+        Align: =Align.Center
+        Height: =60
+        HoverBorderColor: =TextBox1_13.BorderColor
+        HoverColor: =TextBox1_13.Color
+        HoverFill: =TextBox1_13.Fill
+        PressedBorderColor: =TextBox1_13.BorderColor
+        PressedColor: =TextBox1_13.Color
+        PressedFill: =TextBox1_13.Fill
+        Size: =20
+        Text: ="Site inspection "
+        VerticalAlign: =Middle
+        Width: =212
+        X: =406
+        ZIndex: =2
+
+    Gallery1 As gallery.textualGalleryVertical:
+        DisabledBorderColor: =Gallery1.BorderColor
+        DisabledFill: =Gallery1.Fill
+        Fill: =RGBA(219,75,47,.1)
+        Height: =708.3478260869565
+        HoverBorderColor: =Gallery1.BorderColor
+        HoverFill: =Gallery1.Fill
+        Items: =SiteInspectorcollect
+        Layout: =Layout.Vertical
+        PressedBorderColor: =Gallery1.BorderColor
+        PressedFill: =Gallery1.Fill
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =106.65573459317684
+        Width: =360
+        Y: =59.6521739130435
+        ZIndex: =4
+
+        Rectangle8_15 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle8_15.Fill
+            Fill: =If(ThisItem.IsSelected,RGBA(219,75,47,0.1),RGBA(219,75,47,.0))
+            Height: =106
+            HoverFill: =Rectangle8_15.Fill
+            OnSelect: =Set(Record, ThisItem)
+            PressedFill: =Rectangle8_15.Fill
+            TabIndex: =0
+            Width: =360
+            ZIndex: =1
+
+        icon2 As icon.ChevronRight:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(86,86,86,1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =icon2.Fill
+            Height: =20
+            HoverBorderColor: =ColorFade(icon2.BorderColor, 20%)
+            HoverColor: =ColorFade(icon2.Color, 20%)
+            HoverFill: =icon2.Fill
+            Icon: =Icon.ChevronRight
+            OnSelect: =Set(Record, ThisItem)
+            PressedBorderColor: =ColorFade(icon2.BorderColor, -20%)
+            PressedColor: =ColorFade(icon2.Color, -20%)
+            PressedFill: =icon2.Fill
+            TabIndex: =0
+            Visible: =ThisItem.IsSelected
+            Width: =20
+            X: =327
+            Y: =43
+            ZIndex: =2
+
+        Heading1_2 As label:
+            Color: =If(ThisItem.IsSelected,RGBA(47,41,43,1),RGBA(86,86,86,1))
+            FontWeight: =Semibold
+            Height: =34.05644119181992
+            HoverBorderColor: =Heading1_2.BorderColor
+            HoverColor: =Heading1_2.Color
+            HoverFill: =Heading1_2.Fill
+            OnSelect: =Set(Record, ThisItem)
+            Overflow: =Hidden
+            PaddingBottom: =4
+            PaddingTop: =4
+            PressedBorderColor: =Heading1_2.BorderColor
+            PressedColor: =Heading1_2.Color
+            PressedFill: =Heading1_2.Fill
+            Size: =14
+            Text: =ThisItem.Title
+            VerticalAlign: =VerticalAlign.Top
+            Width: =227.7110279259405
+            Wrap: =false
+            X: =99.28897207405948
+            Y: =6.320353559483987
+            ZIndex: =3
+
+        TextBox3_6 As label:
+            Color: =RGBA(86,86,86,1)
+            Height: =38.739522323819
+            HoverBorderColor: =TextBox3_6.BorderColor
+            HoverColor: =TextBox3_6.Color
+            HoverFill: =TextBox3_6.Fill
+            OnSelect: =Set(Record, ThisItem)
+            PressedBorderColor: =TextBox3_6.BorderColor
+            PressedColor: =TextBox3_6.Color
+            PressedFill: =TextBox3_6.Fill
+            Size: =9.5
+            Text: =ThisItem.Address&" "&ThisItem.City&" "&ThisItem.State&" "&ThisItem.Zip
+            VerticalAlign: =VerticalAlign.Top
+            Width: =198.908337276759
+            X: =99.19880558038386
+            Y: =56.83190624760958
+            ZIndex: =4
+
+        Image4_2 As image:
+            ApplyEXIFOrientation: =false
+            AutoDisableOnSelect: =false
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Height: =75
+            HoverBorderColor: =ColorFade(Image4_2.BorderColor, 20%)
+            HoverFill: =ColorFade(Image4_2.Fill, 20%)
+            Image: =If(IsBlank(LookUp(SitePhotosCollect,ID=ThisItem.ID,Photo)),no_image,LookUp(SitePhotosCollect,ID=ThisItem.ID,Photo))
+            ImagePosition: =Fit
+            OnSelect: =Set(Record, ThisItem)
+            PressedBorderColor: =ColorFade(Image4_2.BorderColor, -20%)
+            PressedFill: =ColorFade(Image4_2.Fill, -20%)
+            Width: =75
+            X: =15.230769230769247
+            Y: =15.630238838090498
+            ZIndex: =5
+
+        TextBox6_14 As label:
+            Color: =RGBA(86,86,86,1)
+            FontWeight: =Semibold
+            Height: =36.7690280733758
+            HoverBorderColor: =TextBox6_14.BorderColor
+            HoverColor: =TextBox6_14.Color
+            HoverFill: =TextBox6_14.Fill
+            OnSelect: =Set(Record, ThisItem)
+            PressedBorderColor: =TextBox6_14.BorderColor
+            PressedColor: =TextBox6_14.Color
+            PressedFill: =TextBox6_14.Fill
+            Size: =12
+            Text: =ThisItem.SubTitle
+            VerticalAlign: =VerticalAlign.Top
+            Width: =219.40850149088138
+            Wrap: =false
+            X: =98.74534466296511
+            Y: =34.138075751760816
+            ZIndex: =6
+
+        Rectangle3 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle3.Fill
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =106
+            HoverFill: =Rectangle3.Fill
+            OnSelect: =Set(Record, ThisItem)
+            PressedFill: =Rectangle3.Fill
+            TabIndex: =0
+            Width: =360
+            ZIndex: =11
+
+        Rectangle4_8 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle4_8.Fill
+            Fill: =RGBA(204, 204, 204, .5)
+            Height: =1
+            HoverFill: =Rectangle4_8.Fill
+            OnSelect: =Set(Record, ThisItem)
+            PressedFill: =Rectangle4_8.Fill
+            TabIndex: =0
+            Width: =360
+            Y: =105.260477676181
+            ZIndex: =12
+
+    Button1_8 As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade(Button1_8.Fill, -15%)
+        BorderThickness: =0
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =ColorFade(Button1_8.BorderColor, 70%)
+        DisplayMode: =If(IsBlank(Record), DisplayMode.Disabled, DisplayMode.Edit)
+        Fill: =RGBA(91,26,16,1)
+        Height: =50
+        HoverBorderColor: =Button1_8.BorderColor
+        HoverColor: =Button1_8.Color
+        HoverFill: =Button1_8.Fill
+        OnSelect: =Navigate(EditInspectionScreen,ScreenTransition.None);Clear(CameraPhotos)
+        PressedBorderColor: =Button1_8.Fill
+        PressedColor: =Button1_8.Color
+        PressedFill: =ColorFade(Button1_8.Fill, 10%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="Edit"
+        Width: =332
+        X: =692
+        Y: =718
+        ZIndex: =5
+
+    Button1_9 As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade(Button1_9.Fill, -15%)
+        BorderThickness: =0
+        DisabledBorderColor: =ColorFade(Button1_9.BorderColor, 70%)
+        Fill: =RGBA(132,45,33,1)
+        Height: =50
+        HoverBorderColor: =Button1_9.BorderColor
+        HoverColor: =Button1_9.Color
+        HoverFill: =Button1_9.Fill
+        OnSelect: =Navigate(DeleteInspectionScreen,ScreenTransition.Fade)
+        PressedBorderColor: =Button1_9.Fill
+        PressedColor: =Button1_9.Color
+        PressedFill: =ColorFade(Button1_9.Fill, 10%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="Delete"
+        Width: =332
+        X: =360
+        Y: =718
+        ZIndex: =6
+
+    Image1 As image:
+        ApplyEXIFOrientation: =false
+        AutoDisableOnSelect: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Height: =233.316524114991
+        HoverBorderColor: =ColorFade(Image1.BorderColor, 20%)
+        HoverFill: =ColorFade(Image1.Fill, 20%)
+        Image: |-
+            =If(Record.IsGPSCoordinates = false,"https://dev.virtualearth.net/REST/V1/Imagery/Map/Road/"&Concatenate(Record.Address," ",Record.City," ",Record.State)&"?key=wg9mvoY3hN6AVoUPutnZ~y8lVN1szjh6d5E8Vs8h48A~AtTHu5h2www6JiWYy5l3eKT8Cfl7SDg4f4jJUiwVL9beAGFEPcLyCe2iBvkF--_9","https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/"&Record.Latitude&","&Record.Longitude&"/15?mapSize=700,700&pp="&Record.Latitude&","&Record.Longitude&"&key=wg9mvoY3hN6AVoUPutnZ~y8lVN1szjh6d5E8Vs8h48A~AtTHu5h2www6JiWYy5l3eKT8Cfl7SDg4f4jJUiwVL9beAGFEPcLyCe2iBvkF--_9")
+        ImagePosition: =Fill
+        PressedBorderColor: =ColorFade(Image1.BorderColor, -20%)
+        PressedFill: =ColorFade(Image1.Fill, -20%)
+        Width: =664
+        X: =360
+        Y: =484.6834758850087
+        ZIndex: =7
+
+    Heading1_3 As label:
+        FontWeight: =Semibold
+        Height: =45.4021739130435
+        HoverBorderColor: =Heading1_3.BorderColor
+        HoverColor: =Heading1_3.Color
+        HoverFill: =Heading1_3.Fill
+        Overflow: =Hidden
+        PaddingBottom: =4
+        PaddingTop: =4
+        PressedBorderColor: =Heading1_3.BorderColor
+        PressedColor: =Heading1_3.Color
+        PressedFill: =Heading1_3.Fill
+        Text: =Gallery1.Selected.Title
+        VerticalAlign: =VerticalAlign.Top
+        Width: =611.417911050444
+        Wrap: =false
+        X: =382.58208894955595
+        Y: =81
+        ZIndex: =8
+
+    TextBox3_7 As label:
+        Color: =RGBA(86,86,86,1)
+        FontWeight: =Normal
+        Height: =45
+        HoverBorderColor: =TextBox3_7.BorderColor
+        HoverColor: =TextBox3_7.Color
+        HoverFill: =TextBox3_7.Fill
+        PressedBorderColor: =TextBox3_7.BorderColor
+        PressedColor: =TextBox3_7.Color
+        PressedFill: =TextBox3_7.Fill
+        Size: =13
+        Text: =Gallery1.Selected.Address & " " & Gallery1.Selected.City & " " & Gallery1.Selected.State & " " & Gallery1.Selected.Zip
+        VerticalAlign: =VerticalAlign.Top
+        Width: =400
+        X: =383.4842490947587
+        Y: =144
+        ZIndex: =9
+
+    TextBox6_15 As label:
+        Color: =RGBA(86,86,86,1)
+        FontWeight: =Semibold
+        Height: =34.98223877571692
+        HoverBorderColor: =TextBox6_15.BorderColor
+        HoverColor: =TextBox6_15.Color
+        HoverFill: =TextBox6_15.Fill
+        PressedBorderColor: =TextBox6_15.BorderColor
+        PressedColor: =TextBox6_15.Color
+        PressedFill: =TextBox6_15.Fill
+        Size: =16
+        Text: =Gallery1.Selected.SubTitle
+        VerticalAlign: =VerticalAlign.Top
+        Width: =611
+        Wrap: =false
+        X: =383
+        Y: =109.01776122428308
+        ZIndex: =10
+
+    Gallery2 As gallery.imageGalleryHorizontal:
+        DisabledBorderColor: =Gallery2.BorderColor
+        DisabledFill: =Gallery2.Fill
+        Height: =144
+        HoverBorderColor: =Gallery2.BorderColor
+        HoverFill: =Gallery2.Fill
+        Items: =Filter(SitePhotosCollect,ID=Gallery1.Selected.ID)
+        PressedBorderColor: =Gallery2.BorderColor
+        PressedFill: =Gallery2.Fill
+        ShowScrollbar: =false
+        TemplatePadding: =10
+        TemplateSize: =143.91666666666663
+        Width: =613.0195530491021
+        X: =380.00957316449023
+        Y: =190
+        ZIndex: =11
+
+        Image5 As image:
+            ApplyEXIFOrientation: =false
+            AutoDisableOnSelect: =false
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Height: =97
+            HoverBorderColor: =ColorFade(Image5.BorderColor, 20%)
+            HoverFill: =ColorFade(Image5.Fill, 20%)
+            Image: =ThisItem.Photo
+            ImagePosition: =Fit
+            OnSelect: =Navigate(EditImageScreen_2,ScreenTransition.None)
+            PressedBorderColor: =ColorFade(Image5.BorderColor, -20%)
+            PressedFill: =ColorFade(Image5.Fill, -20%)
+            Width: =143.916666666667
+            ZIndex: =8
+
+        Rectangle1 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle1.Fill
+            Fill: =RGBA(0,0,0,.5)
+            Height: =26.89010989011001
+            HoverFill: =Rectangle1.Fill
+            PressedFill: =Rectangle1.Fill
+            TabIndex: =0
+            Visible: =!IsBlank(ThisItem.Note)
+            Width: =143.916666666667
+            Y: =97.026556776557
+            ZIndex: =9
+
+        TextBox3 As label:
+            Align: =Center
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(0,0,0,1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =26.89010989011001
+            HoverBorderColor: =TextBox3.BorderColor
+            HoverColor: =TextBox3.Color
+            HoverFill: =TextBox3.Fill
+            PaddingLeft: =10
+            PaddingRight: =10
+            PressedBorderColor: =TextBox3.BorderColor
+            PressedColor: =TextBox3.Color
+            PressedFill: =TextBox3.Fill
+            Size: =10
+            Text: =ThisItem.Note
+            VerticalAlign: =Middle
+            Width: =145.89010989011
+            Wrap: =false
+            Y: =97.026556776557
+            ZIndex: =10
+
+    TextBox3_8 As label:
+        Color: =RGBA(86,86,86,1)
+        FontWeight: =Normal
+        Height: =102.53881644012375
+        HoverBorderColor: =TextBox3_8.BorderColor
+        HoverColor: =TextBox3_8.Color
+        HoverFill: =TextBox3_8.Fill
+        PressedBorderColor: =TextBox3_8.BorderColor
+        PressedColor: =TextBox3_8.Color
+        PressedFill: =TextBox3_8.Fill
+        Size: =12
+        Text: =Gallery1.Selected.Description
+        VerticalAlign: =VerticalAlign.Top
+        Width: =610.515750905241
+        X: =383.96968598796286
+        Y: =380
+        ZIndex: =12
+
+    Group4 As group:
+        Height: =60
+        Width: =60
+        X: =964
+        Y: =0
+        ZIndex: =13
+
+        Rectangle1_11 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle1_11.Fill
+            Fill: =RGBA(219,75,47,1)
+            Height: =60
+            HoverFill: =Rectangle1_11.Fill
+            OnSelect: |-
+                =Set(Record, Defaults(SiteInspectorcollect));
+                Navigate(NewInspectionScreen,ScreenTransition.None);Clear(CameraPhotos)
+            PressedFill: =Rectangle1_11.Fill
+            TabIndex: =0
+            Width: =60
+            X: =964
+            ZIndex: =14
+
+        icon3 As icon.Add:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =icon3.Fill
+            Height: =30
+            HoverBorderColor: =ColorFade(icon3.BorderColor, 20%)
+            HoverColor: =ColorFade(icon3.Color, 20%)
+            HoverFill: =icon3.Fill
+            Icon: =Icon.Add
+            OnSelect: |-
+                =Set(Record, Defaults(SiteInspectorcollect));
+                Navigate(NewInspectionScreen,ScreenTransition.None);Clear(CameraPhotos)
+            PressedBorderColor: =ColorFade(icon3.BorderColor, -20%)
+            PressedColor: =ColorFade(icon3.Color, -20%)
+            PressedFill: =icon3.Fill
+            TabIndex: =0
+            Width: =30
+            X: =979
+            Y: =15
+            ZIndex: =15
+
+    Button2 As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade(Button2.Fill, -15%)
+        DisabledBorderColor: =ColorFade(Button2.BorderColor, 70%)
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =60
+        HoverBorderColor: =ColorFade(Button2.BorderColor, 20%)
+        HoverColor: =Button2.Color
+        HoverFill: =RGBA(0,0,0,0)
+        OnSelect: |-
+            =Set(Record, Defaults(SiteInspectorcollect));
+            Navigate(NewInspectionScreen,ScreenTransition.None);Clear(CameraPhotos)
+        PressedBorderColor: =Button2.Fill
+        PressedColor: =Button2.Fill
+        PressedFill: =RGBA(0,0,0,0)
+        Text: =""
+        Width: =60
+        X: =964
+        Y: =1
+        ZIndex: =16
+
+    Timer1 As timer:
+        AutoPause: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+        DisabledColor: =RGBA(186, 186, 186, 1)
+        DisabledFill: =RGBA(119, 119, 119, 1)
+        Duration: =300
+        HoverBorderColor: =ColorFade(Timer1.BorderColor, 20%)
+        HoverColor: =Timer1.Color
+        HoverFill: =ColorFade(Timer1.Fill, 20%)
+        OnTimerEnd: =ClearCollect(SiteInspectorcollect,SiteInspector);ClearCollect(SitePhotosCollect,SitePhotos)
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedBorderColor: =ColorFade(Timer1.BorderColor, -20%)
+        PressedColor: =Timer1.Color
+        PressedFill: =ColorFade(Timer1.Fill, -20%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =11
+        Start: =startTimer
+        Text: |-
+            =Text(Time(0, 0, Timer1.Value/1000), "hh:mm:ss")
+        Visible: =false
+        Width: =150
+        Y: =5
+        ZIndex: =17
+
+    Timer1_1 As timer:
+        AutoPause: =false
+        AutoStart: =true
+        BorderColor: =RGBA(0, 0, 0, 1)
+        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+        DisabledColor: =RGBA(186, 186, 186, 1)
+        DisabledFill: =RGBA(119, 119, 119, 1)
+        Duration: =300
+        HoverBorderColor: =ColorFade(Timer1_1.BorderColor, 20%)
+        HoverColor: =Timer1_1.Color
+        HoverFill: =ColorFade(Timer1_1.Fill, 20%)
+        OnTimerEnd: |-
+            =UpdateContext({startTimer:true})
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedBorderColor: =ColorFade(Timer1_1.BorderColor, -20%)
+        PressedColor: =Timer1_1.Color
+        PressedFill: =ColorFade(Timer1_1.Fill, -20%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =11
+        Text: |-
+            =Text(Time(0, 0, Timer1_1.Value/1000), "hh:mm:ss")
+        Visible: =false
+        Width: =150
+        X: =200
+        Y: =20
+        ZIndex: =18
+
+    TextBox3_9 As label:
+        Color: =RGBA(86,86,86,1)
+        FontWeight: =Normal
+        Height: =42
+        HoverBorderColor: =TextBox3_9.BorderColor
+        HoverColor: =TextBox3_9.Color
+        HoverFill: =TextBox3_9.Fill
+        PressedBorderColor: =TextBox3_9.BorderColor
+        PressedColor: =TextBox3_9.Color
+        PressedFill: =TextBox3_9.Fill
+        Size: =12
+        Text: =Gallery1.Selected.Notes
+        VerticalAlign: =VerticalAlign.Top
+        Width: =610.515750905241
+        X: =383.2772245373633
+        Y: =330
+        ZIndex: =19
+

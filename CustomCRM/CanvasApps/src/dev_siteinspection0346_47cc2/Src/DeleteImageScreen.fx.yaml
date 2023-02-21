@@ -1,0 +1,72 @@
+DeleteImageScreen As screen:
+    Fill: =RGBA(219,75,47,1)
+    Height: =Max(App.Height, App.DesignHeight)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    TextBox4_1 As label:
+        Align: =Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =73.5
+        HoverBorderColor: =TextBox4_1.BorderColor
+        HoverColor: =TextBox4_1.Color
+        HoverFill: =TextBox4_1.Fill
+        PressedBorderColor: =TextBox4_1.BorderColor
+        PressedColor: =TextBox4_1.Color
+        PressedFill: =TextBox4_1.Fill
+        Text: ="Would you like to delete this image?"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =635
+        X: =194.5
+        Y: =293.12755102040836
+        ZIndex: =2
+
+    Button1_3 As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade(Button1_3.Fill, -15%)
+        BorderThickness: =0
+        Color: =RGBA(132,45,33,1)
+        DisabledBorderColor: =ColorFade(Button1_3.BorderColor, 70%)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =50
+        HoverBorderColor: =Button1_3.BorderColor
+        HoverColor: =Button1_3.Color
+        HoverFill: =Button1_3.Fill
+        OnSelect: =Back()
+        PressedBorderColor: =Button1_3.Fill
+        PressedColor: =Button1_3.Color
+        PressedFill: =ColorFade(Button1_3.Fill, 10%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="Cancel"
+        Width: =290
+        X: =517.1596638655465
+        Y: =402.62755102040836
+        ZIndex: =3
+
+    Button1_2 As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade(Button1_2.Fill, -15%)
+        BorderThickness: =0
+        DisabledBorderColor: =ColorFade(Button1_2.BorderColor, 70%)
+        Fill: =RGBA(132,45,33,1)
+        Height: =50
+        HoverBorderColor: =Button1_2.BorderColor
+        HoverColor: =Button1_2.Color
+        HoverFill: =Button1_2.Fill
+        OnSelect: |
+            =If(IsAddImage,RemoveIf(CameraPhotos,PhotoId=photogallery.Selected.PhotoId);Navigate(CameraScreen,Fade),IsAddImage=false && IsBlank(Record.ID),RemoveIf(CameraPhotos,PhotoId=Gallery1_4.Selected.PhotoId);If(CountRows(CameraPhotos) = 0 ,Navigate(NewInspectionScreen,ScreenTransition.Fade),Navigate(EditImageScreen,ScreenTransition.Fade)),RemoveIf(SitePhotosCollect,PhotoId=Gallery1_4.Selected.PhotoId&&ID = Gallery1.Selected.ID);If(CountRows(Filter(SitePhotosCollect,ID=Gallery1.Selected.ID))=0,Navigate(EditInspectionScreen,ScreenTransition.Fade),Navigate(EditImageScreen,ScreenTransition.Fade)))
+        PressedBorderColor: =Button1_2.Fill
+        PressedColor: =Button1_2.Color
+        PressedFill: =ColorFade(Button1_2.Fill, 10%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="Delete"
+        Width: =290
+        X: =216.84033613445302
+        Y: =402.12755102040836
+        ZIndex: =4
+

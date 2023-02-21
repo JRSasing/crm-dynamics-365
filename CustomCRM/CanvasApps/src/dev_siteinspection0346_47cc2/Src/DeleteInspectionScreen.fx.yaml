@@ -1,0 +1,72 @@
+DeleteInspectionScreen As screen:
+    Fill: =RGBA(219,75,47,1)
+    Height: =Max(App.Height, App.DesignHeight)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    TextBox4 As label:
+        Align: =Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =74.5
+        HoverBorderColor: =TextBox4.BorderColor
+        HoverColor: =TextBox4.Color
+        HoverFill: =TextBox4.Fill
+        PressedBorderColor: =TextBox4.BorderColor
+        PressedColor: =TextBox4.Color
+        PressedFill: =TextBox4.Fill
+        Text: ="Would you like to delete this inspection?"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =517
+        X: =253.5
+        Y: =293.12755102040853
+        ZIndex: =2
+
+    Button1 As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade(Button1.Fill, -15%)
+        BorderThickness: =0
+        DisabledBorderColor: =ColorFade(Button1.BorderColor, 70%)
+        Fill: =RGBA(132,45,33,1)
+        Height: =50
+        HoverBorderColor: =Button1.BorderColor
+        HoverColor: =Button1.Color
+        HoverFill: =Button1.Fill
+        OnSelect: |
+            =RemoveIf(SiteInspectorcollect,ID=Record.ID);RemoveIf(SitePhotosCollect, ID=Record.ID); Set(Record, Blank()); Navigate(DashboardScreen,ScreenTransition.Fade)
+        PressedBorderColor: =Button1.Fill
+        PressedColor: =Button1.Color
+        PressedFill: =ColorFade(Button1.Fill, 10%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="Delete"
+        Width: =290
+        X: =217.18598382749295
+        Y: =402.12755102040853
+        ZIndex: =3
+
+    Button1_1 As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade(Button1_1.Fill, -15%)
+        BorderThickness: =0
+        Color: =RGBA(132,45,33,1)
+        DisabledBorderColor: =ColorFade(Button1_1.BorderColor, 70%)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =50
+        HoverBorderColor: =Button1_1.BorderColor
+        HoverColor: =Button1_1.Color
+        HoverFill: =Button1_1.Fill
+        OnSelect: =Back()
+        PressedBorderColor: =Button1_1.Fill
+        PressedColor: =Button1_1.Color
+        PressedFill: =ColorFade(Button1_1.Fill, 10%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="Cancel"
+        Width: =290
+        X: =516.814016172507
+        Y: =402.62755102040853
+        ZIndex: =4
+

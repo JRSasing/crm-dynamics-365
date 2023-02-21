@@ -1,0 +1,231 @@
+EditImageScreen As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    OnVisible: =
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Rectangle1_19 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle1_19.Fill
+        Fill: =RGBA(219,75,47,1)
+        Height: =60
+        HoverFill: =Rectangle1_19.Fill
+        PressedFill: =Rectangle1_19.Fill
+        TabIndex: =0
+        Width: =1024
+        ZIndex: =1
+
+    Gallery1_4 As gallery.imageGalleryHorizontal:
+        DisabledBorderColor: =Gallery1_4.BorderColor
+        DisabledFill: =Gallery1_4.Fill
+        Height: =146
+        HoverBorderColor: =Gallery1_4.BorderColor
+        HoverFill: =Gallery1_4.Fill
+        Items: =If(IsBlank(Record.ID),CameraPhotos,Filter(SitePhotosCollect,ID=Record.ID))
+        PressedBorderColor: =Gallery1_4.BorderColor
+        PressedFill: =Gallery1_4.Fill
+        ShowScrollbar: =false
+        TemplateSize: =If(Gallery1_4.Layout = Layout.Horizontal, Gallery1_4.Height, Gallery1_4.Width-60)
+        Width: =980.4506172839508
+        X: =15.104938271604757
+        Y: =519.471764481832
+        ZIndex: =2
+
+        Image4_4 As image:
+            ApplyEXIFOrientation: =false
+            AutoDisableOnSelect: =false
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Height: =136
+            HoverBorderColor: =ColorFade(Image4_4.BorderColor, 20%)
+            HoverFill: =ColorFade(Image4_4.Fill, 20%)
+            Image: =ThisItem.Photo
+            ImagePosition: =ImagePosition.Fill
+            OnSelect: |-
+                =UpdateContext({ImageRecord:ThisItem})
+            PressedBorderColor: =ColorFade(Image4_4.BorderColor, -20%)
+            PressedFill: =ColorFade(Image4_4.Fill, -20%)
+            Width: =Gallery1_4.TemplateWidth
+            ZIndex: =1
+
+        TextBox2 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(0, 0, 0, .6)
+            Height: =34
+            HoverBorderColor: =TextBox2.BorderColor
+            HoverColor: =TextBox2.Color
+            HoverFill: =TextBox2.Fill
+            PressedBorderColor: =TextBox2.BorderColor
+            PressedColor: =TextBox2.Color
+            PressedFill: =TextBox2.Fill
+            Size: =12
+            Text: =ThisItem.Note
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =!IsBlank(TextBox2.Text)
+            Width: =146
+            Wrap: =false
+            Y: =102
+            ZIndex: =4
+
+    Button1_12 As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade(Button1_12.Fill, -15%)
+        BorderThickness: =0
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =ColorFade(Button1_12.BorderColor, 70%)
+        Fill: =RGBA(91,26,16,1)
+        Height: =50
+        HoverBorderColor: =ColorFade(Button1_12.BorderColor, 20%)
+        HoverColor: =Button1_12.Color
+        HoverFill: =Button1_12.Fill
+        OnSelect: |
+            =If(IsBlank(Record.ID),UpdateIf(CameraPhotos, PhotoId=ImageRecord.PhotoId,{Note:AddNoteText.Text}),UpdateIf(SitePhotosCollect,PhotoId=ImageRecord.PhotoId,{Note:AddNoteText.Text}));If(IsBlank(Record.ID),Navigate(NewInspectionScreen,ScreenTransition.None),Navigate(EditInspectionScreen,ScreenTransition.None))
+        PressedBorderColor: =Button1_12.Fill
+        PressedColor: =Button1_12.Color
+        PressedFill: =Button1_12.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="Save"
+        Visible: =!IsBlank(Image4_4)
+        Width: =1024
+        Y: =718
+        ZIndex: =3
+
+    Image4 As image:
+        ApplyEXIFOrientation: =false
+        AutoDisableOnSelect: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Height: =395
+        HoverBorderColor: =ColorFade(Image4.BorderColor, 20%)
+        HoverFill: =ColorFade(Image4.Fill, 20%)
+        Image: =Gallery1_4.Selected.Photo
+        ImagePosition: =Fit
+        PressedBorderColor: =ColorFade(Image4.BorderColor, -20%)
+        PressedFill: =ColorFade(Image4.Fill, -20%)
+        Width: =1024
+        Y: =59.45355191256831
+        ZIndex: =4
+
+    AddNoteText As text:
+        BorderColor: =RGBA(230,230,230,1)
+        BorderThickness: =0
+        Default: =Gallery1_4.Selected.Note
+        FocusedBorderThickness: =3
+        Height: =44
+        HintText: ="Notes here"
+        HoverBorderColor: =RGBA(101, 128, 187, 0)
+        HoverFill: =ColorFade(RGBA(190, 202, 226, 0), 30%)
+        PaddingLeft: =20
+        PressedBorderColor: =AddNoteText.HoverBorderColor
+        PressedColor: =AddNoteText.Color
+        PressedFill: =AddNoteText.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Reset: =If(IsBlank(ImageRecord.Note),true,false)
+        Visible: =!IsBlank(Image4_4)
+        Width: =1024
+        Y: =454
+        ZIndex: =5
+
+    TextBox1_10 As label:
+        Align: =Align.Center
+        Height: =60
+        HoverBorderColor: =TextBox1_10.BorderColor
+        HoverColor: =TextBox1_10.Color
+        HoverFill: =TextBox1_10.Fill
+        PressedBorderColor: =TextBox1_10.BorderColor
+        PressedColor: =TextBox1_10.Color
+        PressedFill: =TextBox1_10.Fill
+        Size: =20
+        Text: ="Images"
+        VerticalAlign: =Middle
+        Width: =229
+        X: =397.5
+        ZIndex: =6
+
+    Group1 As group:
+        Height: =59
+        Width: =60
+        X: =0
+        Y: =0
+        ZIndex: =7
+
+        Rectangle1_24 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle1_24.Fill
+            Fill: =RGBA(219,75,47,1)
+            Height: =59
+            HoverFill: =Rectangle1_24.Fill
+            OnSelect: =If(IsBlank(Record.ID),Navigate(NewInspectionScreen,ScreenTransition.None),If(CountRows(Filter(SitePhotosCollect,ID=Record.ID))=0,Clear(CameraPhotos));Navigate(EditInspectionScreen,ScreenTransition.None))
+            PressedFill: =Rectangle1_24.Fill
+            TabIndex: =0
+            Width: =60
+            ZIndex: =8
+
+        icon4 As icon.ChevronLeft:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =icon4.Fill
+            Height: =29.5
+            HoverBorderColor: =ColorFade(icon4.BorderColor, 20%)
+            HoverColor: =ColorFade(icon4.Color, 20%)
+            HoverFill: =icon4.Fill
+            Icon: =Icon.ChevronLeft
+            OnSelect: =If(IsBlank(Record.ID),Navigate(NewInspectionScreen,ScreenTransition.None),If(CountRows(Filter(SitePhotosCollect,ID=Record.ID))=0,Clear(CameraPhotos));Navigate(EditInspectionScreen,ScreenTransition.None))
+            PressedBorderColor: =ColorFade(icon4.BorderColor, -20%)
+            PressedColor: =ColorFade(icon4.Color, -20%)
+            PressedFill: =icon4.Fill
+            TabIndex: =0
+            Width: =30
+            X: =15
+            Y: =14.75
+            ZIndex: =9
+
+    Group3 As group:
+        Height: =60
+        Width: =60
+        X: =964
+        Y: =0
+        ZIndex: =10
+
+        Rectangle1_22 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle1_22.Fill
+            Fill: =RGBA(219,75,47,1)
+            Height: =60
+            HoverFill: =Rectangle1_22.Fill
+            OnSelect: |-
+                =Navigate(DeleteImageScreen,Fade,{ImageRecord:ImageRecord,IsAddImage:IsAddImage})
+            PressedFill: =Rectangle1_22.Fill
+            TabIndex: =0
+            Visible: =!IsBlank(Image4_4)
+            Width: =60
+            X: =964
+            ZIndex: =11
+
+        icon5 As icon.Trash:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =icon5.Fill
+            Height: =30
+            HoverBorderColor: =ColorFade(icon5.BorderColor, 20%)
+            HoverColor: =ColorFade(icon5.Color, 20%)
+            HoverFill: =icon5.Fill
+            Icon: =Icon.Trash
+            OnSelect: |-
+                =Navigate(DeleteImageScreen,Fade,{ImageRecord:ImageRecord,IsAddImage:IsAddImage})
+            PressedBorderColor: =ColorFade(icon5.BorderColor, -20%)
+            PressedColor: =ColorFade(icon5.Color, -20%)
+            PressedFill: =icon5.Fill
+            TabIndex: =0
+            Visible: =!IsBlank(Image4_4)
+            Width: =30
+            X: =979
+            Y: =15
+            ZIndex: =12
+
