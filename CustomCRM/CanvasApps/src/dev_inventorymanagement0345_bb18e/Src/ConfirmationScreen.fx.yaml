@@ -1,0 +1,88 @@
+ConfirmationScreen As screen:
+    Fill: =RGBA(62,142,198,1)
+    Height: =Max(App.Height, App.DesignHeight)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Group5 As group:
+        Height: =80
+        Width: =535
+        X: =244.5
+        Y: =415
+        ZIndex: =1
+
+        Button1_2 As button:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =ColorFade(Button1_2.BorderColor, 70%)
+            DisplayMode: =If(false,DisplayMode.View,DisplayMode.Edit)
+            Fill: =RGBA(0, 0, 0, 0)
+            Font: =Font.Lato
+            FontWeight: =Normal
+            Height: =80
+            HoverBorderColor: =ColorFade(Button1_2.BorderColor, 20%)
+            HoverColor: =Button1_2.Color
+            HoverFill: =ColorFade(Button1_2.Fill, 20%)
+            OnSelect: |-
+                =Launch("mailto:"&User().Email&"?subject=Restock&body=Product Name: "&ProductNameText.Text& "%0D%0A"&"Description: "&DescriptionText.Text& "%0D%0A"&"Order Quantity: "&OrderQuantityText.Text& "%0D%0A"&"Total Amount: "&TotalAmountText.Text)
+            PressedBorderColor: =Button1_2.Fill
+            PressedColor: =Button1_2.Fill
+            PressedFill: =Button1_2.Color
+            RadiusBottomLeft: =80
+            RadiusBottomRight: =80
+            RadiusTopLeft: =80
+            RadiusTopRight: =80
+            Size: =23
+            Text: ="Email"
+            Width: =255
+            X: =244.5
+            Y: =415
+            ZIndex: =2
+
+        Button1_3 As button:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =ColorFade(Button1_3.BorderColor, 70%)
+            DisplayMode: =If(false,DisplayMode.View,DisplayMode.Edit)
+            Fill: =RGBA(0, 0, 0, 0)
+            Font: =Font.Lato
+            FontWeight: =Normal
+            Height: =80
+            HoverBorderColor: =ColorFade(Button1_3.BorderColor, 20%)
+            HoverColor: =Button1_3.Color
+            HoverFill: =ColorFade(Button1_3.Fill, 20%)
+            OnSelect: =Navigate(HomeScreen,ScreenTransition.Fade)
+            PressedBorderColor: =Button1_3.Fill
+            PressedColor: =Button1_3.Fill
+            PressedFill: =Button1_3.Color
+            RadiusBottomLeft: =80
+            RadiusBottomRight: =80
+            RadiusTopLeft: =80
+            RadiusTopRight: =80
+            Size: =23
+            Text: ="Home"
+            Width: =255
+            X: =524.5
+            Y: =415
+            ZIndex: =3
+
+    TextBox1_30 As label:
+        Align: =Center
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.Lato
+        FontWeight: =Normal
+        Height: =95
+        HoverBorderColor: =TextBox1_30.BorderColor
+        HoverColor: =TextBox1_30.Color
+        HoverFill: =TextBox1_30.Fill
+        PressedBorderColor: =TextBox1_30.BorderColor
+        PressedColor: =TextBox1_30.Color
+        PressedFill: =TextBox1_30.Fill
+        Size: =40
+        Text: ="Order placed successfully"
+        VerticalAlign: =Middle
+        Width: =866
+        X: =79
+        Y: =270
+        ZIndex: =4
+

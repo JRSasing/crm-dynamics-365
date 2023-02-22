@@ -1,0 +1,19 @@
+[
+  {
+    "Data": "[{\"ID\":1,\"Note\":\"Built in 1980 with significant innovations in 1990\",\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/1-100.jpg\",\"PhotoId\":1},{\"ID\":1,\"Note\":null,\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/1-101.jpg\",\"PhotoId\":2},{\"ID\":1,\"Note\":null,\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/1-102.jpg\",\"PhotoId\":3},{\"ID\":1,\"Note\":null,\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/1-103.jpg\",\"PhotoId\":4},{\"ID\":1,\"Note\":null,\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/1-104.jpg\",\"PhotoId\":5},{\"ID\":2,\"Note\":\"Parking lot has two access points to the street\",\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/2-100.jpg\",\"PhotoId\":6},{\"ID\":2,\"Note\":null,\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/2-101.jpg\",\"PhotoId\":7},{\"ID\":2,\"Note\":null,\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/2-102.jpg\",\"PhotoId\":8},{\"ID\":2,\"Note\":null,\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/2-103.jpg\",\"PhotoId\":9},{\"ID\":3,\"Note\":\"Outdoor spaces have been renovated to facilitate use\",\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/3-100.jpg\",\"PhotoId\":10},{\"ID\":3,\"Note\":null,\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/3-101.jpg\",\"PhotoId\":11},{\"ID\":3,\"Note\":null,\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/3-102.jpg\",\"PhotoId\":12},{\"ID\":3,\"Note\":null,\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/3-103.jpg\",\"PhotoId\":13},{\"ID\":3,\"Note\":null,\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/3-104.jpg\",\"PhotoId\":14},{\"ID\":4,\"Note\":\"Smoking pavillion added\",\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/4-100.jpg\",\"PhotoId\":15},{\"ID\":4,\"Note\":null,\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/4-101.jpg\",\"PhotoId\":16},{\"ID\":4,\"Note\":null,\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/4-102.jpg\",\"PhotoId\":17},{\"ID\":5,\"Note\":\"Zoned commercial\",\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/5-100.jpg\",\"PhotoId\":18},{\"ID\":5,\"Note\":null,\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/5-101.jpg\",\"PhotoId\":19},{\"ID\":5,\"Note\":null,\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/5-102.jpg\",\"PhotoId\":20},{\"ID\":5,\"Note\":null,\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/5-103.jpg\",\"PhotoId\":21},{\"ID\":5,\"Note\":null,\"Photo\":\"https://az787822.vo.msecnd.net/sampleapps/siteinspection/5-104.jpg\",\"PhotoId\":22}]",
+    "IsSampleData": false,
+    "IsWritable": false,
+    "Name": "SitePhotos",
+    "OrderedColumnNames": [
+      "PhotoId",
+      "Photo",
+      "Note",
+      "ID"
+    ],
+    "OriginalName": "SitePhotos",
+    "OriginalSchema": "*[ID:n, Note:s, Photo:i, PhotoId:n]",
+    "Schema": "*[ID:n, Note:s, Photo:i, PhotoId:n]",
+    "Token": "{77D684C8-829C-4E4A-AAA6-09B4331BCA30}",
+    "Type": "StaticDataSourceInfo"
+  }
+]
