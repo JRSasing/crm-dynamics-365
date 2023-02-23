@@ -1,0 +1,7 @@
+{
+	"environment": {
+		"name": "@(auto_environment_name)",
+		"code": "@(auto_environment_code)",
+		"type": "dev"
+	}
+}
