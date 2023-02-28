@@ -6,8 +6,10 @@ param (
 
 $oneconfig_version = "0.1.0-alpha.22"
 
-#$solution = "" WIP for later ticket. Need to work out multiple .sln handling
+$powerplatform_solution = "$PSScriptRoot\solution"
+#$solution = "" WIP for later ticket. Need to work out multiple .sln handling (maybe)
 $build_dir = "$PSScriptRoot\build"
+$build_solution_dir = "$build_dir\solution"
 $packages_dir = "$PSScriptRoot\packages"
 
 
@@ -15,6 +17,7 @@ $root_dir = (Get-Location)
 
 
 task clean check-for-dotnet-sdk, {
+    #Todo future ticket when handling PCF builds
     #exec { dotnet.exe clean $solution -c $configuration }  WIP Will be covered under future ticket. This will need to be able to handle multiple PowerApps soltions in the solutions folder, 
     # containing multiple custom components, which may mean multiple .sln to process
     if (Test-Path $build_dir) {
@@ -46,6 +49,7 @@ task setup-tools setup-nuget, prepare, {
 }
 
 task restore-packages check-for-dotnet-sdk, {
+    #Todo future ticket when handling PCF builds
     #exec { dotnet.exe tool restore }
     #exec { dotnet.exe restore $solution /p:RestoreUseSkipNonexistentTargets="false" }
     #WIP will not be needed until later ticket. Placeholder
@@ -54,11 +58,13 @@ task restore-packages check-for-dotnet-sdk, {
 task generate generate-main, generate-static, generate-tools
 
 task generate-main prepare, restore-packages, {
+    #Todo future ticket when handling PCF builds
     #exec { dotnet.exe build $solution -c $configuration /p:Version=$shortVersion /p:InformationalVersion=$version }
     #if ($LASTEXITCODE -ne 0) {
     #    throw "Failure running dotnet build"
     #}
-    #WIP will not be needed until later ticket. Placeholder
+
+    robocopy "$powerplatform_solution" "$build_solution_dir" /e | Out-Null
 }
 
 task generate-static prepare, {
@@ -121,6 +127,12 @@ task check-for-dotnet-sdk setup-chocolatey, {
     else {
         Write-Host "Found dotnet sdk version $sdkVersion"
     }
+}
+
+task apply generate, apply-bare
+
+task apply-bare {
+	cmd.exe /c "$build_dir\setup.cmd" apply
 }
 
 task upgrade generate, upgrade-bare
