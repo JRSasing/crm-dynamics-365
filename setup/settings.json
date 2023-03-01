@@ -1,7 +1,14 @@
 {
 	"environment": {
-		"name": "@(auto_environment_name)",
-		"code": "@(auto_environment_code)",
-		"type": "dev"
-	}
+		"name": "Development",
+		"code": "dev",
+		"type": "dev",
+		"hostname": "orgbb2cae8d.crm6.dynamics.com"
+	},
+
+	"application_id": "52696f55-4b60-4418-a8ac-de91399b3d6a",
+	"tennant": "ceb29e10-60d1-4f6b-86b1-b7d497b5b66e",
+	"client_secret": "0~18Q~j9YW9H2iv-eesE1gL_s8DCKZ6lSDAhccRL",
+
+	"solution_name": "ract-crm-dynamics365-@(environment:code)"
 }
