@@ -76,18 +76,34 @@ task pack-solution configure, {
 	pac solution pack --zipfile ".\$solution_name.zip" --folder "$solution_dir" --packageType Unmanaged --processCanvasApps
 }
 
-task deploy-solution connect, pack-solution, deploy-solution-bare, disconnect
+task unpack-solution configure, {
+	
+	# unpack solution file
+	
+	Write-Host "Unpacking the solution package $solution_name.zip to $solution_dir"
+	pac solution unpack --zipfile ".\$solution_name.zip" --folder "$solution_dir" --packageType Unmanaged --processCanvasApps
+}
 
-task deploy-solution-bare {
+task import-solution connect, pack-solution, import-solution-bare, disconnect
+
+task import-solution-bare {
 	# Publish
 	Write-Host "Importing the solution '$solution_name'..."
 	pac solution import --path ".\$solution_name.zip" --publish-changes
 }
 
-task apply connect, deploy-infra-bare, pack-solution, deploy-solution-bare, disconnect
+task export-solution-bare, configure {
+	# Publish
+	Write-Host "Exporting the solution '$solution_name'..."
+	pac solution export --path ".\" --name "$solution_name.zip" --overwrite
+}
+
+task apply connect, deploy-infra-bare, pack-solution, import-solution-bare, disconnect
+
+task capture connect, export-solution-bare, unpack-solution, disconnect
 
 #Todo future ticket
-#task upgrade connect, deploy-infra-bare, pack-solution, deploy-solution-bare, disconnect
+#task upgrade connect, deploy-infra-bare, pack-solution, import-solution-bare, disconnect
 
 task connect configure, {
 	pac auth create --url https://$hostname/ --name RACT_DEV-SPN --applicationId $application_id --clientSecret $client_secret --tenant $tennant
