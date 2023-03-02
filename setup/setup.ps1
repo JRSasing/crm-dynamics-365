@@ -2,6 +2,7 @@ $temp_dir = "temp"
 $settings_file_name = "settings.json"
 $settings_path = "$temp_dir\$settings_file_name"
 $solution_dir = ".\solution"
+$root_solution_dir = "$PSScriptRoot\solution"
 
 task prepare setup-dependencies, {
 	if (Test-Path -Path $temp_dir) {
@@ -82,6 +83,8 @@ task unpack-solution configure, {
 	
 	Write-Host "Unpacking the solution package $solution_name.zip to $solution_dir"
 	pac solution unpack --zipfile ".\$solution_name.zip" --folder "$solution_dir" --packageType Unmanaged --processCanvasApps
+
+	robocopy "$solution_dir" "$root_solution_dir"  /E /ZB /X /PURGE /COPYALL | Out-Null
 }
 
 task import-solution connect, pack-solution, import-solution-bare, disconnect
@@ -92,10 +95,10 @@ task import-solution-bare {
 	pac solution import --path ".\$solution_name.zip" --publish-changes
 }
 
-task export-solution-bare, configure {
+task export-solution-bare configure, {
 	# Publish
 	Write-Host "Exporting the solution '$solution_name'..."
-	pac solution export --path ".\" --name "$solution_name.zip" --overwrite
+	pac solution export --path ".\" --name "$solution_name" --overwrite
 }
 
 task apply connect, deploy-infra-bare, pack-solution, import-solution-bare, disconnect

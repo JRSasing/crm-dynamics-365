@@ -135,7 +135,7 @@ task apply-bare {
 	cmd.exe /c "$build_dir\setup.cmd" apply
 }
 
-task capture capture-bare
+task capture prepare, generate-static, generate-tools, capture-bare
 
 task capture-bare {
 	cmd.exe /c "$build_dir\setup.cmd" capture
