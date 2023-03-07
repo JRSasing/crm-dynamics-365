@@ -93,12 +93,20 @@ task import-solution-bare {
 	# Publish
 	Write-Host "Importing the solution '$solution_name'..."
 	pac solution import --path ".\$solution_name.zip" --publish-changes
+
+	if ($LASTEXITCODE -ne 0) {
+        throw "Failure while trying to import solution $solution_name.zip"
+    }
 }
 
 task export-solution-bare configure, {
 	# Publish
 	Write-Host "Exporting the solution '$solution_name'..."
 	pac solution export --path ".\" --name "$solution_name" --overwrite
+
+	if ($LASTEXITCODE -ne 0) {
+        throw "Failure while trying to export solution $solution_name"
+    }
 }
 
 task apply connect, deploy-infra-bare, pack-solution, import-solution-bare, disconnect
@@ -111,6 +119,10 @@ task capture connect, export-solution-bare, unpack-solution, disconnect
 task connect configure, {
 	pac auth create --url https://$hostname/ --name RACT_DEV-SPN --applicationId $application_id --clientSecret $client_secret --tenant $tennant
 	pac auth create --kind ADMIN
+
+	if ($LASTEXITCODE -ne 0) {
+        throw "Failure while trying to connect/authenticate with $hostname"
+    }
 }
 
 task disconnect configure, {
