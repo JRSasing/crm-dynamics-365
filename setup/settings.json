@@ -10,7 +10,7 @@
 	"tennant": "ceb29e10-60d1-4f6b-86b1-b7d497b5b66e",
 	"client_secret": "aun8Q~LQhZD0TykpKHApXk_UHvmJtAcPnJulTaSS",
 
-	"solution_name": "CustomCRM",
+	"solution_name": "RACTD365CustomerService",
 	"solution_artefact_name": "ract-crm-dynamics365-@(environment:code)"
 
 }
