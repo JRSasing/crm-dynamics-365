@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.23015.186" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.23022.174" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
-    <UniqueName>CustomCRM</UniqueName>
+    <UniqueName>RACTD365CustomerService</UniqueName>
     <LocalizedNames>
-      <LocalizedName description="Custom CRM" languagecode="1033" />
+      <LocalizedName description="RACT D365 Customer Service  " languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.1.9</Version>
+    <Version>1.0.0.1</Version>
     <Managed>0</Managed>
     <Publisher>
-      <UniqueName>RACTDevPublisher</UniqueName>
+      <UniqueName>RACT</UniqueName>
       <LocalizedNames>
-        <LocalizedName description="RACT Dev Publisher" languagecode="1033" />
+        <LocalizedName description="RACT" languagecode="1033" />
       </LocalizedNames>
       <Descriptions />
       <EMailAddress xsi:nil="true"></EMailAddress>
       <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
-      <CustomizationPrefix>dev</CustomizationPrefix>
-      <CustomizationOptionValuePrefix>77573</CustomizationOptionValuePrefix>
+      <CustomizationPrefix>ract</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>87488</CustomizationOptionValuePrefix>
       <Addresses>
         <Address>
           <AddressNumber>1</AddressNumber>
@@ -79,27 +79,108 @@
     </Publisher>
     <RootComponents>
       <RootComponent type="1" schemaName="account" behavior="2" />
-      <RootComponent type="300" schemaName="dev_inventorymanagement0345_bb18e" behavior="0" />
-      <RootComponent type="300" schemaName="dev_siteinspection0346_47cc2" behavior="0" />
-      <RootComponent type="80" schemaName="cr1a6_AccountsApp" behavior="0" />
-      <RootComponent type="80" schemaName="cr1a6_Contacts" behavior="0" />
+      <RootComponent type="1" schemaName="contact" behavior="2" />
+      <RootComponent type="1" schemaName="ract_categorytype" behavior="0" />
+      <RootComponent type="1" schemaName="ract_complaintdesiredoutcomes" behavior="0" />
+      <RootComponent type="1" schemaName="ract_complaintoutcomes" behavior="0" />
+      <RootComponent type="1" schemaName="ract_complaintreasonsecondary" behavior="0" />
+      <RootComponent type="1" schemaName="ract_complaintreopenedreasons" behavior="0" />
+      <RootComponent type="1" schemaName="ract_maincategory" behavior="0" />
+      <RootComponent type="1" schemaName="ract_membershipcard" behavior="0" />
+      <RootComponent type="1" schemaName="ract_partner" behavior="0" />
+      <RootComponent type="1" schemaName="ract_partnercategory" behavior="0" />
+      <RootComponent type="1" schemaName="ract_productholding" behavior="0" />
+      <RootComponent type="1" schemaName="ract_region" behavior="0" />
+      <RootComponent type="1" schemaName="ract_subcategory" behavior="0" />
+      <RootComponent type="1" schemaName="site" behavior="1" />
+      <RootComponent type="62" schemaName="msdyn_CustomerServiceWorkspace" behavior="0" />
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
-        <Required type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
-        <Dependent type="80" schemaName="cr1a6_AccountsApp" displayName="Accounts App" />
+        <Required type="1" schemaName="appnotification" displayName="Notification" solution="AppNotifications (10.0.0.12)" />
+        <Dependent type="62" schemaName="msdyn_CustomerServiceWorkspace" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
-        <Dependent type="80" schemaName="cr1a6_Contacts" displayName="Contacts App" />
+        <Required type="1" schemaName="incident" displayName="Case" solution="msdynce_Service (9.0.5.56)" />
+        <Dependent type="62" schemaName="msdyn_CustomerServiceWorkspace" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="62" schemaName="cr1a6_AccountsApp" solution="Active" />
-        <Dependent type="80" schemaName="cr1a6_AccountsApp" displayName="Accounts App" />
+        <Required type="1" schemaName="product" displayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)" />
+        <Dependent type="62" schemaName="msdyn_CustomerServiceWorkspace" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="62" schemaName="cr1a6_Contacts" solution="Active" />
-        <Dependent type="80" schemaName="cr1a6_Contacts" displayName="Contacts App" />
+        <Required type="1" schemaName="site" displayName="Site" solution="msdynce_Service (9.0.5.56)" />
+        <Dependent type="1" schemaName="site" displayName="Site" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="businesscard" displayName="Business Card" parentSchemaName="contact" parentDisplayName="Person" solution="msdynce_SalesPatch201904 (9.0.1912.1007)" />
+        <Dependent type="60" displayName="Person main form" parentDisplayName="Person" id="{42be24f4-f0bc-ed11-83fe-002248e3e36c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="businesscardattributes" displayName="BusinessCardAttributes" parentSchemaName="contact" parentDisplayName="Person" solution="msdynce_SalesPatch201904 (9.0.1912.1007)" />
+        <Dependent type="60" displayName="Person main form" parentDisplayName="Person" id="{42be24f4-f0bc-ed11-83fe-002248e3e36c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="name" displayName="Name" parentSchemaName="site" parentDisplayName="Site" solution="msdynce_Service (9.0.5.56)" />
+        <Dependent type="10" schemaName="ract_contact_CreatedBySite_site" displayName="ract_contact_CreatedBySite_site" parentSchemaName="site" parentDisplayName="Site" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_/Icons/SVG/AssetCategoryTemplateAssociation.svg" displayName="msdyn_/Icons/SVG/AssetCategoryTemplateAssociation.svg" solution="msdyn_AssetCommon (1.0.26.9)" />
+        <Dependent type="62" schemaName="msdyn_CustomerServiceWorkspace" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_/Icons/SVG/CustomerAssetCategory.svg" displayName="msdyn_/Icons/SVG/CustomerAssetCategory.svg" solution="msdyn_AssetCommon (1.0.26.9)" />
+        <Dependent type="62" schemaName="msdyn_CustomerServiceWorkspace" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_csac_queue" displayName="msdyn_csac_queue" solution="msdyn_CSAdminCenterApp (1.19.230301.2)">
+          <package>msdyn_ServiceExtendedAnchor (9.0.23021.1020)</package>
+        </Required>
+        <Dependent type="62" schemaName="msdyn_CustomerServiceWorkspace" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_csac_serviceterms" displayName="msdyn_csac_serviceterms" solution="msdyn_CSAdminCenterApp (1.19.230301.2)">
+          <package>msdyn_ServiceExtendedAnchor (9.0.23021.1020)</package>
+        </Required>
+        <Dependent type="62" schemaName="msdyn_CustomerServiceWorkspace" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_csac_usermanagement" displayName="msdyn_csac_usermanagement" solution="msdyn_CSAdminCenterApp (1.19.230301.2)">
+          <package>msdyn_ServiceExtendedAnchor (9.0.23021.1020)</package>
+        </Required>
+        <Dependent type="62" schemaName="msdyn_CustomerServiceWorkspace" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_OmnichannelBase/_imgs/SitemapIcon/Users" displayName="msdyn_OmnichannelBase/_imgs/SitemapIcon/Users" solution="OmnichannelBase (1.5.0.5970)">
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6460)</package>
+        </Required>
+        <Dependent type="62" schemaName="msdyn_CustomerServiceWorkspace" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_talkingpointsloader.js" displayName="msdyn_talkingpointsloader.js" solution="msdynce_Talkingpoints (9.0.1.701894)" />
+        <Dependent type="60" displayName="Person main form" parentDisplayName="Person" id="{42be24f4-f0bc-ed11-83fe-002248e3e36c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msfp_SurveyIcon_16" displayName="msfp_SurveyIcon_16" solution="MicrosoftFormsPro (2.0.0.40)" />
+        <Dependent type="62" schemaName="msdyn_CustomerServiceWorkspace" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="Sales/_imgs/productgrid/Bundle.svg" displayName="Sales/_imgs/productgrid/Bundle.svg" solution="msdynce_SalesPatch (9.0.1904.3002)" />
+        <Dependent type="62" schemaName="msdyn_CustomerServiceWorkspace" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="62" schemaName="msdyn_CustomerServiceWorkspace" solution="msdyn_CustomerServiceWorkspace (1.0.23021.1001)">
+          <package>msdyn_ServiceExtendedAnchor (9.0.23021.1020)</package>
+        </Required>
+        <Dependent type="62" schemaName="msdyn_CustomerServiceWorkspace" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="Intelligence.BusinessCardReaderControl.BusinessCardReader" displayName="Intelligence.BusinessCardReaderControl.BusinessCardReader" solution="BaseCustomControlsCore (9.0.2302.2015)" />
+        <Dependent type="60" displayName="Person main form" parentDisplayName="Person" id="{42be24f4-f0bc-ed11-83fe-002248e3e36c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.TalkingPointsControl.TalkingPoints" displayName="MscrmControls.TalkingPointsControl.TalkingPoints" solution="msdynce_Talkingpoints (9.0.1.701894)" />
+        <Dependent type="60" displayName="Person main form" parentDisplayName="Person" id="{42be24f4-f0bc-ed11-83fe-002248e3e36c}" />
       </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>

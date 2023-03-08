@@ -133,6 +133,20 @@ task apply generate, apply-bare
 
 task apply-bare {
 	cmd.exe /c "$build_dir\setup.cmd" apply
+
+    if ($LASTEXITCODE -ne 0) {
+        throw "Failure while running apply"
+    }
+}
+
+task capture prepare, generate-static, generate-tools, capture-bare
+
+task capture-bare {
+	cmd.exe /c "$build_dir\setup.cmd" capture
+
+    if ($LASTEXITCODE -ne 0) {
+        throw "Failure while running capture"
+    }
 }
 
 task upgrade generate, upgrade-bare

@@ -2,6 +2,7 @@ $temp_dir = "temp"
 $settings_file_name = "settings.json"
 $settings_path = "$temp_dir\$settings_file_name"
 $solution_dir = ".\solution"
+$root_solution_dir = "$PsScriptRoot\..\solution"
 
 task prepare setup-dependencies, {
 	if (Test-Path -Path $temp_dir) {
@@ -76,22 +77,54 @@ task pack-solution configure, {
 	pac solution pack --zipfile ".\$solution_name.zip" --folder "$solution_dir" --packageType Unmanaged --processCanvasApps
 }
 
-task deploy-solution connect, pack-solution, deploy-solution-bare, disconnect
+task unpack-solution configure, {
+	
+	# unpack solution file
+	
+	Write-Host "Unpacking the solution package $solution_name.zip to $root_solution_dir"
+	pac solution unpack --zipfile ".\$solution_name.zip" --folder "$root_solution_dir" --packageType Unmanaged --processCanvasApps
 
-task deploy-solution-bare {
+	#robocopy "$solution_dir" "$root_solution_dir"  /E /ZB /X /PURGE /COPYALL | Out-Null
+}
+
+task import-solution connect, pack-solution, import-solution-bare, disconnect
+
+task import-solution-bare {
 	# Publish
 	Write-Host "Importing the solution '$solution_name'..."
 	pac solution import --path ".\$solution_name.zip" --publish-changes
+
+	if ($LASTEXITCODE -ne 0) {
+        throw "Failure while trying to import solution $solution_name.zip"
+    }
 }
 
-task apply connect, deploy-infra-bare, pack-solution, deploy-solution-bare, disconnect
+task export-solution-bare configure, {
+	# Publish
+	Write-Host "Exporting the solution '$solution_name'..."
+	pac solution export --path ".\" --name "$solution_name" --overwrite
+
+	if ($LASTEXITCODE -ne 0) {
+        throw "Failure while trying to export solution $solution_name"
+    }
+}
+
+task apply connect, deploy-infra-bare, pack-solution, import-solution-bare, disconnect
+
+task capture connect, export-solution-bare, unpack-solution, disconnect
 
 #Todo future ticket
-#task upgrade connect, deploy-infra-bare, pack-solution, deploy-solution-bare, disconnect
+#task upgrade connect, deploy-infra-bare, pack-solution, import-solution-bare, disconnect
 
 task connect configure, {
-	pac auth create --url https://$hostname/ --name RACT_DEV-SPN --applicationId $application_id --clientSecret $client_secret --tenant $tennant
+	#Revisit this - currently not exporting correctly in the new development environment if applicaitonId is specified
+	#pac auth create --url https://$hostname/ --name RACT_DEV-SPN --applicationId $application_id --clientSecret $client_secret --tenant $tennant
+	pac auth create --url https://$hostname/ --name RACT_DEV-SPN --clientSecret $client_secret --tenant $tennant
 	pac auth create --kind ADMIN
+
+	if ($LASTEXITCODE -ne 0) {
+        throw "Failure while trying to connect/authenticate with $hostname"
+    }
 }
 
 task disconnect configure, {

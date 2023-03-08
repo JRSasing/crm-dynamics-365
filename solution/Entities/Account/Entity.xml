@@ -4,10 +4,10 @@
   <EntityInfo>
     <entity Name="Account">
       <attributes>
-        <attribute PhysicalName="dev_DouwTest">
+        <attribute PhysicalName="ract_ABN">
           <Type>nvarchar</Type>
-          <Name>dev_douwtest</Name>
-          <LogicalName>dev_douwtest</LogicalName>
+          <Name>ract_abn</Name>
+          <LogicalName>ract_abn</LogicalName>
           <RequiredLevel>none</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>auto</ImeMode>
@@ -38,7 +38,7 @@
           <MaxLength>100</MaxLength>
           <Length>200</Length>
           <displaynames>
-            <displayname description="DouwTest" languagecode="1033" />
+            <displayname description="ABN" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -47,5 +47,6 @@
       </attributes>
     </entity>
   </EntityInfo>
+  <SavedQueries />
   <RibbonDiffXml />
 </Entity>
