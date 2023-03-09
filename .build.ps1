@@ -55,7 +55,7 @@ task restore-packages check-for-dotnet-sdk, {
     #WIP will not be needed until later ticket. Placeholder
 }
 
-task generate generate-main, generate-static, generate-tools
+task generate generate-static, generate-tools, generate-main
 
 task generate-main prepare, restore-packages, {
     #Todo future ticket when handling PCF builds
@@ -65,6 +65,7 @@ task generate-main prepare, restore-packages, {
     #}
 
     robocopy "$powerplatform_solution" "$build_solution_dir" /e | Out-Null
+    cmd.exe /c "$build_dir\setup.cmd" pack-solution
 }
 
 task generate-static prepare, {
@@ -146,6 +147,16 @@ task capture-bare {
 
     if ($LASTEXITCODE -ne 0) {
         throw "Failure while running capture"
+    }
+}
+
+task package-managed generate, package-managed-bare
+
+task package-managed-bare {
+	cmd.exe /c "$build_dir\setup.cmd" package-managed
+
+    if ($LASTEXITCODE -ne 0) {
+        throw "Failure while generating managed package"
     }
 }
 

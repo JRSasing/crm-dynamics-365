@@ -50,11 +50,12 @@ task configure-settings prepare, {
 	Configure-Settings $settings_file_name $temp_dir
 	
 	$settings = Get-Settings
-	$Global:solution_name = $settings.solution_name
-	$Global:hostname = $settings.environment.hostname
 	$Global:application_id = $settings.application_id
-	$Global:tennant = $settings.tennant
 	$Global:client_secret = $settings.client_secret
+	$Global:export_managed = $settings.export_managed
+	$Global:hostname = $settings.environment.hostname
+	$Global:solution_name = $settings.solution_name
+	$Global:tennant = $settings.tennant
 }
 
 task configure configure-settings
@@ -83,11 +84,9 @@ task unpack-solution configure, {
 	
 	Write-Host "Unpacking the solution package $solution_name.zip to $root_solution_dir"
 	pac solution unpack --zipfile ".\$solution_name.zip" --folder "$root_solution_dir" --packageType Unmanaged --processCanvasApps
-
-	#robocopy "$solution_dir" "$root_solution_dir"  /E /ZB /X /PURGE /COPYALL | Out-Null
 }
 
-task import-solution connect, pack-solution, import-solution-bare, disconnect
+task import-solution connect, import-solution-bare, disconnect
 
 task import-solution-bare {
 	# Publish
@@ -99,22 +98,35 @@ task import-solution-bare {
     }
 }
 
-task export-solution-bare configure, {
-	# Publish
-	Write-Host "Exporting the solution '$solution_name'..."
-	pac solution export --path ".\" --name "$solution_name" --overwrite
+task export-managed-solution connect, export-managed-solution-bare, disconnect
+task export-unmanaged-solution connect, export-unmanaged-solution-bare, disconnect
 
+task export-managed-solution-bare configure, {
+	Write-Host "Exporting the solution '$solution_name' as managed..."
+	pac solution export --path ".\" --name "$solution_name-managed" --managed --overwrite
+	
 	if ($LASTEXITCODE -ne 0) {
         throw "Failure while trying to export solution $solution_name"
     }
 }
 
-task apply connect, deploy-infra-bare, pack-solution, import-solution-bare, disconnect
+task export-unmanaged-solution-bare configure, {
+	Write-Host "Exporting the solution '$solution_name' as unmanaged..."
+	pac solution export --path ".\" --name "$solution_name" --overwrite
+	
+	if ($LASTEXITCODE -ne 0) {
+        throw "Failure while trying to export solution $solution_name"
+    }
+}
 
-task capture connect, export-solution-bare, unpack-solution, disconnect
+task apply deploy-infra-bare, import-solution
+
+task package-managed import-solution, export-managed-solution
+
+task capture export-unmanaged-solution, unpack-solution
 
 #Todo future ticket
-#task upgrade connect, deploy-infra-bare, pack-solution, import-solution-bare, disconnect
+#task upgrade connect, deploy-infra-bare, import-solution-bare, disconnect
 
 task connect configure, {
 	#Revisit this - currently not exporting correctly in the new development environment if applicaitonId is specified
