@@ -140,6 +140,14 @@ task apply-bare {
     }
 }
 
+task apply-managed {
+	cmd.exe /c "$build_dir\setup.cmd" apply-managed
+
+    if ($LASTEXITCODE -ne 0) {
+        throw "Failure while running apply-managed"
+    }
+}
+
 task capture prepare, generate-static, generate-tools, capture-bare
 
 task capture-bare {

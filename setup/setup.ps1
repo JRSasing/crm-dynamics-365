@@ -137,6 +137,8 @@ function export-solution-bare($managed) {
 
 task apply deploy-infra-bare, import-solution
 
+task apply-managed import-managed-solution
+
 task package-managed import-solution, export-managed-solution
 
 task capture export-unmanaged-solution, unpack-solution
