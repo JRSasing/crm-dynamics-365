@@ -52,7 +52,6 @@ task configure-settings prepare, {
 	$settings = Get-Settings
 	$Global:application_id = $settings.application_id
 	$Global:client_secret = $settings.client_secret
-	$Global:export_managed = $settings.export_managed
 	$Global:hostname = $settings.environment.hostname
 	$Global:solution_name = $settings.solution_name
 	$Global:tennant = $settings.tennant
@@ -65,7 +64,7 @@ task deploy-infra connect, deploy-infra-bare, disconnect
 
 task deploy-infra-bare {
 	
-	#Todo future ticket
+	#Todo future ticket for standing up throw-away development environments
 	#Write-Host "Infrastructure deployed"
 	
 }   
@@ -86,36 +85,53 @@ task unpack-solution configure, {
 	pac solution unpack --zipfile ".\$solution_name.zip" --folder "$root_solution_dir" --packageType Unmanaged --processCanvasApps
 }
 
-task import-solution connect, import-solution-bare, disconnect
+task import-solution connect, { 
+	import-solution-bare($false) 
+}, disconnect
 
-task import-solution-bare {
+task import-managed-solution connect, { 
+	import-solution-bare($true) 
+}, disconnect
+
+function import-solution-bare($managed) {
 	# Publish
-	Write-Host "Importing the solution '$solution_name'..."
-	pac solution import --path ".\$solution_name.zip" --publish-changes
 
+	if ($managed -eq $true) {
+		Write-Host "Importing the managed solution '$solution_name-managed'..."
+		pac solution import --path ".\$solution_name-managed.zip" --publish-changes
+	} else {
+		Write-Host "Importing the unmanaged solution '$solution_name'..."
+		pac solution import --path ".\$solution_name.zip" --publish-changes
+	}
+	
 	if ($LASTEXITCODE -ne 0) {
         throw "Failure while trying to import solution $solution_name.zip"
     }
 }
 
-task export-managed-solution connect, export-managed-solution-bare, disconnect
-task export-unmanaged-solution connect, export-unmanaged-solution-bare, disconnect
+task export-managed-solution connect, {
+	export-solution-bare($true)
+}, disconnect
 
-task export-managed-solution-bare configure, {
-	Write-Host "Exporting the solution '$solution_name' as managed..."
-	pac solution export --path ".\" --name "$solution_name-managed" --managed --overwrite
+task export-unmanaged-solution connect, {
+	export-solution-bare($false)
+}, disconnect
+
+function export-solution-bare($managed) {
+	if ($managed -eq $true) {
+		Write-Host "Exporting the solution '$solution_name' as managed..."
+		pac solution export --path ".\$solution_name-managed.zip" --name "$solution_name" --managed --overwrite
+	} else {
+		Write-Host "Exporting the solution '$solution_name' as unmanaged..."
+		pac solution export --path ".\$solution_name.zip" --name "$solution_name" --overwrite
+	}
 	
 	if ($LASTEXITCODE -ne 0) {
-        throw "Failure while trying to export solution $solution_name"
-    }
-}
-
-task export-unmanaged-solution-bare configure, {
-	Write-Host "Exporting the solution '$solution_name' as unmanaged..."
-	pac solution export --path ".\" --name "$solution_name" --overwrite
-	
-	if ($LASTEXITCODE -ne 0) {
-        throw "Failure while trying to export solution $solution_name"
+		if ($managed -eq $true) {
+        	throw "Failure while trying to export solution $solution_name-managed.zip"
+		} else {
+			throw "Failure while trying to export solution $solution_name.zip"
+		}
     }
 }
 
@@ -132,7 +148,7 @@ task connect configure, {
 	#Revisit this - currently not exporting correctly in the new development environment if applicaitonId is specified
 	#pac auth create --url https://$hostname/ --name RACT_DEV-SPN --applicationId $application_id --clientSecret $client_secret --tenant $tennant
 	pac auth create --url https://$hostname/ --name RACT_DEV-SPN --clientSecret $client_secret --tenant $tennant
-	pac auth create --kind ADMIN
+	#pac auth create --kind ADMIN
 
 	if ($LASTEXITCODE -ne 0) {
         throw "Failure while trying to connect/authenticate with $hostname"
