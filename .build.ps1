@@ -1,7 +1,8 @@
 param (
     $configuration = (property configuration Release),
-    $version = (property version 0.0.0.0), # Full version... may include branch name etc
-    $shortVersion = (property shortVersion 0.0.0.0) # Numeric-only version
+    $hostname = (property hostname usedefault),
+    $shortVersion = (property shortVersion 0.0.0.0), # Numeric-only version
+    $version = (property version 0.0.0.0) # Full version... may include branch name etc
 )
 
 $oneconfig_version = "0.1.0-alpha.22"
@@ -65,7 +66,7 @@ task generate-main prepare, restore-packages, {
     #}
 
     robocopy "$powerplatform_solution" "$build_solution_dir" /e | Out-Null
-    cmd.exe /c "$build_dir\setup.cmd" pack-solution
+    cmd.exe /c "$build_dir\setup.cmd -hostname $hostname" pack-solution
 }
 
 task generate-static prepare, {
@@ -133,7 +134,7 @@ task check-for-dotnet-sdk setup-chocolatey, {
 task apply generate, apply-bare
 
 task apply-bare {
-	cmd.exe /c "$build_dir\setup.cmd" apply
+	cmd.exe /c "$build_dir\setup.cmd -hostname $hostname" apply
 
     if ($LASTEXITCODE -ne 0) {
         throw "Failure while running apply"
@@ -141,7 +142,7 @@ task apply-bare {
 }
 
 task apply-managed {
-	cmd.exe /c "$build_dir\setup.cmd" apply-managed
+	cmd.exe /c "$build_dir\setup.cmd -hostname $hostname" apply-managed
 
     if ($LASTEXITCODE -ne 0) {
         throw "Failure while running apply-managed"
@@ -161,7 +162,7 @@ task capture-bare {
 task package-managed generate, package-managed-bare
 
 task package-managed-bare {
-	cmd.exe /c "$build_dir\setup.cmd" package-managed
+	cmd.exe /c "$build_dir\setup.cmd -hostname $hostname" package-managed
 
     if ($LASTEXITCODE -ne 0) {
         throw "Failure while generating managed package"
@@ -171,13 +172,13 @@ task package-managed-bare {
 task upgrade generate, upgrade-bare
 
 task upgrade-bare {
-	cmd.exe /c "$build_dir\setup.cmd" upgrade
+	cmd.exe /c "$build_dir\setup.cmd -hostname $hostname" upgrade
 }
 
 task configure generate, configure-bare 
 
 task configure-bare {
-	cmd.exe /c "$build_dir\setup.cmd" configure
+	cmd.exe /c "$build_dir\setup.cmd -hostname $hostname" configure
 }
 
 task . clean, generate

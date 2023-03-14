@@ -1,3 +1,7 @@
+param (
+    $hostname_override
+)
+
 $temp_dir = "temp"
 $settings_file_name = "settings.json"
 $settings_path = "$temp_dir\$settings_file_name"
@@ -52,7 +56,11 @@ task configure-settings prepare, {
 	$settings = Get-Settings
 	$Global:application_id = $settings.application_id
 	$Global:client_secret = $settings.client_secret
-	$Global:hostname = $settings.environment.hostname
+	if ($hostname_override -ne "usedefault") {
+		$Global:hostname = $hostname_override
+	} else {
+		$Global:hostname = $settings.environment.hostname
+	}
 	$Global:solution_name = $settings.solution_name
 	$Global:tennant = $settings.tennant
 }
@@ -98,10 +106,10 @@ function import-solution-bare($managed) {
 
 	if ($managed -eq $true) {
 		Write-Host "Importing the managed solution '$solution_name-managed'..."
-		pac solution import --path ".\$solution_name-managed.zip" --publish-changes
+		#pac solution import --path ".\$solution_name-managed.zip" --publish-changes
 	} else {
 		Write-Host "Importing the unmanaged solution '$solution_name'..."
-		pac solution import --path ".\$solution_name.zip" --publish-changes
+		#pac solution import --path ".\$solution_name.zip" --publish-changes
 	}
 	
 	if ($LASTEXITCODE -ne 0) {
@@ -120,10 +128,10 @@ task export-unmanaged-solution connect, {
 function export-solution-bare($managed) {
 	if ($managed -eq $true) {
 		Write-Host "Exporting the solution '$solution_name' as managed..."
-		pac solution export --path ".\$solution_name-managed.zip" --name "$solution_name" --managed --overwrite
+		#pac solution export --path ".\$solution_name-managed.zip" --name "$solution_name" --managed --overwrite
 	} else {
 		Write-Host "Exporting the solution '$solution_name' as unmanaged..."
-		pac solution export --path ".\$solution_name.zip" --name "$solution_name" --overwrite
+		#pac solution export --path ".\$solution_name.zip" --name "$solution_name" --overwrite
 	}
 	
 	if ($LASTEXITCODE -ne 0) {
