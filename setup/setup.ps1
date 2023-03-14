@@ -106,10 +106,10 @@ function import-solution-bare($managed) {
 
 	if ($managed -eq $true) {
 		Write-Host "Importing the managed solution '$solution_name-managed'..."
-		#pac solution import --path ".\$solution_name-managed.zip" --publish-changes
+		pac solution import --path ".\$solution_name-managed.zip" --publish-changes
 	} else {
 		Write-Host "Importing the unmanaged solution '$solution_name'..."
-		#pac solution import --path ".\$solution_name.zip" --publish-changes
+		pac solution import --path ".\$solution_name.zip" --publish-changes
 	}
 	
 	if ($LASTEXITCODE -ne 0) {
@@ -128,10 +128,10 @@ task export-unmanaged-solution connect, {
 function export-solution-bare($managed) {
 	if ($managed -eq $true) {
 		Write-Host "Exporting the solution '$solution_name' as managed..."
-		#pac solution export --path ".\$solution_name-managed.zip" --name "$solution_name" --managed --overwrite
+		pac solution export --path ".\$solution_name-managed.zip" --name "$solution_name" --managed --overwrite
 	} else {
 		Write-Host "Exporting the solution '$solution_name' as unmanaged..."
-		#pac solution export --path ".\$solution_name.zip" --name "$solution_name" --overwrite
+		pac solution export --path ".\$solution_name.zip" --name "$solution_name" --overwrite
 	}
 	
 	if ($LASTEXITCODE -ne 0) {
