@@ -23,7 +23,7 @@ By default, running <code>build</code> with no target will perform a **clean** a
 * <code>clean</code> - clean the build folder
 * <code>generate</code> - pack the solution files into a Dynamics 365 _unmamaged_ solution archive (zip file), ready for deployment
 * <code>apply</code> - perform a **generate**, and then deploy the unmanaged solution to the default environment
-* <code>capture</code> - export the solution from the default environment, and then un-pack into the repository source folder, allowing for update/review of changes from develop
+* <code>capture</code> - export the solution from the default environment, and then un-pack into the repository source folder, allowing for update/review of changes from development environment
 * <code>package-managed</code> - export the solution from the default environment as a **managed** solution. This will be placed into the build folder, and will be appended with **-managed**
 * <code>apply-managed</code> - deploy the **managed** solution to the default environment. Must be performed _after_ **package-managed**, to ensure the managed solution is available
 

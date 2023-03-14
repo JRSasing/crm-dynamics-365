@@ -62,7 +62,7 @@ task configure-settings prepare, {
 		$Global:hostname = $settings.environment.hostname
 	}
 	$Global:solution_name = $settings.solution_name
-	$Global:tennant = $settings.tennant
+	$Global:tenant = $settings.tenant
 }
 
 task configure configure-settings
@@ -156,8 +156,8 @@ task capture export-unmanaged-solution, unpack-solution
 
 task connect configure, {
 	#Revisit this - currently not exporting correctly in the new development environment if applicaitonId is specified
-	#pac auth create --url https://$hostname/ --name RACT_DEV-SPN --applicationId $application_id --clientSecret $client_secret --tenant $tennant
-	pac auth create --url https://$hostname/ --name RACT_DEV-SPN --clientSecret $client_secret --tenant $tennant --managedIdentity
+	#pac auth create --url https://$hostname/ --name RACT_DEV-SPN --applicationId $application_id --clientSecret $client_secret --tenant $tenant
+	pac auth create --url https://$hostname/ --name RACT_DEV-SPN --clientSecret $client_secret --tenant $tenant --managedIdentity
 	#pac auth create --kind ADMIN
 
 	if ($LASTEXITCODE -ne 0) {
