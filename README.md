@@ -10,11 +10,16 @@ This repository contains the Dynamics 365 Solution for RACT CRM Customisations
 Running any kind of <code>build</code> from the command line (repository root) will automatically install dependencies on the developers machine, primarily the required version of .Net Core, and the Power Apps CLI (PAC)
 
 #### Configuration
-Default configuration settings are held in <code>settings.json</code> in the **setup** folder. These are configured to allow development against the **[RACT Dev 1]** (https://org88bea879.crm6.dynamics.com) Dynamics 365 environment
+Default configuration settings are held in <code>settings.json</code> in the **setup** folder. These are configured to allow development against the [RACT Dev 1](https://org88bea879.crm6.dynamics.com) Dynamics 365 environment
 
-#### Deployment instructions
-The following build targets are available from the root folder, by running **build _target_**. By default, running <code>build</code> with no target will perform a **clean** and **generate**
+### Deployment instructions
+The following build targets are available from the root folder, by running <code>**build _target_**</code>.
+
+By default, running <code>build</code> with no target will perform a **clean** and **generate** automatically
+
 **Please note**, _default environment_ refers to **RACT Dev 1**
+
+
 * <code>clean</code> - clean the build folder
 * <code>generate</code> - pack the solution files into a Dynamics 365 _unmamaged_ solution archive (zip file), ready for deployment
 * <code>apply</code> - perform a **generate**, and then deploy the unmanaged solution to the default environment
