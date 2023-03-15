@@ -7,10 +7,9 @@
 	},
 
 	"application_id": "15a06e86-96e6-4991-bd3a-3de840a0f48c",
-	"tennant": "ceb29e10-60d1-4f6b-86b1-b7d497b5b66e",
 	"client_secret": "aun8Q~LQhZD0TykpKHApXk_UHvmJtAcPnJulTaSS",
+	"tenant": "ceb29e10-60d1-4f6b-86b1-b7d497b5b66e",
 
 	"solution_name": "RACTD365CustomerService",
 	"solution_artefact_name": "ract-crm-dynamics365-@(environment:code)"
-
 }

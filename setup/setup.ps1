@@ -1,3 +1,7 @@
+param (
+    $hostname_override
+)
+
 $temp_dir = "temp"
 $settings_file_name = "settings.json"
 $settings_path = "$temp_dir\$settings_file_name"
@@ -50,11 +54,15 @@ task configure-settings prepare, {
 	Configure-Settings $settings_file_name $temp_dir
 	
 	$settings = Get-Settings
-	$Global:solution_name = $settings.solution_name
-	$Global:hostname = $settings.environment.hostname
 	$Global:application_id = $settings.application_id
-	$Global:tennant = $settings.tennant
 	$Global:client_secret = $settings.client_secret
+	if ($hostname_override -ne "usedefault") {
+		$Global:hostname = $hostname_override
+	} else {
+		$Global:hostname = $settings.environment.hostname
+	}
+	$Global:solution_name = $settings.solution_name
+	$Global:tenant = $settings.tenant
 }
 
 task configure configure-settings
@@ -64,7 +72,7 @@ task deploy-infra connect, deploy-infra-bare, disconnect
 
 task deploy-infra-bare {
 	
-	#Todo future ticket
+	#Todo future ticket for standing up throw-away development environments
 	#Write-Host "Infrastructure deployed"
 	
 }   
@@ -83,44 +91,74 @@ task unpack-solution configure, {
 	
 	Write-Host "Unpacking the solution package $solution_name.zip to $root_solution_dir"
 	pac solution unpack --zipfile ".\$solution_name.zip" --folder "$root_solution_dir" --packageType Unmanaged --processCanvasApps
-
-	#robocopy "$solution_dir" "$root_solution_dir"  /E /ZB /X /PURGE /COPYALL | Out-Null
 }
 
-task import-solution connect, pack-solution, import-solution-bare, disconnect
+task import-solution connect, { 
+	import-solution-bare($false) 
+}, disconnect
 
-task import-solution-bare {
+task import-managed-solution connect, { 
+	import-solution-bare($true) 
+}, disconnect
+
+function import-solution-bare($managed) {
 	# Publish
-	Write-Host "Importing the solution '$solution_name'..."
-	pac solution import --path ".\$solution_name.zip" --publish-changes
 
+	if ($managed -eq $true) {
+		Write-Host "Importing the managed solution '$solution_name-managed'..."
+		pac solution import --path ".\$solution_name-managed.zip" --publish-changes
+	} else {
+		Write-Host "Importing the unmanaged solution '$solution_name'..."
+		pac solution import --path ".\$solution_name.zip" --publish-changes
+	}
+	
 	if ($LASTEXITCODE -ne 0) {
         throw "Failure while trying to import solution $solution_name.zip"
     }
 }
 
-task export-solution-bare configure, {
-	# Publish
-	Write-Host "Exporting the solution '$solution_name'..."
-	pac solution export --path ".\" --name "$solution_name" --overwrite
+task export-managed-solution connect, {
+	export-solution-bare($true)
+}, disconnect
 
+task export-unmanaged-solution connect, {
+	export-solution-bare($false)
+}, disconnect
+
+function export-solution-bare($managed) {
+	if ($managed -eq $true) {
+		Write-Host "Exporting the solution '$solution_name' as managed..."
+		pac solution export --path ".\$solution_name-managed.zip" --name "$solution_name" --managed --overwrite
+	} else {
+		Write-Host "Exporting the solution '$solution_name' as unmanaged..."
+		pac solution export --path ".\$solution_name.zip" --name "$solution_name" --overwrite
+	}
+	
 	if ($LASTEXITCODE -ne 0) {
-        throw "Failure while trying to export solution $solution_name"
+		if ($managed -eq $true) {
+        	throw "Failure while trying to export solution $solution_name-managed.zip"
+		} else {
+			throw "Failure while trying to export solution $solution_name.zip"
+		}
     }
 }
 
-task apply connect, deploy-infra-bare, pack-solution, import-solution-bare, disconnect
+task apply deploy-infra-bare, import-solution
 
-task capture connect, export-solution-bare, unpack-solution, disconnect
+task apply-managed import-managed-solution
+
+task package-managed import-solution, export-managed-solution
+
+task capture export-unmanaged-solution, unpack-solution
 
 #Todo future ticket
-#task upgrade connect, deploy-infra-bare, pack-solution, import-solution-bare, disconnect
+#task upgrade connect, deploy-infra-bare, import-solution-bare, disconnect
 
 task connect configure, {
 	#Revisit this - currently not exporting correctly in the new development environment if applicaitonId is specified
-	#pac auth create --url https://$hostname/ --name RACT_DEV-SPN --applicationId $application_id --clientSecret $client_secret --tenant $tennant
-	pac auth create --url https://$hostname/ --name RACT_DEV-SPN --clientSecret $client_secret --tenant $tennant
-	pac auth create --kind ADMIN
+	#pac auth create --url https://$hostname/ --name RACT_DEV-SPN --applicationId $application_id --clientSecret $client_secret --tenant $tenant
+	pac auth create --url https://$hostname/ --name RACT_DEV-SPN --clientSecret $client_secret --tenant $tenant --managedIdentity
+	#pac auth create --kind ADMIN
 
 	if ($LASTEXITCODE -ne 0) {
         throw "Failure while trying to connect/authenticate with $hostname"
