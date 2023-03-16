@@ -91,6 +91,8 @@ task deploy-infra-bare {
 task pack-solution configure, {
 	
 	# pack solution file
+	$settings = Get-Settings
+    $solution_name = $settings.solution_name
 	
 	Write-Host "Packing the solution content directory $solution_dir to $solution_name.zip"
 	pac solution pack --zipfile ".\$solution_name.zip" --folder "$solution_dir" --packageType Unmanaged --processCanvasApps
@@ -99,6 +101,8 @@ task pack-solution configure, {
 task unpack-solution configure, {
 	
 	# unpack solution file
+	$settings = Get-Settings
+    $solution_name = $settings.solution_name
 	
 	Write-Host "Unpacking the solution package $solution_name.zip to $root_solution_dir"
 	pac solution unpack --zipfile ".\$solution_name.zip" --folder "$root_solution_dir" --packageType Unmanaged --processCanvasApps
@@ -114,6 +118,8 @@ task import-managed-solution connect, {
 
 function import-solution-bare($managed) {
 	# Publish
+	$settings = Get-Settings
+    $solution_name = $settings.solution_name
 
 	if ($managed -eq $true) {
 		Write-Host "Importing the managed solution '$solution_name-managed'..."
@@ -137,6 +143,9 @@ task export-unmanaged-solution connect, {
 }, disconnect
 
 function export-solution-bare($managed) {
+	$settings = Get-Settings
+    $solution_name = $settings.solution_name
+	
 	if ($managed -eq $true) {
 		Write-Host "Exporting the solution '$solution_name' as managed..."
 		pac solution export --path ".\$solution_name-managed.zip" --name "$solution_name" --managed --overwrite
