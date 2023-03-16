@@ -8,6 +8,6 @@
     <description>Release Deployment Zip of the RACTI CRM Customisations for Dynamics 365</description>
   </metadata>
   <files>
-    <file src="build\**" exclude="build\soltion\**" target="Content" />
+    <file src="build\**" exclude="build\solution\**" target="Content" />
   </files>
 </package>
