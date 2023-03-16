@@ -1,6 +1,9 @@
 param (
-    $hostname_override
+    [string]$hostname,
+	[string]$azureClientId,
+    [string]$azureServicePrincipalKey
 )
+
 
 $temp_dir = "temp"
 $settings_file_name = "settings.json"
@@ -54,15 +57,23 @@ task configure-settings prepare, {
 	Configure-Settings $settings_file_name $temp_dir
 	
 	$settings = Get-Settings
-	$Global:application_id = $settings.application_id
-	$Global:client_secret = $settings.client_secret
-	if ($hostname_override -ne "usedefault") {
-		$Global:hostname = $hostname_override
-	} else {
-		$Global:hostname = $settings.environment.hostname
-	}
-	$Global:solution_name = $settings.solution_name
-	$Global:tenant = $settings.tenant
+	# If hostname, client id/service principal are provided via parameters, inject them into the config
+	$settings = Get-Settings
+	if (-not($hostname -eq "")) {
+		Write-Host "Dynamics 365 hostname provided via parameter, injecting into settings"
+		$settings.environment.hostname = $hostname
+		$null = Save-Settings $settings 
+	}		
+	if (-not($azureClientId -eq "")) {
+		Write-Host "Azure Application/Client ID provided via parameter, injecting into settings"
+		$settings.application_id = $azureClientId
+		$null = Save-Settings $settings 
+	}	
+	if (-not($azureServicePrincipalKey -eq "")) {
+		Write-Host "Azure Service Principal Key provided via parameter, injecting into settings"
+		$settings.client_secret = $azureServicePrincipalKey
+		$null = Save-Settings $settings 
+	}	
 }
 
 task configure configure-settings
@@ -80,6 +91,8 @@ task deploy-infra-bare {
 task pack-solution configure, {
 	
 	# pack solution file
+	$settings = Get-Settings
+    $solution_name = $settings.solution_name
 	
 	Write-Host "Packing the solution content directory $solution_dir to $solution_name.zip"
 	pac solution pack --zipfile ".\$solution_name.zip" --folder "$solution_dir" --packageType Unmanaged --processCanvasApps
@@ -88,6 +101,8 @@ task pack-solution configure, {
 task unpack-solution configure, {
 	
 	# unpack solution file
+	$settings = Get-Settings
+    $solution_name = $settings.solution_name
 	
 	Write-Host "Unpacking the solution package $solution_name.zip to $root_solution_dir"
 	pac solution unpack --zipfile ".\$solution_name.zip" --folder "$root_solution_dir" --packageType Unmanaged --processCanvasApps
@@ -103,6 +118,8 @@ task import-managed-solution connect, {
 
 function import-solution-bare($managed) {
 	# Publish
+	$settings = Get-Settings
+    $solution_name = $settings.solution_name
 
 	if ($managed -eq $true) {
 		Write-Host "Importing the managed solution '$solution_name-managed'..."
@@ -126,6 +143,9 @@ task export-unmanaged-solution connect, {
 }, disconnect
 
 function export-solution-bare($managed) {
+	$settings = Get-Settings
+    $solution_name = $settings.solution_name
+	
 	if ($managed -eq $true) {
 		Write-Host "Exporting the solution '$solution_name' as managed..."
 		pac solution export --path ".\$solution_name-managed.zip" --name "$solution_name" --managed --overwrite
@@ -155,9 +175,13 @@ task capture export-unmanaged-solution, unpack-solution
 #task upgrade connect, deploy-infra-bare, import-solution-bare, disconnect
 
 task connect configure, {
-	#Revisit this - currently not exporting correctly in the new development environment if applicaitonId is specified
-	#pac auth create --url https://$hostname/ --name RACT_DEV-SPN --applicationId $application_id --clientSecret $client_secret --tenant $tenant
-	pac auth create --url https://$hostname/ --name RACT_DEV-SPN --clientSecret $client_secret --tenant $tenant --managedIdentity
+	$settings = Get-Settings
+    $hostname = $settings.environment.hostname
+    $application_id = $settings.application_id
+	$client_secret = $settings.client_secret
+	$tenant = $settings.tenant
+
+	pac auth create --url https://$hostname/ --name RACT_DEV-SPN --applicationId $application_id --clientSecret $client_secret --tenant $tenant
 	#pac auth create --kind ADMIN
 
 	if ($LASTEXITCODE -ne 0) {
