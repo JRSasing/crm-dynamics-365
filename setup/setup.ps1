@@ -237,7 +237,7 @@ function Configure-Settings($filePath, $outputDir) {
 	$fileName = [System.IO.Path]::GetFileName($filePath)
 	$outputFilePath = "$outputDir\$fileName"
 	
-	.\tools\OneConfig\OneConfig.exe --mode Settings --settingsPath $settings_file_name --outputFilePath $outputFilePath
+	.\tools\OneConfig\OneConfig.exe --mode Settings --settingsPath $settings_file_name --outputFilePath $outputFilePath --verbose
 	
 	if ($LASTEXITCODE -ne 0) {
         throw "Failure while trying to create a configured version of the settings $filePath"
