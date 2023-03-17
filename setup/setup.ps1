@@ -66,12 +66,12 @@ task configure-settings prepare, {
 	}		
 	if (-not($azureClientId -eq "")) {
 		Write-Host "Azure Application/Client ID provided via parameter, injecting into settings"
-		$settings.application_id = $azureClientId
+		$settings.tenant.account.application_id = $azureClientId
 		$null = Save-Settings $settings 
 	}	
 	if (-not($azureServicePrincipalKey -eq "")) {
 		Write-Host "Azure Service Principal Key provided via parameter, injecting into settings"
-		$settings.client_secret = $azureServicePrincipalKey
+		$settings.tenant.account.client_secret = $azureServicePrincipalKey
 		$null = Save-Settings $settings 
 	}	
 }
@@ -177,9 +177,9 @@ task capture export-unmanaged-solution, unpack-solution
 task connect configure, {
 	$settings = Get-Settings
     $hostname = $settings.environment.hostname
-    $application_id = $settings.application_id
-	$client_secret = $settings.client_secret
-	$tenant = $settings.tenant
+    $application_id = $settings.tenant.account.application_id
+	$client_secret = $settings.tenant.account.client_secret
+	$tenant = $settings.tenant.id
 
 	pac auth create --url https://$hostname/ --name RACT_DEV-SPN --applicationId $application_id --clientSecret $client_secret --tenant $tenant
 	#pac auth create --kind ADMIN
