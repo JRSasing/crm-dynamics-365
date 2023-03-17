@@ -94,8 +94,8 @@ task pack-solution configure, {
 	$settings = Get-Settings
     $solution_name = $settings.solution_name
 	
-	Write-Host "Packing the solution content directory $solution_dir to $solution_name.zip"
-	pac solution pack --zipfile ".\$solution_name.zip" --folder "$solution_dir" --packageType Unmanaged --processCanvasApps
+	Write-Host "Packing the solution content directory $solution_dir to $solution_name-unmanaged.zip"
+	pac solution pack --zipfile ".\$solution_name-unmanaged.zip" --folder "$solution_dir" --packageType Unmanaged --processCanvasApps
 }
 
 task unpack-solution configure, {
@@ -104,8 +104,8 @@ task unpack-solution configure, {
 	$settings = Get-Settings
     $solution_name = $settings.solution_name
 	
-	Write-Host "Unpacking the solution package $solution_name.zip to $root_solution_dir"
-	pac solution unpack --zipfile ".\$solution_name.zip" --folder "$root_solution_dir" --packageType Unmanaged --processCanvasApps
+	Write-Host "Unpacking the solution package $solution_name-unmanaged.zip to $root_solution_dir"
+	pac solution unpack --zipfile ".\$solution_name-unmanaged.zip" --folder "$root_solution_dir" --packageType Unmanaged --processCanvasApps
 }
 
 task import-solution connect, { 
@@ -126,11 +126,11 @@ function import-solution-bare($managed) {
 		pac solution import --path ".\$solution_name-managed.zip" --publish-changes --async
 	} else {
 		Write-Host "Importing the unmanaged solution '$solution_name'..."
-		pac solution import --path ".\$solution_name.zip" --publish-changes --async
+		pac solution import --path ".\$solution_name-unmanaged.zip" --publish-changes --async
 	}
 	
 	if ($LASTEXITCODE -ne 0) {
-        throw "Failure while trying to import solution $solution_name.zip"
+        throw "Failure while trying to import solution $solution_name"
     }
 }
 
@@ -151,14 +151,14 @@ function export-solution-bare($managed) {
 		pac solution export --path ".\$solution_name-managed.zip" --name "$solution_name" --managed --overwrite --async
 	} else {
 		Write-Host "Exporting the solution '$solution_name' as unmanaged..."
-		pac solution export --path ".\$solution_name.zip" --name "$solution_name" --overwrite --async
+		pac solution export --path ".\$solution_name-unmanaged.zip" --name "$solution_name" --overwrite --async
 	}
 	
 	if ($LASTEXITCODE -ne 0) {
 		if ($managed -eq $true) {
         	throw "Failure while trying to export solution $solution_name-managed.zip"
 		} else {
-			throw "Failure while trying to export solution $solution_name.zip"
+			throw "Failure while trying to export solution $solution_name-unmanaged.zip"
 		}
     }
 }
