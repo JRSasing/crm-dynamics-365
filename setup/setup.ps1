@@ -10,6 +10,7 @@ $settings_file_name = "settings.json"
 $settings_path = "$temp_dir\$settings_file_name"
 $solution_dir = ".\solution"
 $root_solution_dir = "$PsScriptRoot\..\solution"
+$packages_dir = "$PSScriptRoot\packages"
 
 task prepare setup-dependencies, {
 	if (Test-Path -Path $temp_dir) {
@@ -165,7 +166,7 @@ function export-solution-bare($managed) {
 
 task apply deploy-infra-bare, import-solution
 
-task apply-managed import-managed-solution
+task apply-managed setup-tools, import-managed-solution
 
 task package-managed import-solution, export-managed-solution
 
@@ -191,6 +192,43 @@ task connect configure, {
 
 task disconnect configure, {
 	
+}
+
+task prepare {
+    $null = New-Item -ItemType Directory -Force -Path $packages_dir
+}
+
+task setup-nuget {
+	if (Get-Command -ErrorAction SilentlyContinue -Name "nuget") {
+		Write-Output "Nuget is already installed"
+	} else {
+		choco install nuget.commandline -y
+		if ($LASTEXITCODE -ne 0) {
+			throw "Nuget install failed!"
+		}
+	}
+}
+
+task setup-tools setup-powerapps-cli, setup-nuget, prepare, {
+    Push-Location -Path $packages_dir
+    nuget install Microsoft.PowerApps.CLI 
+    Pop-Location
+}
+
+task setup-powerapps-cli {
+    # install PowerApps CLI (PAC), if its not already there for some reason
+    try {
+        $pacVersion = pac | Select-String -Pattern 'Version:' -SimpleMatch
+    }
+    catch {
+        $pacVersion = ""
+    }
+    If ($pacVersion.Length -eq 0) {
+        choco install Microsoft.PowerApps.CLI -s $packages_dir
+    }
+    Else {
+        Write-Host "PowerAdmin CLI $pacVersion already installed."
+    }
 }
 
 
