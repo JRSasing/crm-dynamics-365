@@ -10,7 +10,7 @@ $settings_file_name = "settings.json"
 $settings_path = "$temp_dir\$settings_file_name"
 $solution_dir = ".\solution"
 $root_solution_dir = "$PsScriptRoot\..\solution"
-$packages_dir = "$PSScriptRoot\packages"
+$packages_dir = ".\packages"
 
 task prepare setup-dependencies, {
 	if (Test-Path -Path $temp_dir) {

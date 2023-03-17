@@ -1,7 +1,7 @@
 {
 	"environment": {
-		"name": "@(auto_environment_name)",
-		"code": "@(auto_environment_code)",
+		"name": "dev1",
+		"code": "dev1",
 		"type": "dev",
 		"hostname": "org88bea879.crm6.dynamics.com"
 	},  
