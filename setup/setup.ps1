@@ -194,7 +194,10 @@ task disconnect configure, {
 	
 }
 
-task prepare {
+task prepare-packages {
+	if (Test-Path -Path $packages_dir) {
+		$null = Remove-Item -Path $packages_dir -Force -Recurse
+	}	
     $null = New-Item -ItemType Directory -Force -Path $packages_dir
 }
 
@@ -209,7 +212,7 @@ task setup-nuget {
 	}
 }
 
-task setup-tools setup-powerapps-cli, setup-nuget, prepare, {
+task setup-tools setup-powerapps-cli, setup-nuget, prepare-packages, {
     Push-Location -Path $packages_dir
     nuget install Microsoft.PowerApps.CLI 
     Pop-Location
@@ -237,7 +240,7 @@ function Configure-Settings($filePath, $outputDir) {
 	$fileName = [System.IO.Path]::GetFileName($filePath)
 	$outputFilePath = "$outputDir\$fileName"
 	
-	.\tools\OneConfig\OneConfig.exe --mode Settings --settingsPath $settings_file_name --outputFilePath $outputFilePath --verbose
+	.\tools\OneConfig\OneConfig.exe --mode Settings --settingsPath $settings_file_name --outputFilePath $outputFilePath
 	
 	if ($LASTEXITCODE -ne 0) {
         throw "Failure while trying to create a configured version of the settings $filePath"
