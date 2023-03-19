@@ -166,7 +166,7 @@ function export-solution-bare($managed) {
 
 task apply deploy-infra-bare, import-solution
 
-task apply-managed setup-tools, import-managed-solution
+task apply-managed setup-tools, setup-powerapps-cli, import-managed-solution
 
 task package-managed import-solution, export-managed-solution
 
@@ -201,18 +201,7 @@ task prepare-packages {
     $null = New-Item -ItemType Directory -Force -Path $packages_dir
 }
 
-task setup-nuget {
-	if (Get-Command -ErrorAction SilentlyContinue -Name "nuget") {
-		Write-Output "Nuget is already installed"
-	} else {
-		choco install nuget.commandline -y
-		if ($LASTEXITCODE -ne 0) {
-			throw "Nuget install failed!"
-		}
-	}
-}
-
-task setup-tools setup-powerapps-cli, setup-nuget, prepare-packages, {
+task setup-tools prepare-packages, {
     Push-Location -Path $packages_dir
     nuget install Microsoft.PowerApps.CLI 
     Pop-Location
