@@ -71,6 +71,7 @@ task generate-main prepare, restore-packages, {
 
 task generate-static prepare, {
     robocopy ".\setup" "$build_dir" /e | Out-Null
+    robocopy ".\packages" "$build_dir\packages" /e | Out-Null
 }
 
 task generate-tools setup-tools, setup-powerapps-cli, {
