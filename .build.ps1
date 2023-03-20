@@ -1,6 +1,6 @@
 param (
     $configuration = (property configuration Release),
-    $hostname = (property hostname usedefault),
+    $hostname = (property hostname "usedefault"),
     $shortVersion = (property shortVersion 0.0.0.0), # Numeric-only version
     $version = (property version 0.0.0.0) # Full version... may include branch name etc
 )
@@ -66,7 +66,7 @@ task generate-main prepare, restore-packages, {
     #}
 
     robocopy "$powerplatform_solution" "$build_solution_dir" /e | Out-Null
-    cmd.exe /c "$build_dir\setup.cmd -hostname $hostname" pack-solution
+    cmd.exe /c "$build_dir\setup.cmd pack-solution -hostname $hostname"
 }
 
 task generate-static prepare, {
@@ -78,6 +78,7 @@ task generate-tools setup-tools, setup-powerapps-cli, {
     # Copy the "one config" tool to the build folder
     $oneConfigFolder = "RACT_OneConfig.$oneconfig_version"
     robocopy "$packages_dir\$oneConfigFolder\tools" "$build_dir\tools\OneConfig" /e | Out-Null
+    robocopy "$packages_dir" "$build_dir\packages" /e | Out-Null
 
 }
 
@@ -134,7 +135,7 @@ task check-for-dotnet-sdk setup-chocolatey, {
 task apply generate, apply-bare
 
 task apply-bare {
-	cmd.exe /c "$build_dir\setup.cmd -hostname $hostname" apply
+	cmd.exe /c "$build_dir\setup.cmd apply -hostname $hostname"
 
     if ($LASTEXITCODE -ne 0) {
         throw "Failure while running apply"
@@ -142,7 +143,7 @@ task apply-bare {
 }
 
 task apply-managed {
-	cmd.exe /c "$build_dir\setup.cmd -hostname $hostname" apply-managed
+	cmd.exe /c "$build_dir\setup.cmd apply-managed -hostname $hostname"
 
     if ($LASTEXITCODE -ne 0) {
         throw "Failure while running apply-managed"
@@ -162,7 +163,7 @@ task capture-bare {
 task package-managed generate, package-managed-bare
 
 task package-managed-bare {
-	cmd.exe /c "$build_dir\setup.cmd -hostname $hostname" package-managed
+	cmd.exe /c "$build_dir\setup.cmd package-managed -hostname $hostname" 
 
     if ($LASTEXITCODE -ne 0) {
         throw "Failure while generating managed package"
@@ -172,13 +173,13 @@ task package-managed-bare {
 task upgrade generate, upgrade-bare
 
 task upgrade-bare {
-	cmd.exe /c "$build_dir\setup.cmd -hostname $hostname" upgrade
+	cmd.exe /c "$build_dir\setup.cmd upgrade -hostname $hostname" 
 }
 
 task configure generate, configure-bare 
 
 task configure-bare {
-	cmd.exe /c "$build_dir\setup.cmd -hostname $hostname" configure
+	cmd.exe /c "$build_dir\setup.cmd configure -hostname $hostname"
 }
 
 task . clean, generate

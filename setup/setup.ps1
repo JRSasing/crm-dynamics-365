@@ -10,6 +10,7 @@ $settings_file_name = "settings.json"
 $settings_path = "$temp_dir\$settings_file_name"
 $solution_dir = ".\solution"
 $root_solution_dir = "$PsScriptRoot\..\solution"
+$packages_dir = "$PsScriptRoot\packages"
 
 task prepare setup-dependencies, {
 	if (Test-Path -Path $temp_dir) {
@@ -59,19 +60,19 @@ task configure-settings prepare, {
 	$settings = Get-Settings
 	# If hostname, client id/service principal are provided via parameters, inject them into the config
 	$settings = Get-Settings
-	if (-not($hostname -eq "")) {
-		Write-Host "Dynamics 365 hostname provided via parameter, injecting into settings"
+	if (-not($hostname -eq "") -and -not($hostname -eq "usedefault") ) {
+		Write-Host "Dynamics 365 hostname provided via parameter, injecting $hostname into settings"
 		$settings.environment.hostname = $hostname
 		$null = Save-Settings $settings 
 	}		
 	if (-not($azureClientId -eq "")) {
 		Write-Host "Azure Application/Client ID provided via parameter, injecting into settings"
-		$settings.application_id = $azureClientId
+		$settings.tenant.account.application_id = $azureClientId
 		$null = Save-Settings $settings 
 	}	
 	if (-not($azureServicePrincipalKey -eq "")) {
 		Write-Host "Azure Service Principal Key provided via parameter, injecting into settings"
-		$settings.client_secret = $azureServicePrincipalKey
+		$settings.tenant.account.client_secret = $azureServicePrincipalKey
 		$null = Save-Settings $settings 
 	}	
 }
@@ -94,8 +95,8 @@ task pack-solution configure, {
 	$settings = Get-Settings
     $solution_name = $settings.solution_name
 	
-	Write-Host "Packing the solution content directory $solution_dir to $solution_name.zip"
-	pac solution pack --zipfile ".\$solution_name.zip" --folder "$solution_dir" --packageType Unmanaged --processCanvasApps
+	Write-Host "Packing the solution content directory $solution_dir to $solution_name-unmanaged.zip"
+	pac solution pack --zipfile ".\$solution_name-unmanaged.zip" --folder "$solution_dir" --packageType Unmanaged --processCanvasApps
 }
 
 task unpack-solution configure, {
@@ -104,15 +105,15 @@ task unpack-solution configure, {
 	$settings = Get-Settings
     $solution_name = $settings.solution_name
 	
-	Write-Host "Unpacking the solution package $solution_name.zip to $root_solution_dir"
-	pac solution unpack --zipfile ".\$solution_name.zip" --folder "$root_solution_dir" --packageType Unmanaged --processCanvasApps
+	Write-Host "Unpacking the solution package $solution_name-unmanaged.zip to $root_solution_dir"
+	pac solution unpack --zipfile ".\$solution_name-unmanaged.zip" --folder "$root_solution_dir" --packageType Unmanaged --processCanvasApps
 }
 
 task import-solution connect, { 
 	import-solution-bare($false) 
 }, disconnect
 
-task import-managed-solution connect, { 
+task import-managed-solution connect-octo, { 
 	import-solution-bare($true) 
 }, disconnect
 
@@ -123,14 +124,14 @@ function import-solution-bare($managed) {
 
 	if ($managed -eq $true) {
 		Write-Host "Importing the managed solution '$solution_name-managed'..."
-		pac solution import --path ".\$solution_name-managed.zip" --publish-changes
+		pac solution import --path ".\$solution_name-managed.zip" --publish-changes --async
 	} else {
 		Write-Host "Importing the unmanaged solution '$solution_name'..."
-		pac solution import --path ".\$solution_name.zip" --publish-changes
+		pac solution import --path ".\$solution_name-unmanaged.zip" --publish-changes --async
 	}
 	
 	if ($LASTEXITCODE -ne 0) {
-        throw "Failure while trying to import solution $solution_name.zip"
+        throw "Failure while trying to import solution $solution_name"
     }
 }
 
@@ -145,27 +146,27 @@ task export-unmanaged-solution connect, {
 function export-solution-bare($managed) {
 	$settings = Get-Settings
     $solution_name = $settings.solution_name
-	
+
 	if ($managed -eq $true) {
 		Write-Host "Exporting the solution '$solution_name' as managed..."
-		pac solution export --path ".\$solution_name-managed.zip" --name "$solution_name" --managed --overwrite
+		pac solution export --path ".\$solution_name-managed.zip" --name "$solution_name" --managed --overwrite --async
 	} else {
 		Write-Host "Exporting the solution '$solution_name' as unmanaged..."
-		pac solution export --path ".\$solution_name.zip" --name "$solution_name" --overwrite
+		pac solution export --path ".\$solution_name-unmanaged.zip" --name "$solution_name" --overwrite --async
 	}
 	
 	if ($LASTEXITCODE -ne 0) {
 		if ($managed -eq $true) {
         	throw "Failure while trying to export solution $solution_name-managed.zip"
 		} else {
-			throw "Failure while trying to export solution $solution_name.zip"
+			throw "Failure while trying to export solution $solution_name-unmanaged.zip"
 		}
     }
 }
 
 task apply deploy-infra-bare, import-solution
 
-task apply-managed import-managed-solution
+task apply-managed setup-powerapps-cli, import-managed-solution
 
 task package-managed import-solution, export-managed-solution
 
@@ -177,9 +178,25 @@ task capture export-unmanaged-solution, unpack-solution
 task connect configure, {
 	$settings = Get-Settings
     $hostname = $settings.environment.hostname
-    $application_id = $settings.application_id
-	$client_secret = $settings.client_secret
-	$tenant = $settings.tenant
+    $application_id = $settings.tenant.account.application_id
+	$client_secret = $settings.tenant.account.client_secret
+	$tenant = $settings.tenant.id
+
+	pac auth create --url https://$hostname/ --name RACT_DEV-SPN --applicationId $application_id --clientSecret $client_secret --tenant $tenant
+	#pac auth create --kind ADMIN
+
+	if ($LASTEXITCODE -ne 0) {
+        throw "Failure while trying to connect/authenticate with $hostname"
+    }
+}
+
+#Todo revisit how settings are applied, to avoid the need to do this
+task connect-octo {
+	$settings = Get-Settings
+    $hostname = $settings.environment.hostname
+    $application_id = $settings.tenant.account.application_id
+	$client_secret = $settings.tenant.account.client_secret
+	$tenant = $settings.tenant.id
 
 	pac auth create --url https://$hostname/ --name RACT_DEV-SPN --applicationId $application_id --clientSecret $client_secret --tenant $tenant
 	#pac auth create --kind ADMIN
@@ -191,6 +208,35 @@ task connect configure, {
 
 task disconnect configure, {
 	
+}
+
+task prepare-packages {
+	if (Test-Path -Path $packages_dir) {
+		$null = Remove-Item -Path $packages_dir -Force -Recurse
+	}	
+    $null = New-Item -ItemType Directory -Force -Path $packages_dir
+}
+
+task setup-tools prepare-packages, {
+    Push-Location -Path $packages_dir
+    nuget install Microsoft.PowerApps.CLI 
+    Pop-Location
+}
+
+task setup-powerapps-cli {
+    # install PowerApps CLI (PAC), if its not already there for some reason
+    try {
+        $pacVersion = pac | Select-String -Pattern 'Version:' -SimpleMatch
+    }
+    catch {
+        $pacVersion = ""
+    }
+    If ($pacVersion.Length -eq 0) {
+        choco install Microsoft.PowerApps.CLI -s $packages_dir
+    }
+    Else {
+        Write-Host "PowerAdmin CLI $pacVersion already installed."
+    }
 }
 
 
