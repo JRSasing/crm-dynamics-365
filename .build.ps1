@@ -71,7 +71,6 @@ task generate-main prepare, restore-packages, {
 
 task generate-static prepare, {
     robocopy ".\setup" "$build_dir" /e | Out-Null
-    robocopy ".\packages" "$build_dir\packages" /e | Out-Null
 }
 
 task generate-tools setup-tools, setup-powerapps-cli, {
@@ -79,6 +78,7 @@ task generate-tools setup-tools, setup-powerapps-cli, {
     # Copy the "one config" tool to the build folder
     $oneConfigFolder = "RACT_OneConfig.$oneconfig_version"
     robocopy "$packages_dir\$oneConfigFolder\tools" "$build_dir\tools\OneConfig" /e | Out-Null
+    robocopy "$packages_dir" "$build_dir\packages" /e | Out-Null
 
 }
 
