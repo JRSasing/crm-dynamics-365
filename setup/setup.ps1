@@ -60,7 +60,7 @@ task configure-settings prepare, {
 	$settings = Get-Settings
 	# If hostname, client id/service principal are provided via parameters, inject them into the config
 	$settings = Get-Settings
-	if (-not($hostname -eq "") ) {
+	if (-not($hostname -eq "") -and -not($hostname -eq "usedefault") ) {
 		Write-Host "Dynamics 365 hostname provided via parameter, injecting $hostname into settings"
 		$settings.environment.hostname = $hostname
 		$null = Save-Settings $settings 

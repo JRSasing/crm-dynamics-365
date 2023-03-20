@@ -1,6 +1,6 @@
 param (
     $configuration = (property configuration Release),
-    $hostname = (property hostname [string]::Empty),
+    $hostname = (property hostname "usedefault"),
     $shortVersion = (property shortVersion 0.0.0.0), # Numeric-only version
     $version = (property version 0.0.0.0) # Full version... may include branch name etc
 )
