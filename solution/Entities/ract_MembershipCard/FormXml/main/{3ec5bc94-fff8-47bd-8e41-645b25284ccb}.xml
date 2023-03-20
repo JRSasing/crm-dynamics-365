@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form>
+    <form headerdensity="HighWithControls">
       <tabs>
         <tab verticallayout="true" id="{1e9508d9-c3e2-4302-a725-177e2e96f08d}" IsUserDefined="1">
           <labels>
@@ -20,15 +20,87 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{5fc76f0e-401d-4765-8ccc-ba896259b8ae}">
+                      <cell id="{5fc76f0e-401d-4765-8ccc-ba896259b8ae}" visible="false">
                         <labels>
-                          <label description="ID Number" languagecode="1033" />
+                          <label description="Card Number" languagecode="1033" />
                         </labels>
                         <control id="ract_idnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="ract_idnumber" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{46182441-e32c-4df4-ba38-e67db67ed27d}">
+                      <cell id="{2209ceda-fee1-4a41-aa2c-e23e63ab25a3}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Prime Addressee" languagecode="1033" />
+                        </labels>
+                        <control id="ract_primeaddressee" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="ract_primeaddressee" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4dbe8424-1b5c-418c-ad9e-fde657549ee5}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Person" languagecode="1033" />
+                        </labels>
+                        <control id="ract_person" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ract_person" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{477b346d-7764-4690-98fd-bbdf120732b3}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Membership" languagecode="1033" />
+                        </labels>
+                        <control id="ract_membership" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ract_membership" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{639ea8bd-a41a-42ab-b1f9-5a0ffe89ac6c}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Issue Date" languagecode="1033" />
+                        </labels>
+                        <control id="ract_issuedate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="ract_issuedate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c8b4240c-45f6-43e8-b8e9-e58e0189dd42}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Request Date" languagecode="1033" />
+                        </labels>
+                        <control id="ract_requestdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="ract_requestdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{80a4e6ca-8b3d-488b-91ae-e44831c13335}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Expiry Date" languagecode="1033" />
+                        </labels>
+                        <control id="ract_expirydate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="ract_expirydate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{736511e2-0cd8-43f2-b17a-526bf47be9f8}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Join Date" languagecode="1033" />
+                        </labels>
+                        <control id="ract_joindate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="ract_joindate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5cc6cd16-e21d-4865-94e2-37d0d6002a10}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Issuance Number" languagecode="1033" />
+                        </labels>
+                        <control id="ract_issuancenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ract_issuancenumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{12092fa8-51a7-4a1a-acd1-edb34e4e34dd}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Requested By" languagecode="1033" />
+                        </labels>
+                        <control id="ract_requestedby" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ract_requestedby" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{46182441-e32c-4df4-ba38-e67db67ed27d}" visible="false">
                         <labels>
                           <label description="Owner" languagecode="1033" />
                         </labels>
@@ -42,6 +114,51 @@
           </columns>
         </tab>
       </tabs>
+      <header id="{d33529e5-7bef-4df2-98f4-ef5a144b790f}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{bfe3f44d-87ed-4239-b797-39854efb9ccc}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{3018f367-9aac-414b-858c-c972422fc0f5}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{4fb82454-0a7e-4dc0-843c-9c458159f65a}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{d7662ac3-0850-4c3a-8262-62e2de7e877a}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{71018519-6f62-40bb-aaed-da80a96da8eb}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{0448b2a2-0abc-4287-bb58-2ba321cfc675}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{785cdc33-00d2-4855-8e93-39f7592732d8}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

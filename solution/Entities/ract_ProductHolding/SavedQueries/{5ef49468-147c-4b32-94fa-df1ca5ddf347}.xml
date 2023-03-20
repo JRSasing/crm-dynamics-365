@@ -10,7 +10,11 @@
     <layoutxml>
       <grid name="resultset" jump="ract_name" select="1" icon="1" preview="1">
         <row name="result" id="ract_productholdingid">
-          <cell name="ract_name" width="300" />
+          <cell name="ract_person" width="173" />
+          <cell name="ract_name" width="208" />
+          <cell name="ract_referencenumber" width="100" />
+          <cell name="ract_product" width="100" />
+          <cell name="ract_producttype" width="100" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -28,7 +32,15 @@
           </filter>
           <filter type="or" isquickfindfields="1">
             <condition attribute="ract_name" operator="like" value="{0}" />
+            <condition attribute="ract_referencenumber" operator="like" value="{0}" />
+            <condition attribute="ract_product" operator="like" value="{0}" />
+            <condition attribute="ract_producttype" operator="like" value="{0}" />
+            <condition attribute="ract_person" operator="like" value="{0}" />
           </filter>
+          <attribute name="ract_referencenumber" />
+          <attribute name="ract_product" />
+          <attribute name="ract_producttype" />
+          <attribute name="ract_person" />
         </entity>
       </fetch>
     </fetchxml>

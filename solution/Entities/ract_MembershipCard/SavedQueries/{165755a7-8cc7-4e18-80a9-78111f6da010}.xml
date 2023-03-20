@@ -10,7 +10,10 @@
     <layoutxml>
       <grid name="ract_membershipcards" jump="ract_idnumber" select="1" icon="1" preview="1">
         <row name="ract_membershipcard" id="ract_membershipcardid">
-          <cell name="ract_idnumber" width="300" />
+          <cell name="ract_idnumber" width="200" />
+          <cell name="ract_requestdate" width="132" />
+          <cell name="ract_issuedate" width="121" />
+          <cell name="ract_primeaddressee" width="100" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -26,6 +29,9 @@
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
+          <attribute name="ract_requestdate" />
+          <attribute name="ract_issuedate" />
+          <attribute name="ract_primeaddressee" />
         </entity>
       </fetch>
     </fetchxml>

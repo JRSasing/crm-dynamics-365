@@ -1,0 +1,8 @@
+function getFormName(){
+var formName = Xrm.Page.ui.formSelector.getCurrentItem().getLabel();
+var value = true;
+if (formName.toLowerCase() === "marketing form"){
+    value = false;
+}
+return value;
+}

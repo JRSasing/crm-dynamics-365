@@ -1,0 +1,135 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataservice": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "ract_sharedcommondataservice_7a1eb"
+        },
+        "api": {
+          "name": "shared_commondataservice"
+        }
+      },
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "ract_sharedcommondataserviceforapps_9044f"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "splitOn": "@triggerBody()['rows']",
+          "metadata": {
+            "operationMetadataId": "48b3f6c0-9857-4ba4-a053-c6c68bb69a4e"
+          },
+          "type": "Request",
+          "kind": "ApiConnection",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "rows": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "entity": {
+                        "type": "object",
+                        "properties": {
+                          "contactid": {
+                            "title": "Contact",
+                            "type": "string",
+                            "format": "guid"
+                          }
+                        },
+                        "required": [
+                          "contactid"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "entity"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "rows"
+              ]
+            },
+            "host": {
+              "connection": {
+                "name": "@parameters('$connections')['shared_commondataservice']['connectionId']"
+              }
+            },
+            "operationId": "GetOnNewItems_V2",
+            "parameters": {
+              "dataset": "default.cds",
+              "table": "contacts"
+            }
+          }
+        }
+      },
+      "actions": {
+        "Update_a_row": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "83817846-33a3-4cc8-a172-00b15ea77cf0"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "contacts",
+              "recordId": "@triggerBody()?['entity']?['contactid']",
+              "item/ract_destinationsoptin": false,
+              "item/ract_destinationsoptinmodified": "@null",
+              "item/ract_digitaljourneysoptin": false,
+              "item/ract_digitaljourneysoptinmodified": "@null",
+              "item/ract_enewsemailoptin": false,
+              "item/ract_enewsemailoptinmodified": "@null",
+              "item/ract_financeoptin": false,
+              "item/ract_financeoptinmodified": "@null",
+              "item/ract_insuranceoptin": false,
+              "item/ract_insuranceoptinmodified": "@null",
+              "item/ract_marketingoptin": false,
+              "item/ract_marketingoptinmodifiedon": "@null",
+              "item/ract_marketingscriptread": false,
+              "item/ract_marketingscriptreadon": "@null",
+              "item/ract_roadsideservicesoptin": false,
+              "item/ract_roadsideoptinmodified": "@null"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

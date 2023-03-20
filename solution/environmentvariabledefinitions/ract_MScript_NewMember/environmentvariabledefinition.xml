@@ -1,0 +1,14 @@
+<environmentvariabledefinition schemaname="ract_MScript_NewMember">
+  <defaultvalue>As a member you will automatically receive our eNews and bi monthly Journey's magazine, however from time to time we also have personalised email offers available from the RACT group. Would you be happy to receive these also?</defaultvalue>
+  <description default="Marketing Script for New Member">
+    <label description="Marketing Script for New Member" languagecode="1033" />
+  </description>
+  <displayname default="MScript_NewMember">
+    <label description="MScript_NewMember" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.0.11</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>

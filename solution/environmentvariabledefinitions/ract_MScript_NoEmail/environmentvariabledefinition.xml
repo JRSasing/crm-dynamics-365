@@ -1,0 +1,14 @@
+<environmentvariabledefinition schemaname="ract_MScript_NoEmail">
+  <defaultvalue>As a member you automatically receive our eNews and bi monthly Journey's magazine. I can see we don't currently have an email address on file for you. Would you like to provide one? From time to time, we also have personalised email offers available from the RACT Group, would you be happy to receive these?</defaultvalue>
+  <description default="Marketing script for Customers or Members with no Email">
+    <label description="Marketing script for Customers or Members with no Email" languagecode="1033" />
+  </description>
+  <displayname default="MScript_NoEmail">
+    <label description="MScript_NoEmail" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.0.11</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>

@@ -10,8 +10,15 @@
     <layoutxml>
       <grid name="resultset" jump="ract_name" select="1" icon="1" preview="1">
         <row name="result" id="ract_productholdingid">
-          <cell name="ract_name" width="300" />
-          <cell name="createdon" width="125" />
+          <cell name="ract_referencenumber" width="100" />
+          <cell name="ract_product" width="100" />
+          <cell name="ract_productstatus" width="100" />
+          <cell name="ract_startdate" width="100" />
+          <cell name="ract_expirydate" width="100" />
+          <cell name="ract_relationship" width="100" />
+          <cell name="ract_primaryproductholder" width="100" />
+          <cell name="ract_price" width="100" />
+          <cell name="ract_producttype" width="100" />
         </row>
       </grid>
     </layoutxml>
@@ -20,12 +27,18 @@
       <fetch version="1.0" mapping="logical">
         <entity name="ract_productholding">
           <attribute name="ract_productholdingid" />
-          <attribute name="ract_name" />
-          <attribute name="createdon" />
-          <order attribute="ract_name" descending="false" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="1" />
           </filter>
+          <attribute name="ract_referencenumber" />
+          <attribute name="ract_product" />
+          <attribute name="ract_productstatus" />
+          <attribute name="ract_startdate" />
+          <attribute name="ract_expirydate" />
+          <attribute name="ract_relationship" />
+          <attribute name="ract_primaryproductholder" />
+          <attribute name="ract_price" />
+          <attribute name="ract_producttype" />
         </entity>
       </fetch>
     </fetchxml>

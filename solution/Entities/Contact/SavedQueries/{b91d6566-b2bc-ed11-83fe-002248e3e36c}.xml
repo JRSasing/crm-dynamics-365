@@ -10,12 +10,12 @@
     <layoutxml>
       <grid name="resultset" jump="fullname" select="1" icon="1" preview="1">
         <row name="result" id="contactid">
-          <cell name="fullname" width="300" />
+          <cell name="fullname" width="186" />
           <cell name="birthdate" width="100" />
           <cell name="emailaddress1" width="150" />
           <cell name="mobilephone" width="100" />
           <cell name="telephone2" width="100" />
-          <cell name="preferredcontactmethodcode" width="100" />
+          <cell name="ract_preferredcontactnumber" width="100" />
           <cell name="ract_residentialaddressoneline" width="100" />
           <cell name="ract_postaladdressoneline" width="100" />
         </row>
@@ -36,9 +36,9 @@
           <attribute name="birthdate" />
           <attribute name="mobilephone" />
           <attribute name="telephone2" />
-          <attribute name="preferredcontactmethodcode" />
           <attribute name="ract_residentialaddressoneline" />
           <attribute name="ract_postaladdressoneline" />
+          <attribute name="ract_preferredcontactnumber" />
         </entity>
       </fetch>
     </fetchxml>
