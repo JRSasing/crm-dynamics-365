@@ -190,6 +190,7 @@ task connect configure, {
     }
 }
 
+#Todo revisit how settings are applied, to avoid the need to do this
 task connect-octo {
 	$settings = Get-Settings
     $hostname = $settings.environment.hostname
