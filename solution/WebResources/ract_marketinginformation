@@ -1,0 +1,107 @@
+/** Marketing Context Form Onload Function */
+function marketingOnLoad(executionContext){
+    var formContext = executionContext.getFormContext();
+    hideFormItems(formContext);
+    showNotification(formContext);
+    showMarketingOptInField(formContext);
+
+}
+//Hides header, footer and tab navigator
+function hideFormItems(formContext){
+    formContext.ui.headerSection.setBodyVisible(false);
+    formContext.ui.headerSection.setTabNavigatorVisible(false);
+    formContext.ui.footerSection.setVisible(false);
+}
+//Displays a notification on the form
+function showNotification(formContext){
+    var message = formContext.getAttribute("ract_marketingscript").getValue().toLowerCase();
+    var level = "WARNING";
+    var uniqueId = "marketingonload";
+    if (message === null || message === ""){
+        message = "Marketing Script is empty"
+    }
+    getEnvironmentVariable(message).then(function (value) {
+        if (value !== null) {
+            formContext.ui.setFormNotification(value, level, uniqueId);
+        }
+    });
+    
+}
+//Display hidden field if marketing script is read
+function showMarketingOptInField(formContext){
+    var prefencesField = formContext.getControl("ract_marketingoptin");
+    var marketingScriptRead = formContext.getAttribute("ract_marketingscriptread").getValue();
+    if (marketingScriptRead === true) {
+        prefencesField.setVisible(true);
+    }
+    else {
+        prefencesField.setVisible(false);
+    }
+}
+
+
+/** Marketing Context Form OnSave Function */
+function marketingOnSave(executionContext){
+    var formContext = executionContext.getFormContext();
+    var emailValue = formContext.getAttribute("emailaddress1").getValue();
+    var _savemode = executionContext.getEventArgs().getSaveMode();
+    console.log("Marketing form saved");
+     //return if save mode is Auto Save
+     if (_savemode === 70) {
+        console.log("form autosaved")
+        executionContext.getEventArgs().preventDefault(); // Don't save
+        return;
+    }
+    else {
+        var marketingScriptisRead = formContext.getAttribute("ract_marketingscriptread").getValue();
+        if (marketingScriptisRead){
+            formContext.getAttribute("ract_marketingscriptreadon").setValue(new Date());
+        }
+        if (formContext.getAttribute("ract_marketingscriptread").getValue() === true ){
+            formContext.getAttribute("ract_marketingoptinmodifiedon").setValue(new Date());
+        }
+    }
+        
+
+}
+
+/** Marketing Context Form OnChange Function */
+//Toggle visibility of Prefences field depending on the value of the marketing script read field
+function togglePrefencesField(executionContext) {
+    var formContext = executionContext.getFormContext();
+    var prefencesField = formContext.getControl("ract_marketingoptin");
+    var marketingScriptRead = formContext.getAttribute("ract_marketingscriptread").getValue();
+    if (marketingScriptRead === true) {
+        prefencesField.setVisible(true);
+    }
+    else {
+        prefencesField.setVisible(false);
+    }
+}
+
+
+//get Environment Variable Value
+async function getEnvironmentVariable(schemaName) {
+    var value = null;
+
+   // Get the matching environment variable definition with related values
+    var data = await Xrm.WebApi.retrieveMultipleRecords("environmentvariabledefinition", "?$top=1" +
+        "&$select=environmentvariabledefinitionid,defaultvalue" +
+        "&$expand=environmentvariabledefinition_environmentvariablevalue($select=value)" +
+        `&$filter=schemaname eq '${schemaName}'`);
+
+   if (data && data.entities && data.entities.length > 0) {
+        // Definition exists
+        var definition = data.entities[0];
+
+       // Use the default value only if no related values
+        value = definition.defaultvalue;
+
+       // Get the related value if provided
+        if (definition.environmentvariabledefinition_environmentvariablevalue.length > 0) {
+            value = definition.environmentvariabledefinition_environmentvariablevalue[0].value;
+        }
+    }
+
+   return value;
+}

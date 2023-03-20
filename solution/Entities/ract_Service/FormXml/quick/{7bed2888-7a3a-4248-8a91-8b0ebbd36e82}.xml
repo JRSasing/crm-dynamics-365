@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{7bed2888-7a3a-4248-8a91-8b0ebbd36e82}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{a4d867ef-c16e-4492-90e7-3bedbbaf4fc2}" IsUserDefined="1">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{832d1436-cc1c-45a3-8dad-f2619612e109}">
+                  <labels>
+                    <label description="GENERAL" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{bc7c6eec-90f6-4da0-bf92-fc9c1151947d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Reference Number" languagecode="1033" />
+                        </labels>
+                        <control id="ract_referencenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ract_referencenumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{98debf95-04e1-45a9-9755-413b1d3067cc}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Partner" languagecode="1033" />
+                        </labels>
+                        <control id="ract_partner" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ract_partner" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e00ad3ca-a6c4-4254-9e1a-79f541758003}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Person" languagecode="1033" />
+                        </labels>
+                        <control id="ract_person" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ract_person" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cbfd395f-6136-488a-ba8e-f807f050ce16}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Product" languagecode="1033" />
+                        </labels>
+                        <control id="ract_product" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ract_product" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{eece5715-0472-4706-a5c9-1555df7c8359}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Service" languagecode="1033" />
+                        </labels>
+                        <control id="ract_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="ract_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{162e6855-5cc1-499e-955e-f7f24b552fd2}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Service Date" languagecode="1033" />
+                        </labels>
+                        <control id="ract_servicedate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="ract_servicedate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{83d5964a-818d-42e6-8630-4cdcfd57c78a}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Service Type" languagecode="1033" />
+                        </labels>
+                        <control id="ract_servicetype" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ract_servicetype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{af67e09e-8aad-4403-81a8-6b150dda2277}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Price" languagecode="1033" />
+                        </labels>
+                        <control id="ract_price" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="ract_price" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{47d95ae3-d5d1-410d-bf17-250f142531c6}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Service Transaction ID" languagecode="1033" />
+                        </labels>
+                        <control id="ract_servicetransactionid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ract_servicetransactionid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f201f4a0-adc7-45d9-a64a-a128c9e8ef57}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Status" languagecode="1033" />
+                        </labels>
+                        <control id="statecode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bf792cf8-8aa4-475e-a424-df85db58beea}" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

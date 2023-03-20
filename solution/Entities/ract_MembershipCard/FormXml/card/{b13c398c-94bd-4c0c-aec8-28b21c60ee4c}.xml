@@ -56,7 +56,7 @@
                     <row>
                       <cell id="{14d6e5ac-1bab-480e-9292-da121a0cdc8e}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="ID Number" languagecode="1033" />
+                          <label description="Card Number" languagecode="1033" />
                         </labels>
                         <control id="ract_idnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="ract_idnumber" disabled="false" />
                       </cell>

@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{b8ee775f-44c1-ed11-b596-002248e3e36c}</formid>
+    <IntroducedVersion>1.0.0.3</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="1920">
+      <hiddencontrols>
+        <data id="routecase" datafieldname="routecase" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+        <data id="masterid" datafieldname="masterid" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+      </hiddencontrols>
+      <tabs>
+        <tab id="{8bb2a61e-ac16-4910-a3b5-1d9626be43f8}" name="tab_1" showlabel="false" locklevel="0" expanded="true" labelid="{dc52cbbf-d74e-4c48-82e9-2d74f0cee6f9}">
+          <labels>
+            <label description="Case" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="33%">
+              <sections>
+                <section id="{14bfd4f2-4916-4155-918c-296e9cc584cf}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left" labelid="{840106f6-10bf-4b7a-9f32-11b3dc9e328f}" visible="false" availableforphone="false">
+                  <labels>
+                    <label description="Case Details" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{430d4187-388a-e8aa-5a62-9d4bce3da16a}" showlabel="true" locklevel="0" labelid="{5731d715-ae4e-451c-a81f-4eb8980596bc}">
+                        <labels>
+                          <label description="Customer" languagecode="1033" />
+                        </labels>
+                        <control id="customerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="customerid" disabled="false" uniqueid="{e0101eb5-6aa4-91da-eada-aa3484e2d1c9}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e247bce2-be0d-b283-8ee9-c684e332e6aa}" showlabel="true" locklevel="0" labelid="{58e8b142-526a-461d-9fcc-559973a020eb}">
+                        <labels>
+                          <label description="Case Title" languagecode="1033" />
+                        </labels>
+                        <control id="title" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="title" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6bbb06cc-45b3-2e66-4537-0e6a576a8c20}" showlabel="true" locklevel="0" labelid="{a976f751-0d04-47ca-856e-3bffe508eddd}" visible="false" availableforphone="false">
+                        <labels>
+                          <label description="Subject" languagecode="1033" />
+                        </labels>
+                        <control id="subjectid" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="subjectid" disabled="false" uniqueid="{2860e309-1074-d471-ec5b-adc3806c47e2}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9e9ac325-6936-7963-586d-610b5b673db2}" showlabel="true" locklevel="0" labelid="{bf6a86c2-91ee-4ea3-9223-d5160e50743a}">
+                        <labels>
+                          <label description="Case Type" languagecode="1033" />
+                        </labels>
+                        <control id="casetypecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="casetypecode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4aedc4c5-40e0-5833-89ea-4b9315078785}" showlabel="true" locklevel="0" labelid="{9d891fc7-9d09-45e2-95a8-b6a516413655}">
+                        <labels>
+                          <label description="Case Status" languagecode="1033" />
+                        </labels>
+                        <control id="statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="false" uniqueid="{0da8c9d3-1db3-a754-1168-c28027b1ebae}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d1d29391-1e23-5809-b23c-3c1808ea2622}" showlabel="true" locklevel="0" labelid="{50a9b603-c315-4a94-b1a1-dd09b7249b04}">
+                        <labels>
+                          <label description="Priority" languagecode="1033" />
+                        </labels>
+                        <control id="prioritycode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="prioritycode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5007aa75-3bb1-d770-a9cd-d228220d4a0b}" showlabel="true" locklevel="1" labelid="{e7c3b540-b8e0-4660-b737-72c7ccedb8dc}">
+                        <labels>
+                          <label description="Assign to Others" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" uniqueid="{c9d23e30-1249-3582-01d2-0b25dbb55e8c}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6024b585-d95d-d735-8504-877c6709883c}" showlabel="true" locklevel="0" labelid="{22156f7d-570c-445d-8e5c-c9c5756cb0e7}">
+                        <labels>
+                          <label description="Parent Case" languagecode="1033" />
+                        </labels>
+                        <control id="parentcaseid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="parentcaseid" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{2efe6226-e554-4510-9e34-0d2a70089c26}" name="tab_1_column_2_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left" height="auto" labelid="{bfaaa4b0-c0b5-4e03-ae17-f981d97b62d6}">
+                  <labels>
+                    <label description="Description" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{13465a3a-d267-c6c0-8cb4-a8963d8bee16}" showlabel="false" locklevel="0" auto="true" rowspan="8" labelid="{d37dad0b-547c-4537-919b-dc8dd6a75031}" visible="false" availableforphone="false">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" disabled="false" uniqueid="{bda139d7-3b0b-6638-bcb0-8c5e66894a8d}" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row height="auto" />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{fe81cb5d-daff-42c1-b914-0eb17d500d2f}" name="tab_1_column_3_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelid="{4afa46ac-6905-459b-9453-2432ce6fcabf}" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Summary" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{1b42a919-9a94-48d3-a1e3-b6ebc0769ca3}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Case Number" languagecode="1033" />
+                        </labels>
+                        <control id="ticketnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="ticketnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{25785e27-4a78-02d3-01c1-dc08265c9e47}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Category" languagecode="1033" />
+                        </labels>
+                        <control id="ract_category" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ract_category" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b5363661-c2e3-042e-7db9-79720834c687}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Sub-Category" languagecode="1033" />
+                        </labels>
+                        <control id="ract_subcategory" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ract_subcategory" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ba077b4c-5490-4549-b33a-527f2ef704ac}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Person" languagecode="1033" />
+                        </labels>
+                        <control id="ract_person" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ract_person" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7765a639-8a05-9184-da45-60e392b4d682}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Account" languagecode="1033" />
+                        </labels>
+                        <control id="ract_account" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ract_account" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9d99198e-9844-78b9-a8cc-ba4a843d1b54}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Product" languagecode="1033" />
+                        </labels>
+                        <control id="productid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="productid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{247972dc-979a-ba07-0479-99cd432818d3}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Complaint Secondary Reason" languagecode="1033" />
+                        </labels>
+                        <control id="ract_complaintsecondaryreason" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ract_complaintsecondaryreason" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a50a2a32-5a27-3856-aabb-616da7e3ea1a}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Complaint Desired Outcome" languagecode="1033" />
+                        </labels>
+                        <control id="ract_complaintdesiredoutcome" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ract_complaintdesiredoutcome" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ad89520c-a883-c448-641a-33a8d05168de}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Complaint Outcome" languagecode="1033" />
+                        </labels>
+                        <control id="ract_complaintoutcome" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ract_complaintoutcome" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a8490928-0426-9166-50ce-7e4a490488a9}" showlabel="true" locklevel="0" visible="true">
+                        <labels>
+                          <label description="Is Related to Incident?" languagecode="1033" />
+                        </labels>
+                        <control id="ract_isrelatedtoincident" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="ract_isrelatedtoincident" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8e4ea0bd-3ee7-1e99-d04c-07551d3b90bd}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Has Written Response Requested?" languagecode="1033" />
+                        </labels>
+                        <control id="ract_haswrittenresponserequested" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="ract_haswrittenresponserequested" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{22491327-94b4-0eb9-95a7-075ba833d2e2}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Set Manual Due Date" languagecode="1033" />
+                        </labels>
+                        <control id="ract_setmanualduedate" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="ract_setmanualduedate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ded2b489-271c-e0e7-0945-b10bce6397d3}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Due Date" languagecode="1033" />
+                        </labels>
+                        <control id="ract_duedate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="ract_duedate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{067e7eed-c182-acb3-18a6-c0698caa202a}" showlabel="false" userspacer="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <controlDescriptions>
+        <controlDescription forControl="{2860e309-1074-d471-ec5b-adc3806c47e2}">
+          <customControl id="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" formFactor="0">
+            <parameters>
+              <datafieldname>subjectid</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" formFactor="1">
+            <parameters>
+              <datafieldname>subjectid</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.CustomerService.SelectionTreeViewControl">
+            <parameters>
+              <selectedSubject>
+                <BindAttribute>subjectid</BindAttribute>
+                <DefaultViewId>00000000-0000-0000-0000-000000000000</DefaultViewId>
+                <FilterRelationshipName />
+                <DependentAttributeName />
+                <DependentAttributeType />
+                <AvailableViewIds />
+                <AllowFilterOff>true</AllowFilterOff>
+                <DisableQuickFind>true</DisableQuickFind>
+                <DisableViewPicker>true</DisableViewPicker>
+              </selectedSubject>
+              <treeViewConfig static="true" type="SingleLine.Text">{\"viewSize\":\"small\"}</treeViewConfig>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="RACT - Case Quick Create" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="RACT Quick Create Form" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

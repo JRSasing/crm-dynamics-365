@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModule>
+  <UniqueName>msdyn_CustomerServiceWorkspace</UniqueName>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <WebResourceId>21aa1d8b-2c55-e711-80f0-000d3aa2b1c4</WebResourceId>
+  <OptimizedFor></OptimizedFor>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <FormFactor>1</FormFactor>
+  <ClientType>4</ClientType>
+  <NavigationType>1</NavigationType>
+  <AppModuleComponents>
+    <AppModuleComponent type="1" schemaName="account" />
+    <AppModuleComponent type="1" schemaName="activitymimeattachment" />
+    <AppModuleComponent type="1" schemaName="activitypointer" />
+    <AppModuleComponent type="1" schemaName="appnotification" />
+    <AppModuleComponent type="1" schemaName="appointment" />
+    <AppModuleComponent type="1" schemaName="category" />
+    <AppModuleComponent type="1" schemaName="contact" />
+    <AppModuleComponent type="1" schemaName="email" />
+    <AppModuleComponent type="1" schemaName="emailsignature" />
+    <AppModuleComponent type="1" schemaName="entitlement" />
+    <AppModuleComponent type="1" schemaName="expiredprocess" />
+    <AppModuleComponent type="1" schemaName="fax" />
+    <AppModuleComponent type="1" schemaName="incident" />
+    <AppModuleComponent type="1" schemaName="incidentresolution" />
+    <AppModuleComponent type="1" schemaName="knowledgearticle" />
+    <AppModuleComponent type="1" schemaName="knowledgearticleincident" />
+    <AppModuleComponent type="1" schemaName="knowledgebaserecord" />
+    <AppModuleComponent type="1" schemaName="letter" />
+    <AppModuleComponent type="1" schemaName="msdyn_dataanalyticsreport_csrmanager" />
+    <AppModuleComponent type="1" schemaName="msdyn_dataanalyticsreport_forecast" />
+    <AppModuleComponent type="1" schemaName="msdyn_dataanalyticsreport_ksinsights" />
+    <AppModuleComponent type="1" schemaName="msdyn_iotalert" />
+    <AppModuleComponent type="1" schemaName="msdyn_swarm" />
+    <AppModuleComponent type="1" schemaName="msdyn_unifiedroutingrun" />
+    <AppModuleComponent type="1" schemaName="newprocess" />
+    <AppModuleComponent type="1" schemaName="phonecall" />
+    <AppModuleComponent type="1" schemaName="product" />
+    <AppModuleComponent type="1" schemaName="queueitem" />
+    <AppModuleComponent type="1" schemaName="ract_alerts" />
+    <AppModuleComponent type="1" schemaName="ract_casebpf" />
+    <AppModuleComponent type="1" schemaName="ract_categorytype" />
+    <AppModuleComponent type="1" schemaName="ract_complaintdesiredoutcomes" />
+    <AppModuleComponent type="1" schemaName="ract_complaintoutcomes" />
+    <AppModuleComponent type="1" schemaName="ract_complaintreasonsecondary" />
+    <AppModuleComponent type="1" schemaName="ract_complaintreopenedreasons" />
+    <AppModuleComponent type="1" schemaName="ract_maincategory" />
+    <AppModuleComponent type="1" schemaName="ract_membershipcard" />
+    <AppModuleComponent type="1" schemaName="ract_partner" />
+    <AppModuleComponent type="1" schemaName="ract_partnercategory" />
+    <AppModuleComponent type="1" schemaName="ract_productholding" />
+    <AppModuleComponent type="1" schemaName="ract_subcategory" />
+    <AppModuleComponent type="1" schemaName="serviceappointment" />
+    <AppModuleComponent type="1" schemaName="site" />
+    <AppModuleComponent type="1" schemaName="slakpiinstance" />
+    <AppModuleComponent type="1" schemaName="task" />
+    <AppModuleComponent type="1" schemaName="template" />
+    <AppModuleComponent type="1" schemaName="translationprocess" />
+    <AppModuleComponent type="1" schemaName="uomschedule" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001002}" />
+    <AppModuleComponent type="26" id="{65ffaf9a-e8c5-432d-860b-32f841b00d87}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001031}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001001}" />
+    <AppModuleComponent type="26" id="{d234426e-1f37-4944-9255-50e19b541c4c}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001032}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001028}" />
+    <AppModuleComponent type="26" id="{cc2eeea1-bfc6-ed11-b597-002248e3e36c}" />
+    <AppModuleComponent type="26" id="{0e87dd3a-c0c6-ed11-b597-00224818ab44}" />
+    <AppModuleComponent type="26" id="{42169494-69ed-488f-984b-e5d5faf73efa}" />
+    <AppModuleComponent type="26" id="{68837700-4efe-4fdd-9ac5-197e224caba7}" />
+    <AppModuleComponent type="26" id="{70fb13db-6208-4b0d-afb1-90ae62cd628d}" />
+    <AppModuleComponent type="26" id="{eb881ae3-b1bc-ed11-83fe-00224818ab44}" />
+    <AppModuleComponent type="26" id="{b91d6566-b2bc-ed11-83fe-002248e3e36c}" />
+    <AppModuleComponent type="26" id="{5ba36bb5-b2bc-ed11-83fe-00224818ab44}" />
+    <AppModuleComponent type="26" id="{2a600798-8762-eb11-a812-000d3a5475f7}" />
+    <AppModuleComponent type="26" id="{ce3410ff-5f24-460e-bc28-33893f5df27f}" />
+    <AppModuleComponent type="26" id="{5e551bb5-117f-ec11-8d20-0022480c42fd}" />
+    <AppModuleComponent type="26" id="{9e2f290a-e1c8-4c71-9a67-fe6b98b36a88}" />
+    <AppModuleComponent type="26" id="{4474ee26-3709-ed11-b83f-0022482aea7b}" />
+    <AppModuleComponent type="26" id="{214bc6ac-d27f-ec11-8d20-0022480c42fd}" />
+    <AppModuleComponent type="26" id="{c4dd54d3-6b9d-4819-81df-c82f0263f838}" />
+    <AppModuleComponent type="26" id="{f4a46971-a1b8-4ec3-9f9e-30740bc8c8e2}" />
+    <AppModuleComponent type="26" id="{792d601c-9320-493e-aa56-852b42d2935f}" />
+    <AppModuleComponent type="26" id="{f885ad3d-1b7f-ec11-8d20-0022480c42fd}" />
+    <AppModuleComponent type="26" id="{23e865fb-1a7f-ec11-8d20-0022480c42fd}" />
+    <AppModuleComponent type="29" id="{bcd43793-5686-4fd4-b3b4-c0c26d6f7e40}" />
+    <AppModuleComponent type="29" id="{ab81c1af-1a45-48d9-8133-3edc033dbeef}" />
+    <AppModuleComponent type="29" id="{bd57803e-0408-44d6-b21d-ae7158ec6555}" />
+    <AppModuleComponent type="29" id="{006c4c42-2abe-4b61-9149-56df5b9625f9}" />
+    <AppModuleComponent type="29" id="{986528fe-a4c6-ed11-b597-00224818ab44}" />
+    <AppModuleComponent type="60" id="{c9e7ec2d-efca-4e4c-b3e3-f63c4bba5e4b}" />
+    <AppModuleComponent type="60" id="{ff49442f-8c60-4877-bdae-8fe51e6f4636}" />
+    <AppModuleComponent type="60" id="{b8ee775f-44c1-ed11-b596-002248e3e36c}" />
+    <AppModuleComponent type="60" id="{20ad3b6f-e9c6-ed11-b597-002248e3e36c}" />
+    <AppModuleComponent type="60" id="{661157fe-2fc9-4eaa-835f-5bfa2f7b64f7}" />
+    <AppModuleComponent type="60" id="{42be24f4-f0bc-ed11-83fe-002248e3e36c}" />
+    <AppModuleComponent type="60" id="{e06af4d1-2812-45c7-a9c2-9fb73fee7bec}" />
+    <AppModuleComponent type="60" id="{b55d7916-efbe-ed11-83fe-002248e3e36c}" />
+    <AppModuleComponent type="60" id="{b864afd8-d593-42d2-a93d-36228d497055}" />
+    <AppModuleComponent type="60" id="{16a37fb7-9c8e-4f3b-b72d-470ca4a09bd2}" />
+    <AppModuleComponent type="60" id="{338ea94a-8f9f-ea11-a812-000d3a31a607}" />
+    <AppModuleComponent type="60" id="{4e76815a-1f63-df11-ae90-00155d2e3002}" />
+    <AppModuleComponent type="60" id="{65e050d3-8b71-4b53-acb5-bb9af83bf384}" />
+    <AppModuleComponent type="60" id="{acb40ffe-a1e0-47d0-a472-799911009df6}" />
+    <AppModuleComponent type="62" schemaName="msdyn_CustomerServiceWorkspace" />
+  </AppModuleComponents>
+  <AppModuleRoleMaps>
+    <Role id="{54823cd5-4bbe-ed11-83fe-002248e3e36c}" />
+    <Role id="{a97b0e62-08be-ed11-83fe-002248e3e36c}" />
+    <Role id="{2b1b8d32-48be-ed11-83fe-002248e3e36c}" />
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+  </AppModuleRoleMaps>
+  <EventHandlers>
+    <EventHandler eventname="onload" functionname="AppRuntime.Bootstrapper.CECBootstrapper.Instance.init" libraryname="msdyn_CECAppRuntime.js" parameters="" enable="true" isblocking="false" />
+    <EventHandler eventname="onload" functionname="DeepLinkLoader.DeepLinkLoader.Main" libraryname="msdyn_DeepLinkLoader.js" parameters="" enable="true" isblocking="true" />
+  </EventHandlers>
+  <LocalizedNames>
+    <LocalizedName description="Customer Service workspace" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Multi-session Customer Service with Productivity tools" languagecode="1033" />
+  </Descriptions>
+  <appsettings>
+    <appsetting settingdefinitionid.uniquename="msdynce_inserttemplatedialogsetting">
+      <iscustomizable>1</iscustomizable>
+      <value>true</value>
+    </appsetting>
+  </appsettings>
+</AppModule>

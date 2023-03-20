@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{19a5f203-21e7-4bc9-8356-7e54d17288b2}</savedqueryid>
+    <layoutxml>
+      <grid name="ract_rewardtransactions" jump="ract_name" select="1" icon="1" preview="1">
+        <row name="ract_rewardtransaction" id="ract_rewardtransactionid">
+          <cell name="ract_partner" width="100" />
+          <cell name="ract_discountamount" width="100" />
+          <cell name="ract_transactiondate" width="100" />
+        </row>
+        <controlDescriptions>
+          <controlDescription>
+            <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+              <parameters />
+            </customControl>
+            <customControl name="MscrmControls.Grid.PCFGridControl" formFactor="0">
+              <parameters>
+                <data-set name="Items">
+                  <ViewId>00000000-0000-0000-0000-000000000000</ViewId>
+                </data-set>
+                <ColumnResizing static="true" type="Enum">Enable</ColumnResizing>
+                <ColumnMoving static="true" type="Enum">Disable</ColumnMoving>
+                <ColumnPinning static="true" type="Enum">Disable</ColumnPinning>
+                <RowStyle static="true" type="Enum">Flat</RowStyle>
+                <RowSelection static="true" type="Enum">Multiple</RowSelection>
+                <SelectionColumn static="true" type="Enum">Enable</SelectionColumn>
+                <JumpBar static="true" type="Enum">Disable</JumpBar>
+                <Footer static="true" type="Enum">Enable</Footer>
+                <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+                <EnableFiltering static="true" type="Enum">Enable</EnableFiltering>
+                <EnableRangeSelection static="true" type="Enum">yes</EnableRangeSelection>
+                <NavigationTypesAllowed static="true" type="Enum">all</NavigationTypesAllowed>
+                <RowHeight static="true" type="Whole.None">42</RowHeight>
+                <RowHeightMobile static="true" type="Whole.None">72</RowHeightMobile>
+                <HeaderHeight static="true" type="Whole.None">42</HeaderHeight>
+                <GridInnerLeftPadding static="true" type="Whole.None">32</GridInnerLeftPadding>
+                <GridInnerRightPadding static="true" type="Whole.None">32</GridInnerRightPadding>
+              </parameters>
+            </customControl>
+            <customControl name="MscrmControls.Grid.PCFGridControl" formFactor="1">
+              <parameters>
+                <data-set name="Items">
+                  <ViewId>00000000-0000-0000-0000-000000000000</ViewId>
+                </data-set>
+                <ColumnResizing static="true" type="Enum">Enable</ColumnResizing>
+                <ColumnMoving static="true" type="Enum">Disable</ColumnMoving>
+                <ColumnPinning static="true" type="Enum">Disable</ColumnPinning>
+                <RowStyle static="true" type="Enum">Flat</RowStyle>
+                <RowSelection static="true" type="Enum">Multiple</RowSelection>
+                <SelectionColumn static="true" type="Enum">Enable</SelectionColumn>
+                <JumpBar static="true" type="Enum">Disable</JumpBar>
+                <Footer static="true" type="Enum">Enable</Footer>
+                <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+                <EnableFiltering static="true" type="Enum">Enable</EnableFiltering>
+                <EnableRangeSelection static="true" type="Enum">yes</EnableRangeSelection>
+                <NavigationTypesAllowed static="true" type="Enum">all</NavigationTypesAllowed>
+                <RowHeight static="true" type="Whole.None">42</RowHeight>
+                <RowHeightMobile static="true" type="Whole.None">72</RowHeightMobile>
+                <HeaderHeight static="true" type="Whole.None">42</HeaderHeight>
+                <GridInnerLeftPadding static="true" type="Whole.None">32</GridInnerLeftPadding>
+                <GridInnerRightPadding static="true" type="Whole.None">32</GridInnerRightPadding>
+              </parameters>
+            </customControl>
+            <customControl name="MscrmControls.Grid.PCFGridControl" formFactor="2">
+              <parameters>
+                <data-set name="Items">
+                  <ViewId>00000000-0000-0000-0000-000000000000</ViewId>
+                </data-set>
+                <ColumnResizing static="true" type="Enum">Enable</ColumnResizing>
+                <ColumnMoving static="true" type="Enum">Disable</ColumnMoving>
+                <ColumnPinning static="true" type="Enum">Disable</ColumnPinning>
+                <RowStyle static="true" type="Enum">Flat</RowStyle>
+                <RowSelection static="true" type="Enum">Multiple</RowSelection>
+                <SelectionColumn static="true" type="Enum">Enable</SelectionColumn>
+                <JumpBar static="true" type="Enum">Disable</JumpBar>
+                <Footer static="true" type="Enum">Enable</Footer>
+                <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+                <EnableFiltering static="true" type="Enum">Enable</EnableFiltering>
+                <EnableRangeSelection static="true" type="Enum">yes</EnableRangeSelection>
+                <NavigationTypesAllowed static="true" type="Enum">all</NavigationTypesAllowed>
+                <RowHeight static="true" type="Whole.None">42</RowHeight>
+                <RowHeightMobile static="true" type="Whole.None">72</RowHeightMobile>
+                <HeaderHeight static="true" type="Whole.None">42</HeaderHeight>
+                <GridInnerLeftPadding static="true" type="Whole.None">32</GridInnerLeftPadding>
+                <GridInnerRightPadding static="true" type="Whole.None">32</GridInnerRightPadding>
+              </parameters>
+            </customControl>
+          </controlDescription>
+        </controlDescriptions>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="ract_rewardtransaction">
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="ract_partner" />
+          <attribute name="ract_discountamount" />
+          <attribute name="ract_transactiondate" />
+          <attribute name="ract_rewardtransactionid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Reward Transaction Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

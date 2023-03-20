@@ -1,0 +1,14 @@
+<environmentvariabledefinition schemaname="ract_MScript_NoPreference">
+  <defaultvalue>We recognise that you are currently receiving some of our member publications, however from time to time we also have personalised email offers from the RACT group. Would you be happy to receive these also?</defaultvalue>
+  <description default="Marketing script for members with no preference">
+    <label description="Marketing script for members with no preference" languagecode="1033" />
+  </description>
+  <displayname default="MScript_NoPreference">
+    <label description="MScript_NoPreference" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.0.11</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>

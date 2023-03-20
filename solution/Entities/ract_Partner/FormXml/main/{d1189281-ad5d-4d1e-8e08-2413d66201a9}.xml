@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form>
+    <form headerdensity="HighWithControls">
       <tabs>
         <tab verticallayout="true" id="{a6d321a6-443b-45b5-96ba-292144004910}" IsUserDefined="1">
           <labels>
@@ -20,11 +20,51 @@
                   </labels>
                   <rows>
                     <row>
+                      <cell id="{79b17096-a4dd-4cde-98f5-7bcf271bf845}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Code" languagecode="1033" />
+                        </labels>
+                        <control id="ract_code" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ract_code" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{147ae000-ab73-4026-831d-92b5b5890e59}">
                         <labels>
                           <label description="Name" languagecode="1033" />
                         </labels>
                         <control id="ract_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="ract_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4fa5a34d-a019-43c6-a6db-c51b333a98f1}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Partner Category" languagecode="1033" />
+                        </labels>
+                        <control id="ract_partnercategory" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ract_partnercategory" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{69c4a008-f397-4799-b9a9-b0d9e4d47ad3}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="ract_description" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ract_description" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4f20108d-3d38-48ab-bab3-f2965b4462eb}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="URL" languagecode="1033" />
+                        </labels>
+                        <control id="ract_url" classid="{71716B6C-711E-476C-8AB8-5D11542BFB47}" datafieldname="ract_url" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{aa620eef-f25f-45ce-b3c2-76b4d1cf792f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Status" languagecode="1033" />
+                        </labels>
+                        <control id="statecode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -42,6 +82,51 @@
           </columns>
         </tab>
       </tabs>
+      <header id="{b2cb4646-d81a-472d-adeb-2584a16aac2e}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{fa655adc-9ec0-44d7-94ac-0832fd45a1d7}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{f154b3d9-4ec3-44e3-8368-c666639ad6cd}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{b7d2b3d3-fda2-49f9-871f-ecaf6b756b2a}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{8a0fc6d7-91dd-413b-8cac-8583a17f9099}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{6a97e62b-4ccb-4e58-aa83-5675c7a4c95d}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{c0c8ab01-f949-4735-a863-8a9be576ab3c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{5e873c34-b8a1-45ce-b04c-d43d681a057e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

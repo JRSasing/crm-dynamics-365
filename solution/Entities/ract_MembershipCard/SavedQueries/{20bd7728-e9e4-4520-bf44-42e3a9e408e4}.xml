@@ -10,7 +10,10 @@
     <layoutxml>
       <grid name="resultset" jump="ract_idnumber" select="1" icon="1" preview="1">
         <row name="result" id="ract_membershipcardid">
-          <cell name="ract_idnumber" width="300" />
+          <cell name="ract_idnumber" width="151" />
+          <cell name="ract_requestdate" width="162" />
+          <cell name="ract_issuedate" width="100" />
+          <cell name="ract_primeaddressee" width="100" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -19,13 +22,16 @@
     <fetchxml>
       <fetch version="1.0" mapping="logical">
         <entity name="ract_membershipcard">
-          <attribute name="ract_membershipcardid" />
           <attribute name="ract_idnumber" />
           <attribute name="createdon" />
           <order attribute="ract_idnumber" descending="false" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
+          <attribute name="ract_issuedate" />
+          <attribute name="ract_requestdate" />
+          <attribute name="ract_membershipcardid" />
+          <attribute name="ract_primeaddressee" />
         </entity>
       </fetch>
     </fetchxml>

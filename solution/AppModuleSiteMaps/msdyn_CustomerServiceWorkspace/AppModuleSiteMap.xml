@@ -104,6 +104,57 @@
         </Titles>
         <SubArea Id="New_SubArea" ResourceId="Homepage_Dashboards" DescriptionResourceId="Dashboards_Description" Icon="/_imgs/imagestrips/transparent_spacer.gif" Url="/workplace/home_dashboards.aspx" DefaultDashboard="338ea94a-8f9f-ea11-a812-000d3a31a607" IntroducedVersion="7.0.0.0" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
         <SubArea Id="NewSubArea_a74d4532" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="activitypointer" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="KSIReportsSubArea" Icon="$webresource:msdyn_/Analytics/imgs/KnowledgeSearchIcon.svg" VectorIcon="$webresource:msdyn_/Analytics/imgs/KnowledgeSearchIcon.svg" Entity="msdyn_dataanalyticsreport_ksinsights" Client="Web" AvailableOffline="false" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <IsVisible settings="msdyn_ksianalyticssitemapvisibility" defaultValue="false" />
+          <Titles>
+            <Title LCID="1033" Title="Knowledge analytics" />
+            <Title LCID="1025" Title="تحليلات المعرفة" />
+            <Title LCID="1026" Title="Анализ на знания" />
+            <Title LCID="1027" Title="Anàlisi de la Knowledge Base" />
+            <Title LCID="1029" Title="Analýza znalostí" />
+            <Title LCID="1030" Title="Analyse af viden" />
+            <Title LCID="1031" Title="Wissensanalyse" />
+            <Title LCID="1032" Title="Ανάλυση γνώσεων" />
+            <Title LCID="3082" Title="Análisis de conocimientos" />
+            <Title LCID="1061" Title="Teabeanalüüs" />
+            <Title LCID="1069" Title="Jakintza-edukiaren analisiak" />
+            <Title LCID="1035" Title="Tietämysanalytiikka" />
+            <Title LCID="1036" Title="Analyse de la base de connaissances" />
+            <Title LCID="1110" Title="Análises de Knowledge" />
+            <Title LCID="1037" Title="ניתוח ידע" />
+            <Title LCID="1081" Title="नॉलेज विश्लेषण" />
+            <Title LCID="1050" Title="Analitika baze znanja" />
+            <Title LCID="1038" Title="Tudásbázis-elemzések" />
+            <Title LCID="1057" Title="Analitik pengetahuan" />
+            <Title LCID="1040" Title="Analisi della Knowledge Base" />
+            <Title LCID="1041" Title="サポート情報分析" />
+            <Title LCID="1087" Title="Білім қорын талдау" />
+            <Title LCID="1042" Title="참조 문서 분석" />
+            <Title LCID="1063" Title="Žinių analizė" />
+            <Title LCID="1062" Title="Zināšanu bāzes analīze" />
+            <Title LCID="1086" Title="Analitis pengetahuan" />
+            <Title LCID="1044" Title="Kunnskapsanalyse" />
+            <Title LCID="1043" Title="Kennisanalyses" />
+            <Title LCID="1045" Title="Analizy wiedzy" />
+            <Title LCID="1046" Title="Análise de conhecimento" />
+            <Title LCID="2070" Title="Análise do conhecimento" />
+            <Title LCID="1048" Title="Analiză articole din baza de cunoștințe" />
+            <Title LCID="1049" Title="Аналитика базы знаний" />
+            <Title LCID="1051" Title="Analýza vedomostí" />
+            <Title LCID="1060" Title="Analitika zbirke znanja" />
+            <Title LCID="3098" Title="Аналитика базе знања" />
+            <Title LCID="2074" Title="Analitika znanja" />
+            <Title LCID="1053" Title="Kunskapsanalys" />
+            <Title LCID="1054" Title="การวิเคราะห์ข้อมูลความรู้" />
+            <Title LCID="1055" Title="Bilgi bankası analizleri" />
+            <Title LCID="1058" Title="Аналітика бази знань" />
+            <Title LCID="1066" Title="Phân tích kiến thức" />
+            <Title LCID="2052" Title="知识分析" />
+            <Title LCID="3076" Title="知識分析" />
+            <Title LCID="1028" Title="知識分析" />
+          </Titles>
+          <Privilege Entity="msdyn_dataanalyticsreport_ksinsights" Privilege="Read" />
+        </SubArea>
         <SubArea Id="CustomizedReportsSubArea" ResourceId="SitemapDesigner.NewSubArea" VectorIcon="$webresource:msdyn_/Analytics/imgs/CustomizedReportsIcon.svg" Icon="$webresource:msdyn_/Analytics/imgs/CustomizedReportsIcon.svg" Url="/main.aspx?pagetype=control&amp;controlName=MscrmControls.Analytics.ModernReportingControl&amp;data={&quot;featureIds&quot;:&quot;f2266eb4-226f-4cf1-b422-89c5f48b40cb&quot;}" Client="Web" AvailableOffline="true" PassParams="true" Sku="All,OnPremise,Live,SPLA">
           <IsVisible settings="msdyn_customizationforcssitemapvisibility" defaultValue="false" />
           <Titles>
@@ -153,57 +204,6 @@
             <Title LCID="3076" Title="自訂報表" />
             <Title LCID="1028" Title="自訂報表" />
           </Titles>
-        </SubArea>
-        <SubArea Id="KSIReportsSubArea" Icon="/WebResources/msdyn_/Analytics/imgs/KnowledgeSearchIcon.svg" VectorIcon="$webresource:msdyn_/Analytics/imgs/KnowledgeSearchIcon.svg" Entity="msdyn_dataanalyticsreport_ksinsights" Client="Web" AvailableOffline="false" PassParams="false" Sku="All,OnPremise,Live,SPLA">
-          <IsVisible settings="msdyn_ksianalyticssitemapvisibility" featureControls="CCAAnalytics.KSIAnalytics.DefaultOnFeatureControl" defaultValue="false" />
-          <Titles>
-            <Title LCID="1033" Title="Knowledge analytics" />
-            <Title LCID="1025" Title="تحليلات المعرفة" />
-            <Title LCID="1026" Title="Анализ на знания" />
-            <Title LCID="1027" Title="Anàlisi de la Knowledge Base" />
-            <Title LCID="1029" Title="Analýza znalostí" />
-            <Title LCID="1030" Title="Analyse af viden" />
-            <Title LCID="1031" Title="Wissensanalyse" />
-            <Title LCID="1032" Title="Ανάλυση γνώσεων" />
-            <Title LCID="3082" Title="Análisis de conocimientos" />
-            <Title LCID="1061" Title="Teabeanalüüs" />
-            <Title LCID="1069" Title="Jakintza-analisiak" />
-            <Title LCID="1035" Title="Tietoanalytiikka" />
-            <Title LCID="1036" Title="Analyse des connaissances" />
-            <Title LCID="1110" Title="Análises de coñecemento" />
-            <Title LCID="1037" Title="ניתוח ידע" />
-            <Title LCID="1081" Title="नॉलेज विश्लेषण" />
-            <Title LCID="1050" Title="Analitika znanja" />
-            <Title LCID="1038" Title="Tudásbázis-elemzések" />
-            <Title LCID="1057" Title="Analitik pengetahuan" />
-            <Title LCID="1040" Title="Analisi della Knowledge Base" />
-            <Title LCID="1041" Title="サポート情報分析" />
-            <Title LCID="1087" Title="Білім жиынтығын аналитикасы" />
-            <Title LCID="1042" Title="참조 자료 분석" />
-            <Title LCID="1063" Title="Žinių analizė" />
-            <Title LCID="1062" Title="Zināšanu bāzes analīze" />
-            <Title LCID="1086" Title="Analitis pengetahuan" />
-            <Title LCID="1044" Title="Kunnskapsanalyse" />
-            <Title LCID="1043" Title="Kennisbankanalyses" />
-            <Title LCID="1045" Title="Analizy wiedzy" />
-            <Title LCID="1046" Title="Análise de conhecimento" />
-            <Title LCID="2070" Title="Análise do conhecimento" />
-            <Title LCID="1048" Title="Analize articole din baza de cunoștințe" />
-            <Title LCID="1049" Title="Аналитика знаний" />
-            <Title LCID="1051" Title="Analýza vedomostí" />
-            <Title LCID="1060" Title="Analitika zbirke znanja" />
-            <Title LCID="3098" Title="Аналитика базе знања" />
-            <Title LCID="2074" Title="Analitika baze znanja" />
-            <Title LCID="1053" Title="Kunskapsanalys" />
-            <Title LCID="1054" Title="การวิเคราะห์องค์ความรู้" />
-            <Title LCID="1055" Title="Bilgi bankası analizleri" />
-            <Title LCID="1058" Title="Аналітика знань" />
-            <Title LCID="1066" Title="Số liệu phân tích kiến thức" />
-            <Title LCID="2052" Title="知识分析" />
-            <Title LCID="3076" Title="知識分析" />
-            <Title LCID="1028" Title="知識分析" />
-          </Titles>
-          <Privilege Entity="msdyn_dataanalyticsreport_ksinsights" Privilege="Read" />
         </SubArea>
         <SubArea Id="NewSubArea_13e34968" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="queueitem" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
           <Titles>
@@ -365,8 +365,8 @@
           </Titles>
         </SubArea>
         <SubArea Id="NewSubArea_ed4af58a" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="account" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="subarea_620e67eb" VectorIcon="/WebResources/AppCommon/ControlWS/SummaryPageImages/EmailTemplate_HighContrast.svg" Icon="/WebResources/AppCommon/ControlWS/SummaryPageImages/EmailTemplate_HighContrast.svg" Entity="ract_membershipcard" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="subarea_64e956d5" VectorIcon="/WebResources/Sales/_imgs/productgrid/Bundle.svg" Icon="/WebResources/Sales/_imgs/productgrid/Bundle.svg" Entity="ract_productholding" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_620e67eb" VectorIcon="/WebResources/AppCommon/ControlWS/SummaryPageImages/EmailTemplate_HighContrast.svg" Entity="ract_membershipcard" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_64e956d5" VectorIcon="/WebResources/Sales/_imgs/productgrid/Bundle.svg" Entity="ract_productholding" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
       </Group>
       <Group Id="group_d116c818" ResourceId="SitemapDesigner.NewGroup" DescriptionResourceId="SitemapDesigner.NewGroup" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
         <Titles>
@@ -378,29 +378,47 @@
         <Titles>
           <Title LCID="1033" Title="Notification" />
         </Titles>
-        <SubArea Id="subarea_f855f449" VectorIcon="/WebResources/msdyn_SalesOmniChannel/Images/msdyn_SMSIcon.svg" Icon="/WebResources/msdyn_SalesOmniChannel/Images/msdyn_SMSIcon.svg" Entity="appnotification" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+        <SubArea Id="subarea_f855f449" VectorIcon="/WebResources/msdyn_SalesOmniChannel/Images/msdyn_SMSIcon.svg" Entity="appnotification" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
           <Titles>
             <Title LCID="1033" Title="Announcements" />
           </Titles>
         </SubArea>
       </Group>
+    </Area>
+    <Area Id="area_b4d41d44" ResourceId="SitemapDesigner.NewTitle" DescriptionResourceId="SitemapDesigner.NewTitle" ShowGroups="true" IntroducedVersion="7.0.0.0">
+      <Titles>
+        <Title LCID="1033" Title="Administration" />
+      </Titles>
       <Group Id="group_ce0e5540" ResourceId="SitemapDesigner.NewGroup" DescriptionResourceId="SitemapDesigner.NewGroup" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
         <Titles>
-          <Title LCID="1033" Title="RACT Settings" />
+          <Title LCID="1033" Title="General" />
+        </Titles>
+        <SubArea Id="NewSubArea_082f1ed7" VectorIcon="/WebResources/msdyn_/Images/BrowseCards" Icon="/WebResources/msdyn_/Images/BrowseCards" Entity="ract_categorytype" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_34ad5e65" VectorIcon="/WebResources/msdyn_/Icons/SVG/CustomerAssetCategory.svg" Entity="ract_maincategory" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_6e238ee0" VectorIcon="/WebResources/msdyn_/Icons/SVG/AssetCategoryTemplateAssociation.svg" Entity="ract_subcategory" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_f5b061c6" VectorIcon="/WebResources/msdyn_csac_usermanagement" Entity="ract_partnercategory" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_2e1870a6" VectorIcon="/WebResources/msdyn_OmnichannelBase/_imgs/SitemapIcon/Users" Entity="ract_partner" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_a62523c0" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="site" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+      </Group>
+      <Group Id="NewGroup_f0b33b69" ResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+        <Titles>
+          <Title LCID="1033" Title="Cases" />
+        </Titles>
+        <SubArea Id="subarea_da7ccf5d" VectorIcon="/WebResources/msdyn_csac_serviceterms" Entity="ract_complaintdesiredoutcomes" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_f5e9a56a" VectorIcon="/WebResources/msfp_SurveyIcon_16" Entity="ract_complaintreopenedreasons" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_98d299de" VectorIcon="/WebResources/msdyn_csac_queue" Entity="ract_complaintreasonsecondary" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_0cf488e8" VectorIcon="/WebResources/msdyn_/Icons/SVG/AssetCategoryTemplateAssociation.svg" Icon="/WebResources/msdyn_/Icons/SVG/AssetCategoryTemplateAssociation.svg" Entity="ract_complaintoutcomes" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+      </Group>
+      <Group Id="NewGroup_f2bb68fa" ResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+        <Titles>
+          <Title LCID="1033" Title="Products" />
         </Titles>
         <SubArea Id="subarea_29abf4a4" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="product" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="subarea_34ad5e65" VectorIcon="/WebResources/msdyn_/Icons/SVG/CustomerAssetCategory.svg" Icon="/WebResources/msdyn_/Icons/SVG/CustomerAssetCategory.svg" Entity="ract_maincategory" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="subarea_6e238ee0" VectorIcon="/WebResources/msdyn_/Icons/SVG/AssetCategoryTemplateAssociation.svg" Icon="/WebResources/msdyn_/Icons/SVG/AssetCategoryTemplateAssociation.svg" Entity="ract_subcategory" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="subarea_da7ccf5d" VectorIcon="/WebResources/msdyn_csac_serviceterms" Icon="/WebResources/msdyn_csac_serviceterms" Entity="ract_complaintdesiredoutcomes" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="subarea_0cf488e8" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="ract_complaintoutcomes" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="subarea_98d299de" VectorIcon="/WebResources/msdyn_csac_queue" Icon="/WebResources/msdyn_csac_queue" Entity="ract_complaintreasonsecondary" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="subarea_f5e9a56a" VectorIcon="/WebResources/msfp_SurveyIcon_16" Icon="/WebResources/msfp_SurveyIcon_16" Entity="ract_complaintreopenedreasons" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="subarea_2e1870a6" VectorIcon="/WebResources/msdyn_OmnichannelBase/_imgs/SitemapIcon/Users" Icon="/WebResources/msdyn_OmnichannelBase/_imgs/SitemapIcon/Users" Entity="ract_partner" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="subarea_f5b061c6" VectorIcon="/WebResources/msdyn_csac_usermanagement" Icon="/WebResources/msdyn_csac_usermanagement" Entity="ract_partnercategory" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_23a3bbb8" VectorIcon="/WebResources/Sales/_imgs/productgrid/Bundle.svg" Icon="/WebResources/Sales/_imgs/productgrid/Bundle.svg" Entity="uomschedule" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
       </Group>
     </Area>
   </SiteMap>
   <LocalizedNames>
-    <LocalizedName description="Customer Service Workspace" languagecode="1033" />
+    <LocalizedName description="Customer Service workspace (Preview)" languagecode="1033" />
   </LocalizedNames>
 </AppModuleSiteMap>

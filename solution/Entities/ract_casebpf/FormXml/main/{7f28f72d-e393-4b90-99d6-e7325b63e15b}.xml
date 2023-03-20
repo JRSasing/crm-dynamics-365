@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{7f28f72d-e393-4b90-99d6-e7325b63e15b}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{921e7970-ee7c-4aa0-9c71-c38af2d2716a}" name="StageStep3" locklevel="0" expanded="true" visible="false" labelid="{65f07a5e-5ef1-42b3-8560-c062a81e7cee}">
+          <labels>
+            <label description="Identify" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{476b94bf-e026-40dd-97ef-7ab6f051fd04}" name="StageStep3_section1" labelid="{a7242f94-6c37-4cd1-bf81-49cb4342befa}">
+                  <labels>
+                    <label description="Identify" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{25049673-95ff-4021-9782-612edcc286d3}" showlabel="true" visible="true" labelid="{f94a3265-96eb-4c92-8e75-55b45f9b356a}">
+                        <labels>
+                          <label description="Find Customer" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_incident_ract_casebpf:customerid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="customerid" disabled="false" relationship="bpf_incident_ract_casebpf" isrequired="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2882f0b5-a89e-474a-aaf0-b5026db94f62}" showlabel="true" visible="true" labelid="{abd35c95-b26b-48ba-ac10-5db4b6c6fc41}">
+                        <labels>
+                          <label description="Find Contact" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_incident_ract_casebpf:contact" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="primarycontactid" disabled="false" relationship="bpf_incident_ract_casebpf" isrequired="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{010640f9-fb6b-4db1-affe-495d5a480ace}" showlabel="true" visible="true" labelid="{76b4118a-9671-4ec9-a4de-abdc911795e8}">
+                        <labels>
+                          <label description="Find Case" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_incident_ract_casebpf:relatedcases" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="existingcase" disabled="false" relationship="bpf_incident_ract_casebpf" isrequired="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{1eca5ba4-7cf8-4e5c-b8eb-5c504915f11a}" name="StageStep11" locklevel="0" expanded="true" visible="false" labelid="{f4e5017c-1c1b-4db9-99b4-93a5eb45a7cb}">
+          <labels>
+            <label description="Research" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{f2356d80-24ad-f24f-7d08-c6133a214513}" name="StageStep11_section1" labelid="{3cd45baa-5dda-4ed4-8f4b-d1e2d6eb8b50}">
+                  <labels>
+                    <label description="Research" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{7301d760-4604-48fc-8d7f-2e73698086f1}" showlabel="true" visible="true" labelid="{21e247d7-cfe3-4f32-b60e-40c3f8043f45}">
+                        <labels>
+                          <label description="Assign to Others" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_incident_ract_casebpf:ownerid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="ownerid" disabled="false" relationship="bpf_incident_ract_casebpf" isrequired="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{595f6fc6-0e57-4201-8a5a-fb290ee22fb7}" name="StageStep17" locklevel="0" expanded="true" visible="false" labelid="{1428790e-7a96-4c38-939f-50f7b7d8cbf1}">
+          <labels>
+            <label description="Resolve" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{0c1c181d-9f0e-3cb2-6506-d70d23edfb40}" name="StageStep17_section1" labelid="{0233a22f-2cbe-4a0b-b34b-03d0274912d9}">
+                  <labels>
+                    <label description="Resolve" languagecode="1033" />
+                  </labels>
+                  <rows />
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

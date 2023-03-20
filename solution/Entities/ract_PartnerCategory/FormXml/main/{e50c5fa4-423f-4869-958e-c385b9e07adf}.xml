@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form>
+    <form headerdensity="HighWithControls">
       <tabs>
         <tab verticallayout="true" id="{57073d87-74f0-403f-8aae-dfdc6d58c45d}" IsUserDefined="1">
           <labels>
@@ -28,6 +28,30 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{fd0363fa-cb81-4d70-b55b-8ef4115123b0}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="ract_description" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ract_description" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{28443b88-abfe-4f85-bfeb-106b31b7aaab}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="URL" languagecode="1033" />
+                        </labels>
+                        <control id="ract_url" classid="{71716B6C-711E-476C-8AB8-5D11542BFB47}" datafieldname="ract_url" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a2480736-7610-4f44-8a32-04aaed8641db}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Status" languagecode="1033" />
+                        </labels>
+                        <control id="statecode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{44f8ebbb-d77e-446c-8e0f-69334d5b12b4}">
                         <labels>
                           <label description="Owner" languagecode="1033" />
@@ -42,6 +66,51 @@
           </columns>
         </tab>
       </tabs>
+      <header id="{963330d3-d2cf-42cf-babe-1917618be16c}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{9511fac5-2898-430e-be96-720fab5bc5ad}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{70efb501-c29e-4ebb-bd9e-1ec787e138a5}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{e8a2bd54-af7f-4d3f-b25d-b5a0c59f4db6}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{8582e5b0-083e-490a-9613-e57f1b8d4f1f}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{0e4ff7b0-561a-4779-b00b-c4d89b0bedde}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{2a4e4df0-bf2f-4be4-b7db-b10fae56210e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{e3237ed0-3f81-4856-b8ea-9853cbdfe6b1}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

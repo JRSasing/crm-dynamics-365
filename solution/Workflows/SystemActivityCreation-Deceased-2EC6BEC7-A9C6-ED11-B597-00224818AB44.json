@@ -1,0 +1,92 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "ract_sharedcommondataserviceforapps_baeec"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "System Activity (ract_SystemActivity)": {
+          "defaultValue": "Address Unkonwn!",
+          "type": "String",
+          "metadata": {
+            "schemaName": "ract_SystemActivity"
+          }
+        }
+      },
+      "triggers": {
+        "When_Deceased_field_is_set_to_true": {
+          "metadata": {
+            "operationMetadataId": "c723b631-c25a-4ddb-867c-0a9beca16d9b"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "contact",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "ract_deceased",
+              "subscriptionRequest/filterexpression": "ract_deceased eq true"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Create_a_system_Activity": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "7deff16f-df1a-4db2-a3bd-c1d6f4f156e5"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "CreateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "ract_systemactivities",
+              "item/subject": "@parameters('System Activity (ract_SystemActivity)')",
+              "item/activitypointer_activity_parties": [
+                {
+                  "participationtypemask": 5,
+                  "partyid@odata.bind": "/contacts(@{triggerOutputs()?['body/contactid']})"
+                }
+              ],
+              "item/description": "Deceased has been set to YES",
+              "item/ownerid_ract_systemactivity@odata.bind": "/systemusers(@{triggerOutputs()?['body/_modifiedby_value']})",
+              "item/regardingobjectid_contact_ract_systemactivity@odata.bind": "/contacts(@{triggerOutputs()?['body/contactid']})",
+              "item/scheduledstart": "@utcNow()"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

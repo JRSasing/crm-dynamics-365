@@ -1,0 +1,14 @@
+<environmentvariabledefinition schemaname="ract_privacyMessage">
+  <defaultvalue>Only read the following script for Outbound calls and Branch Interactions: "We will use personal information you give us to help deliver our products or services. Our Privacy Statement is available from our branches online."</defaultvalue>
+  <description default="Privacy message for Person form">
+    <label description="Privacy message for Person form" languagecode="1033" />
+  </description>
+  <displayname default="privacyMessage">
+    <label description="privacyMessage" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.0.11</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>
