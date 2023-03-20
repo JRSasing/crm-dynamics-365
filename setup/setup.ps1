@@ -113,8 +113,8 @@ task import-solution connect, {
 	import-solution-bare($false) 
 }, disconnect
 
-task import-managed-solution connect-bare, { 
-	import-solution-bare($true)
+task import-managed-solution connect-octo, { 
+	import-solution-bare($true) 
 }, disconnect
 
 function import-solution-bare($managed) {
@@ -175,9 +175,22 @@ task capture export-unmanaged-solution, unpack-solution
 #Todo future ticket
 #task upgrade connect, deploy-infra-bare, import-solution-bare, disconnect
 
-task connect connect-bare, configure
+task connect configure, {
+	$settings = Get-Settings
+    $hostname = $settings.environment.hostname
+    $application_id = $settings.tenant.account.application_id
+	$client_secret = $settings.tenant.account.client_secret
+	$tenant = $settings.tenant.id
 
-task connect-bare {
+	pac auth create --url https://$hostname/ --name RACT_DEV-SPN --applicationId $application_id --clientSecret $client_secret --tenant $tenant
+	#pac auth create --kind ADMIN
+
+	if ($LASTEXITCODE -ne 0) {
+        throw "Failure while trying to connect/authenticate with $hostname"
+    }
+}
+
+task connect-octo {
 	$settings = Get-Settings
     $hostname = $settings.environment.hostname
     $application_id = $settings.tenant.account.application_id
