@@ -69,6 +69,10 @@
   <EntityRelationship Name="lead_ract_SystemActivities" />
   <EntityRelationship Name="lk_ract_alerts_createdby" />
   <EntityRelationship Name="lk_ract_alerts_modifiedby" />
+  <EntityRelationship Name="lk_ract_casebpf_activestageid" />
+  <EntityRelationship Name="lk_ract_casebpf_createdby" />
+  <EntityRelationship Name="lk_ract_casebpf_modifiedby" />
+  <EntityRelationship Name="lk_ract_casebpf_processid" />
   <EntityRelationship Name="lk_ract_categorytype_createdby" />
   <EntityRelationship Name="lk_ract_categorytype_modifiedby" />
   <EntityRelationship Name="lk_ract_complaintdesiredoutcomes_createdby" />
@@ -135,6 +139,7 @@
   <EntityRelationship Name="opportunity_ract_BranchVisits" />
   <EntityRelationship Name="opportunity_ract_SMSes" />
   <EntityRelationship Name="opportunity_ract_SystemActivities" />
+  <EntityRelationship Name="organization_ract_casebpf" />
   <EntityRelationship Name="owner_ract_alerts" />
   <EntityRelationship Name="owner_ract_categorytype" />
   <EntityRelationship Name="owner_ract_complaintdesiredoutcomes" />
@@ -174,6 +179,9 @@
   <EntityRelationship Name="ract_incident_Person_contact" />
   <EntityRelationship Name="ract_incident_Product_ract_productholding" />
   <EntityRelationship Name="ract_incident_SubCategory_ract_subcategory" />
+  <EntityRelationship Name="ract_phonecall_Category_ract_maincategory" />
+  <EntityRelationship Name="ract_phonecall_Site_site" />
+  <EntityRelationship Name="ract_phonecall_SubCategory_ract_subcategory" />
   <EntityRelationship Name="ract_ract_branchvisit_Category_ract_maincatego" />
   <EntityRelationship Name="ract_ract_branchvisit_Site_site" />
   <EntityRelationship Name="ract_ract_branchvisit_SubCategory_ract_subcate" />
@@ -192,6 +200,8 @@
   <EntityRelationship Name="ract_ract_service_Partner_ract_partner" />
   <EntityRelationship Name="ract_ract_service_Person_contact" />
   <EntityRelationship Name="ract_ract_service_Product_product" />
+  <EntityRelationship Name="ract_ract_sms_Category_ract_maincategory" />
+  <EntityRelationship Name="ract_ract_sms_SubCategory_ract_subcategory" />
   <EntityRelationship Name="ract_ract_subcategory_Category_ract_maincatego" />
   <EntityRelationship Name="ract_ract_systemactivity_Category_category" />
   <EntityRelationship Name="ract_ract_systemactivity_SubCategory_ract_subc" />
@@ -216,6 +226,8 @@
   <EntityRelationship Name="ract_systemactivity_systemuser_modifiedby" />
   <EntityRelationship Name="ract_systemactivity_systemuser_owninguser" />
   <EntityRelationship Name="ract_systemactivity_team_owningteam" />
+  <EntityRelationship Name="ract_task_Category_ract_maincategory" />
+  <EntityRelationship Name="ract_task_SubCategory_ract_subcategory" />
   <EntityRelationship Name="salesorder_ract_BranchVisits" />
   <EntityRelationship Name="salesorder_ract_SMSes" />
   <EntityRelationship Name="salesorder_ract_SystemActivities" />
