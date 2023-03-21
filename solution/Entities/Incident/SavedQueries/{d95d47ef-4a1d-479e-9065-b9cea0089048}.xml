@@ -9,12 +9,14 @@
     <layoutxml>
       <grid name="resultset" jump="title" select="1" icon="1" preview="1">
         <row name="result" id="incidentid">
-          <cell name="title" width="300" />
+          <cell name="title" width="232" />
           <cell name="ticketnumber" width="150" />
-          <cell name="prioritycode" width="150" />
-          <cell name="createdon" width="150" />
-          <cell name="caseorigincode" width="100" />
+          <cell name="ract_person" width="100" />
+          <cell name="prioritycode" width="91" />
+          <cell name="ract_category" width="100" />
+          <cell name="ract_subcategory" width="100" />
           <cell name="statecode" width="150" />
+          <cell name="createdon" width="104" />
         </row>
       </grid>
     </layoutxml>
@@ -27,13 +29,22 @@
           <attribute name="ticketnumber" />
           <attribute name="title" />
           <attribute name="createdon" />
-          <attribute name="caseorigincode" />
           <attribute name="statecode" />
           <filter type="or" isquickfindfields="1">
             <condition attribute="title" operator="like" value="{0}" />
             <condition attribute="ticketnumber" operator="like" value="{0}" />
+            <condition attribute="ract_caseid" operator="like" value="{0}" />
+            <condition attribute="customerid" operator="like" value="{0}" />
+            <condition attribute="ract_person" operator="like" value="{0}" />
+            <condition attribute="ract_product" operator="like" value="{0}" />
+            <condition attribute="ract_sourceid" operator="like" value="{0}" />
+            <condition attribute="description" operator="like" value="{0}" />
+            <condition attribute="ract_duedate" operator="on" value="{3}" />
           </filter>
           <order attribute="title" descending="false" />
+          <attribute name="ract_person" />
+          <attribute name="ract_category" />
+          <attribute name="ract_subcategory" />
         </entity>
       </fetch>
     </fetchxml>

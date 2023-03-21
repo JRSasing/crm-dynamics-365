@@ -247,7 +247,7 @@
             <displayname description="Source ID" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="Unique identifier of the record from the source system" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ract_SubCategory">

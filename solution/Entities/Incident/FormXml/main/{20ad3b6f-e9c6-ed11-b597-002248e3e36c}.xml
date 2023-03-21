@@ -228,43 +228,6 @@
                     </row>
                   </rows>
                 </section>
-                <section name="SLAKPI_Timer_Section" showlabel="false" showbar="false" locklevel="0" id="{505a8e99-ea95-d3b2-89c5-e022c7b31071}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" labelid="{c2d11f2e-667a-4d5f-9f42-3813180885be}">
-                  <labels>
-                    <label description="Section" languagecode="1033" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{e8480d77-662c-60cd-1d6e-a7d67425d87e}" showlabel="false" colspan="1" auto="false" labelid="{bec393f1-19ef-484e-b044-0761767cf6b3}">
-                        <labels>
-                          <label description="First Response By KPI" languagecode="1033" />
-                        </labels>
-                        <control id="FirstResponseByKPI" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="firstresponsebykpiid" disabled="false">
-                          <parameters>
-                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="slakpiinstance"&gt;ede9dac3-e143-4be4-acc8-237309e31210&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
-                            <ControlMode>Edit</ControlMode>
-                          </parameters>
-                        </control>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{a331207a-4a62-a255-9ee0-547d85e84695}" showlabel="false" colspan="1" auto="false" labelid="{d669e765-0c0b-4f23-832d-b3a968d15754}">
-                        <labels>
-                          <label description="Resolve By KPI" languagecode="1033" />
-                        </labels>
-                        <control id="ResolveByKPI" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="resolvebykpiid" disabled="false">
-                          <parameters>
-                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="slakpiinstance"&gt;19b14c51-3d43-4d56-ab34-49c540bf468c&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
-                            <ControlMode>Edit</ControlMode>
-                          </parameters>
-                        </control>
-                      </cell>
-                    </row>
-                  </rows>
-                </section>
-              </sections>
-            </column>
-            <column width="34%">
-              <sections>
                 <section name="Summary_section_7" id="4ea7718d-32ac-496d-8d67-c28c5747d9d1" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
                     <label description="ADDITIONAL INFORMATION" languagecode="1033" />
@@ -320,6 +283,43 @@
                     </row>
                   </rows>
                 </section>
+                <section name="SLAKPI_Timer_Section" showlabel="false" showbar="false" locklevel="0" id="{505a8e99-ea95-d3b2-89c5-e022c7b31071}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" labelid="{c2d11f2e-667a-4d5f-9f42-3813180885be}">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e8480d77-662c-60cd-1d6e-a7d67425d87e}" showlabel="false" colspan="1" auto="false" labelid="{bec393f1-19ef-484e-b044-0761767cf6b3}">
+                        <labels>
+                          <label description="First Response By KPI" languagecode="1033" />
+                        </labels>
+                        <control id="FirstResponseByKPI" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="firstresponsebykpiid" disabled="false">
+                          <parameters>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="slakpiinstance"&gt;ede9dac3-e143-4be4-acc8-237309e31210&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
+                            <ControlMode>Edit</ControlMode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a331207a-4a62-a255-9ee0-547d85e84695}" showlabel="false" colspan="1" auto="false" labelid="{d669e765-0c0b-4f23-832d-b3a968d15754}">
+                        <labels>
+                          <label description="Resolve By KPI" languagecode="1033" />
+                        </labels>
+                        <control id="ResolveByKPI" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="resolvebykpiid" disabled="false">
+                          <parameters>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="slakpiinstance"&gt;19b14c51-3d43-4d56-ab34-49c540bf468c&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
+                            <ControlMode>Edit</ControlMode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="34%">
+              <sections>
                 <section name="Timeline" showlabel="false" showbar="false" locklevel="0" id="{afcc2215-3dc0-43b7-b9dd-125c0a180700}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" labelid="{e055a439-d89e-4438-af3b-33ffea0bc0f4}">
                   <labels>
                     <label description="TIMELINE" languagecode="1033" />
@@ -330,7 +330,14 @@
                         <labels>
                           <label description="Conversation Tabs" languagecode="1033" />
                         </labels>
-                        <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" disabled="false" />
+                        <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" disabled="false">
+                          <parameters>
+                            <UClientActivities>appointment,email,phonecall,task,ract_branchvisit,ract_sms,ract_systemactivity</UClientActivities>
+                            <UClientDisplayActivityUsing>defaultfields</UClientDisplayActivityUsing>
+                            <UClientActivityCardMap>appointment:4201:,campaignactivity:4402:,campaignresponse:4401:,email:4202:,fax:4204:,incidentresolution:4206:,letter:4207:,opportunityclose:4208:,orderclose:4209:,phonecall:4210:,quoteclose:4211:,recurringappointmentmaster:4251:,serviceappointment:4214:,socialactivity:4216:,task:4212:,msdyn_bookingalert:10638:,msdyn_ocliveworkitem:10454:,msdyn_ocsession:10471:,msfp_alert:10343:,msfp_surveyinvite:10353:,msfp_surveyresponse:10355:,ract_branchvisit:10768:,ract_sms:10772:,ract_systemactivity:10765:,</UClientActivityCardMap>
+                            <UClientActivitiesConfigurationJSON>{"campaignactivity":{"showTopDate":true,"showStatus":true,"canCreate":false,"createUsing":"default","openUsing":"default"},"incidentresolution":{"showTopDate":true,"showStatus":false,"canCreate":false,"createUsing":"default","openUsing":"default"},"opportunityclose":{"showTopDate":true,"showStatus":false,"canCreate":false,"createUsing":"default","openUsing":"default"},"orderclose":{"showTopDate":true,"showStatus":false,"canCreate":false,"createUsing":"default","openUsing":"default"},"quoteclose":{"showTopDate":true,"showStatus":false,"canCreate":false,"createUsing":"default","openUsing":"default"},"recurringappointmentmaster":{"showTopDate":true,"showStatus":true,"canCreate":false,"createUsing":"default","openUsing":"default"},"socialactivity":{"showTopDate":true,"showStatus":true,"canCreate":false,"createUsing":"default","openUsing":"default"},"msdyn_bookingalert":{"showTopDate":true,"showStatus":true,"canCreate":true,"createUsing":"default","openUsing":"default"},"msdyn_ocliveworkitem":{"showTopDate":true,"showStatus":true,"canCreate":false,"createUsing":"default","openUsing":"default"},"msdyn_ocsession":{"showTopDate":true,"showStatus":true,"canCreate":true,"createUsing":"default","openUsing":"default"},"msfp_alert":{"showTopDate":true,"showStatus":true,"canCreate":true,"createUsing":"default","openUsing":"default"},"msfp_surveyinvite":{"showTopDate":true,"showStatus":true,"canCreate":false,"createUsing":"default","openUsing":"default"},"msfp_surveyresponse":{"showTopDate":true,"showStatus":true,"canCreate":false,"createUsing":"default","openUsing":"default"},"email":{"showTopDate":true,"showStatus":true,"canCreate":true,"createUsing":"default","openUsing":"default","commandsConfig":{"order":[{"id":"ReplyAll","isVisible":true},{"id":"Reply","isVisible":true},{"id":"Forward","isVisible":true},{"id":"OpenEntityRecord","isVisible":true},{"id":"DeleteDraftEmail","isVisible":true},{"id":"CloseActivity","isVisible":true},{"id":"Assign","isVisible":true},{"id":"AddToQueue","isVisible":true},{"id":"Delete","isVisible":true}]}}}</UClientActivitiesConfigurationJSON>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row />

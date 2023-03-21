@@ -1372,7 +1372,7 @@
         <Required type="61" schemaName="Service/Incident/Ribbon/Incident_ribbon_library.js" displayName="Service/Incident/Ribbon/Incident_ribbon_library.js" solution="msdynce_Service (9.0.5.56)">
           <package>msdynce_ServiceAnchor (9.0.23023.1013)</package>
         </Required>
-        <Dependent type="60" displayName="Case main form" parentDisplayName="Case" id="{e10ae21e-42c1-ed11-b596-00224818ab44}" />
+        <Dependent type="60" displayName="RACT Case Form" parentDisplayName="Case" id="{20ad3b6f-e9c6-ed11-b597-002248e3e36c}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="Swarming/msdyn_Swarming.js" displayName="Swarming/msdyn_Swarming.js" solution="msdyn_Swarming (9.0.23023.1018)">
