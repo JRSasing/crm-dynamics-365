@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{695840c7-59a2-4ce2-8445-f1aae5813bc6}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{766ead54-1025-4850-97f8-31e59fec4824}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{e4be58e1-eac9-4300-88d4-32896ec0a040}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{59038cc8-da1f-46bf-8cfc-96d3ed3e9d29}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="ract_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="ract_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{720f0dd0-4e44-4c04-b766-290f89318964}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Interval Start" languagecode="1033" />
+                        </labels>
+                        <control id="ract_intervalstart" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="ract_intervalstart" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7d8fc613-840d-4dc7-855b-7ece0ef3a668}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Interval End" languagecode="1033" />
+                        </labels>
+                        <control id="ract_intervalend" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="ract_intervalend" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{697323c6-14b8-49b6-afb5-838508e58735}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{75f060ae-87f5-4eb5-a45a-ba7a87321926}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{11b800fa-679b-49ec-84e3-30a41d62d94f}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{eea8126d-633d-47ef-a026-8771669a41fa}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{21d1e990-3c47-450b-ad83-b9e9ee738318}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{0a03f2e5-1e66-4e5d-9fd5-56016e335d79}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{8012b20b-d69d-4027-97c3-a93cce46650d}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{18d9b1b5-9edb-4679-b3be-49ebea832fcd}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{dc64f631-fd3b-4518-8c8f-b17f67f780b3}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

@@ -1,0 +1,628 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions />
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.AddConnectionForm">
+      <EnableRules>
+        <EnableRule Id="Mscrm.FormStateExistingOrReadOnlyOrDisabled" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CreateConnection" />
+        <DisplayRule Id="Mscrm.IsConnectionsEnabledPrimary" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Add.addConnectionFromForm" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="FirstPrimaryItemId" />
+          <CrmParameter Value="PrimaryEntityTypeCode" />
+          <CrmParameter Value="PrimaryControl" />
+          <BoolParameter Value="false" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.AddPrimaryToMarketingList">
+      <EnableRules>
+        <EnableRule Id="Mscrm.AddPrimaryToMarketingList" />
+        <EnableRule Id="Mscrm.FormStateExistingOrReadOnly" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.AddPrimaryToMarketingList" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Marketing.CommandActions.Instance.addCurrentItemToList" Library="$webresource:Marketing/CommandActions/Marketing_CommandActions.js">
+          <CrmParameter Value="PrimaryEntityTypeCode" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.AssignPrimaryRecord">
+      <EnableRules>
+        <EnableRule Id="Mscrm.FormStateNotNew" />
+        <EnableRule Id="Mscrm.AssignPrimaryPermission" />
+        <EnableRule Id="Mscrm.NotOffline" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.AssignPrimaryPermission" />
+        <DisplayRule Id="Mscrm.NotClosedActivity" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Assign.assignObject" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="PrimaryEntityTypeName" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.DeletePrimaryRecord">
+      <EnableRules>
+        <EnableRule Id="Mscrm.FormStateNotNew" />
+        <EnableRule Id="Mscrm.CanDeletePrimary" />
+        <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.DeletePrimaryEntityPermission" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Delete.deletePrimaryRecord" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="FirstPrimaryItemId" />
+          <CrmParameter Value="PrimaryEntityTypeName" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Form.Activate">
+      <EnableRules>
+        <EnableRule Id="Mscrm.CanWritePrimary" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanWritePrimary" />
+        <DisplayRule Id="Mscrm.PrimaryIsInactive" />
+        <DisplayRule Id="Mscrm.PrimaryEntityHasStatecode" />
+        <DisplayRule Id="Mscrm.PrimaryIsNotActivity" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.CommandBarActions.changeState" Library="/_static/_common/scripts/CommandBarActions.js">
+          <StringParameter Value="activate" />
+          <CrmParameter Value="FirstPrimaryItemId" />
+          <CrmParameter Value="PrimaryEntityTypeName" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Form.Deactivate">
+      <EnableRules>
+        <EnableRule Id="Mscrm.CanWritePrimary" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanWritePrimary" />
+        <DisplayRule Id="Mscrm.PrimaryIsActive" />
+        <DisplayRule Id="Mscrm.PrimaryEntityHasStatecode" />
+        <DisplayRule Id="Mscrm.PrimaryIsNotActivity" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.CommandBarActions.changeState" Library="/_static/_common/scripts/CommandBarActions.js">
+          <StringParameter Value="deactivate" />
+          <CrmParameter Value="FirstPrimaryItemId" />
+          <CrmParameter Value="PrimaryEntityTypeName" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Form.Flows">
+      <EnableRules>
+        <EnableRule Id="Mscrm.IsMicrosoftFlowIntegrationEnabled" />
+        <EnableRule Id="Mscrm.AnySelection" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.MicrosoftFlows" />
+        <DisplayRule Id="Mscrm.HideOnOutlookClient" />
+        <DisplayRule Id="Mscrm.ShowOnlyOnModern" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Form.Flows.ManageRunFlow">
+      <EnableRules>
+        <EnableRule Id="Mscrm.IsMicrosoftFlowIntegrationEnabled" />
+        <EnableRule Id="Mscrm.DisplayFlowSingleMenu" />
+        <EnableRule Id="Mscrm.AnySelection" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.MicrosoftFlows" />
+        <DisplayRule Id="Mscrm.HideOnOutlookClient" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Form.FollowCommand">
+      <EnableRules>
+        <EnableRule Id="Mscrm.NotOffline" />
+        <EnableRule Id="msdyn.ActivityFeeds.NotNewEnableRule" />
+        <EnableRule Id="msdyn.ActivityFeeds.IsFollowButtonEnabled" />
+        <EnableRule Id="msdyn.ActivityFeeds.Yammer.ShouldEnableFollow" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="msdyn.ActivityFeeds.ShowFollowButton" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Follow.FollowCommands.followFromForm" Library="$webresource:msdyn_/Follow.Command.js">
+          <CrmParameter Value="FirstPrimaryItemId" />
+          <CrmParameter Value="PrimaryEntityTypeName" />
+          <CrmParameter Value="PrimaryEntityTypeCode" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Form.MSTeamsCollaborateCommand">
+      <EnableRules>
+        <EnableRule Id="Mscrm.FormStateNotNew" />
+        <EnableRule Id="OfficeProductivity.RibbonRules.showMSTeamsCollaborateCommand" />
+        <EnableRule Id="OfficeProductivity.RibbonRules.hideCollaborateCommandForContextualEmail" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.ShowOnlyOnModern" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="OfficeProductivity.RibbonCommands.showMSTeamsCollaborateDialog" Library="$webresource:msdyn_/OfficeProductivity_RibbonCommands.js">
+          <CrmParameter Value="PrimaryControl" />
+          <CrmParameter Value="PrimaryEntityTypeCode" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Form.NewUnfollowCommand">
+      <EnableRules>
+        <EnableRule Id="Mscrm.NotOffline" />
+        <EnableRule Id="msdyn.ActivityFeeds.NotNewEnableRule" />
+        <EnableRule Id="msdyn.ActivityFeeds.IsUnFollowButtonEnabled" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="msdyn.ActivityFeeds.ShowUnfollowButton" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Follow.FollowCommands.unfollowFromForm" Library="$webresource:msdyn_/Follow.Command.js">
+          <CrmParameter Value="FirstPrimaryItemId" />
+          <CrmParameter Value="PrimaryEntityTypeName" />
+          <CrmParameter Value="PrimaryEntityTypeCode" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Form.Process">
+      <EnableRules>
+        <EnableRule Id="Mscrm.FormStateNotNew" />
+        <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline" />
+        <EnableRule Id="Mscrm.IsBPFCommandsAvaialableOffline" />
+        <EnableRule Id="Mscrm.ProcessFlyoutButtonEnableRule" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanWritePrimary" />
+        <DisplayRule Id="Mscrm.IsBusinessProcessEnabled" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Form.UnfollowCommand">
+      <EnableRules>
+        <EnableRule Id="Mscrm.NotOffline" />
+        <EnableRule Id="msdyn.ActivityFeeds.NotNewEnableRule" />
+        <EnableRule Id="msdyn.ActivityFeeds.IsUnFollowButtonEnabled" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="msdyn.ActivityFeeds.ShowUnfollowButton" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Follow.FollowCommands.unfollowFromForm" Library="$webresource:msdyn_/Follow.Command.js">
+          <CrmParameter Value="FirstPrimaryItemId" />
+          <CrmParameter Value="PrimaryEntityTypeName" />
+          <CrmParameter Value="PrimaryEntityTypeCode" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Form.WordTemplate">
+      <EnableRules>
+        <EnableRule Id="Mscrm.FormStateNotNew" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.DocumentGenerationPrivilege" />
+        <DisplayRule Id="Mscrm.HideForTabletExperience" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Modern.refreshCommand">
+      <EnableRules>
+        <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline" />
+        <EnableRule Id="Mscrm.FormStateNotNew" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.ShowOnlyOnModern" />
+        <DisplayRule Id="Mscrm.HideInOfflineAfter2022" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Refresh.refreshCommand" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.NewRecordFromForm">
+      <EnableRules>
+        <EnableRule Id="Mscrm.AvailableOnForm" />
+        <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.PrimaryIsNotActivity" />
+        <DisplayRule Id="Mscrm.HideInLegacyRibbon" />
+        <DisplayRule Id="Mscrm.CreatePrimaryEntityPermission" />
+        <DisplayRule Id="Mscrm.PrimaryEntityIsNotBPFEntity" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Open.openNewRecord" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="PrimaryEntityTypeName" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.ReportMenu.Form">
+      <EnableRules>
+        <EnableRule Id="Mscrm.FormStateNotNew" />
+        <EnableRule Id="Mscrm.ShowOnNonModernAndModernIfAllowed" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.ReadReport" />
+        <DisplayRule Id="Mscrm.HideForTabletExperience" />
+        <DisplayRule Id="Mscrm.HybridDialogReportsEnabled" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.SharePrimaryRecordRefresh">
+      <EnableRules>
+        <EnableRule Id="Mscrm.FormStateNotNew" />
+        <EnableRule Id="Mscrm.SharePrimaryPermission" />
+        <EnableRule Id="Mscrm.NotOffline" />
+        <EnableRule Id="Mscrm.ShowOnNonModernAndModernIfAllowed" />
+        <EnableRule Id="Mscrm.CollabNotEnabled" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.SharePrimaryPermission" />
+        <DisplayRule Id="Mscrm.HybridDialogShareEnabled" />
+        <DisplayRule Id="Mscrm.HideInLegacyRibbon" />
+        <DisplayRule Id="Mscrm.OutlookRenderTypeWeb" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Common.onActionMenuClick" Library="$webresource:Main_system_library.js">
+          <StringParameter Value="share" />
+          <CrmParameter Value="PrimaryEntityTypeName" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.ShareRecordsAndSecuredFieldsPrimaryRecord">
+      <EnableRules>
+        <EnableRule Id="Mscrm.FormStateNotNew" />
+        <EnableRule Id="Mscrm.NotOffline" />
+        <EnableRule Id="Mscrm.ShareRecordsAndSecuredFieldsPrimaryPermission" />
+        <EnableRule Id="ract.contact.EnableRule2.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.HideOnCommandBar" />
+        <DisplayRule Id="Mscrm.ShareRecordsAndSecuredFieldsPrimaryPermission" />
+        <DisplayRule Id="Mscrm.HideOnModern" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="Mscrm.AddPrimaryToMarketingList">
+        <EntityPrivilegeRule PrivilegeType="Append" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+        <EntityPrivilegeRule PrivilegeType="AppendTo" PrivilegeDepth="Basic" EntityName="list" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.AssignPrimaryPermission">
+        <EntityPrivilegeRule PrivilegeType="Assign" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CanWritePrimary">
+        <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CreateConnection">
+        <MiscellaneousPrivilegeRule PrivilegeName="CreateConnection" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CreatePrimaryEntityPermission">
+        <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.DeletePrimaryEntityPermission">
+        <EntityPrivilegeRule PrivilegeType="Delete" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.DocumentGenerationPrivilege">
+        <MiscellaneousPrivilegeRule PrivilegeName="DocumentGeneration" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideForTabletExperience">
+        <HideForTabletExperienceRule />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideInLegacyRibbon">
+        <CommandClientTypeRule Type="Legacy" InvertResult="true" />
+        <PageRule Address="/userdefined/edit.aspx" InvertResult="true" />
+        <PageRule Address="/advancedfind/advfind.aspx" InvertResult="true" />
+        <PageRule Address="/advancedfind/fetchData.aspx" InvertResult="true" />
+        <PageRule Address="/tools/formeditor/formeditor.aspx" InvertResult="true" />
+        <PageRule Address="/tools/visualizationdesigner/visualizationdesigner.aspx" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideInOfflineAfter2022">
+        <OrRule>
+          <Or>
+            <CrmOfflineAccessStateRule State="Offline" InvertResult="true" />
+          </Or>
+          <Or>
+            <CrmOfflineAccessStateRule State="Offline" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideOnCommandBar">
+        <OrRule>
+          <Or>
+            <CommandClientTypeRule Type="Legacy" />
+          </Or>
+          <Or>
+            <PageRule Address="/userdefined/edit.aspx" />
+          </Or>
+          <Or>
+            <PageRule Address="/advancedfind/advfind.aspx" />
+          </Or>
+          <Or>
+            <PageRule Address="/advancedfind/fetchData.aspx" />
+          </Or>
+          <Or>
+            <PageRule Address="/tools/formeditor/formeditor.aspx" />
+          </Or>
+          <Or>
+            <PageRule Address="/tools/visualizationdesigner/visualizationdesigner.aspx" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideOnModern">
+        <CommandClientTypeRule Type="Modern" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideOnOutlookClient">
+        <CrmClientTypeRule Type="Outlook" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HybridDialogReportsEnabled">
+        <OrRule>
+          <Or>
+            <CommandClientTypeRule Type="Modern" InvertResult="true" />
+          </Or>
+          <Or>
+            <CommandClientTypeRule Type="Modern" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HybridDialogShareEnabled">
+        <OrRule>
+          <Or>
+            <CommandClientTypeRule Type="Modern" InvertResult="true" />
+          </Or>
+          <Or>
+            <CommandClientTypeRule Type="Modern" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.IsBusinessProcessEnabled">
+        <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsBusinessProcessEnabled" PropertyValue="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.IsConnectionsEnabledPrimary">
+        <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsConnectionsEnabled" PropertyValue="true" Default="false" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.MicrosoftFlows">
+        <MiscellaneousPrivilegeRule PrivilegeName="Flow" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.NotClosedActivity">
+        <OrRule>
+          <Or>
+            <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsActivity" PropertyValue="false" />
+          </Or>
+          <Or>
+            <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsActivity" PropertyValue="true" />
+            <ValueRule Field="statecode" Value="Open" />
+          </Or>
+          <Or>
+            <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsActivity" PropertyValue="true" />
+            <ValueRule Field="statecode" Value="Scheduled" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.OutlookRenderTypeWeb">
+        <OutlookRenderTypeRule Type="Web" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryEntityHasStatecode">
+        <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="HasStateCode" PropertyValue="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryEntityIsNotBPFEntity">
+        <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsBPFEntity" PropertyValue="false" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryIsActive">
+        <FormStateRule State="Existing" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryIsInactive">
+        <FormStateRule State="Disabled" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryIsNotActivity">
+        <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsActivity" PropertyValue="false" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.ReadReport">
+        <EntityPrivilegeRule PrivilegeType="Read" PrivilegeDepth="Basic" EntityName="report" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.SharePrimaryPermission">
+        <EntityPrivilegeRule PrivilegeType="Share" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+        <FormEntityContextRule EntityName="bulkoperation" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.ShareRecordsAndSecuredFieldsPrimaryPermission">
+        <OrRule>
+          <Or>
+            <EntityPrivilegeRule PrivilegeType="Share" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+          </Or>
+          <Or>
+            <EntityPrivilegeRule PrivilegeType="Read" PrivilegeDepth="Basic" EntityName="principalobjectattributeaccess" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.ShowOnlyOnModern">
+        <CommandClientTypeRule Type="Modern" />
+      </DisplayRule>
+      <DisplayRule Id="msdyn.ActivityFeeds.ShowFollowButton">
+        <EntityRule EntityName="postfollow" AppliesTo="SelectedEntity" Default="true" InvertResult="true" />
+        <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Basic" EntityName="postfollow" />
+        <EntityPrivilegeRule PrivilegeType="Read" PrivilegeDepth="Basic" EntityName="postfollow" />
+      </DisplayRule>
+      <DisplayRule Id="msdyn.ActivityFeeds.ShowUnfollowButton">
+        <EntityRule EntityName="postfollow" AppliesTo="SelectedEntity" Default="true" InvertResult="true" />
+        <EntityPrivilegeRule PrivilegeType="Delete" PrivilegeDepth="Basic" EntityName="postfollow" />
+        <EntityPrivilegeRule PrivilegeType="Read" PrivilegeDepth="Basic" EntityName="postfollow" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="Mscrm.AddPrimaryToMarketingList">
+        <RecordPrivilegeRule PrivilegeType="Append" AppliesTo="PrimaryEntity" />
+        <CrmOfflineAccessStateRule State="Offline" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.AnySelection">
+        <SelectionCountRule AppliesTo="SelectedEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.AssignPrimaryPermission">
+        <RecordPrivilegeRule PrivilegeType="Assign" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.AvailableOnForm">
+        <EntityRule AppliesTo="PrimaryEntity" Context="Form" Default="false" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.CanDeletePrimary">
+        <RecordPrivilegeRule PrivilegeType="Delete" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.CanWritePrimary">
+        <RecordPrivilegeRule PrivilegeType="Write" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.CollabNotEnabled">
+        <CustomRule FunctionName="XrmCore.Commands.Share.showLegacyShareAndEmailALink" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="PrimaryEntityTypeName" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.DisplayFlowSingleMenu">
+        <CustomRule FunctionName="XrmCore.Commands.Flows.displayFlowSingleMenu" Library="$webresource:Main_system_library.js" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.FormStateExistingOrReadOnly">
+        <OrRule>
+          <Or>
+            <FormStateRule State="ReadOnly" />
+          </Or>
+          <Or>
+            <FormStateRule State="Existing" />
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.FormStateExistingOrReadOnlyOrDisabled">
+        <OrRule>
+          <Or>
+            <FormStateRule State="ReadOnly" />
+          </Or>
+          <Or>
+            <FormStateRule State="Existing" />
+          </Or>
+          <Or>
+            <FormStateRule State="Disabled" />
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.FormStateNotNew">
+        <FormStateRule State="Create" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsBPFCommandsAvaialableOffline">
+        <CustomRule FunctionName="Mscrm.WorkflowWebResource.IsBPFCommandsAvaialableOffline" Library="$webresource:Main_system_library.js" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline">
+        <CustomRule FunctionName="XrmCore.Rules.Online.IsEntityAvailableForUserInMocaOffline" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedEntityTypeName" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsMicrosoftFlowIntegrationEnabled">
+        <CustomRule FunctionName="XrmCore.Commands.Flows.isMicrosoftFlowEnabled" Library="$webresource:Main_system_library.js" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.NotOffline">
+        <CrmOfflineAccessStateRule State="Offline" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.ProcessFlyoutButtonEnableRule">
+        <CustomRule FunctionName="XrmCore.Rules.Process.shouldShowProcessFlyoutButton" Library="$webresource:Main_system_library.js" Default="true">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.SharePrimaryPermission">
+        <RecordPrivilegeRule PrivilegeType="Share" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.ShareRecordsAndSecuredFieldsPrimaryPermission">
+        <OrRule>
+          <Or>
+            <RecordPrivilegeRule PrivilegeType="Share" AppliesTo="PrimaryEntity" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="Mscrm.RibbonActions.hasSecuredFields" Library="/_static/_common/scripts/RibbonActions.js" />
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.ShowOnNonModernAndModernIfAllowed">
+        <OrRule>
+          <Or>
+            <CommandClientTypeRule Type="Modern" InvertResult="true" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="XrmCore.InternalUtilities.DialogUtilities.isAllowLegacyDialogsEmbedding" Library="$webresource:Main_system_library.js" />
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="msdyn.ActivityFeeds.IsFollowButtonEnabled">
+        <CustomRule FunctionName="Follow.FollowCommands.dummy" Library="$webresource:msdyn_/Follow.Command.js" Default="false" />
+        <CustomRule FunctionName="Follow.FollowCommands.dummy" Library="$webresource:msdyn_/Scripts/PlatformScriptLoader.js" />
+        <CustomRule FunctionName="Follow.FollowCommands.dummy" Library="$webresource:msdyn_/InstalledLocales.js" />
+        <CustomRule FunctionName="Follow.FollowEnabled.isFollowButtonEnabled" Library="$webresource:msdyn_/Follow.Command.js" Default="false">
+          <CrmParameter Value="FirstPrimaryItemId" />
+          <CrmParameter Value="PrimaryEntityTypeName" />
+          <BoolParameter Value="true" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="msdyn.ActivityFeeds.IsUnFollowButtonEnabled">
+        <CustomRule FunctionName="Follow.FollowCommands.dummy" Library="$webresource:msdyn_/Follow.Command.js" Default="false" />
+        <CustomRule FunctionName="Follow.FollowCommands.dummy" Library="$webresource:msdyn_/Scripts/PlatformScriptLoader.js" />
+        <CustomRule FunctionName="Follow.FollowCommands.dummy" Library="$webresource:msdyn_/InstalledLocales.js" />
+        <CustomRule FunctionName="Follow.FollowEnabled.isFollowButtonEnabled" Library="$webresource:msdyn_/Follow.Command.js" Default="false">
+          <CrmParameter Value="FirstPrimaryItemId" />
+          <CrmParameter Value="PrimaryEntityTypeName" />
+          <BoolParameter Value="false" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="msdyn.ActivityFeeds.NotNewEnableRule">
+        <FormStateRule State="Create" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="msdyn.ActivityFeeds.Yammer.ShouldEnableFollow">
+        <CustomRule FunctionName="Follow.FollowEnableYammerCheck.shouldEnableFollow" Library="$webresource:msdyn_/Follow.Command.js" Default="true">
+          <CrmParameter Value="PrimaryEntityTypeCode" />
+          <CrmParameter Value="SelectedEntityTypeCode" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="OfficeProductivity.RibbonRules.hideCollaborateCommandForContextualEmail">
+        <CustomRule FunctionName="OfficeProductivity.RibbonRules.hideCollaborateCommandForContextualEmail" Library="$webresource:msdyn_/OfficeProductivity_RibbonRules.js">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="OfficeProductivity.RibbonRules.showMSTeamsCollaborateCommand">
+        <CustomRule FunctionName="OfficeProductivity.RibbonRules.showMSTeamsCollaborateCommand" Library="$webresource:msdyn_/OfficeProductivity_RibbonRules.js">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="ract.contact.EnableRule2.EnableRule">
+        <CustomRule FunctionName="getFormName" Library="$webresource:ract_getFormName" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels />
+</RibbonDiffXml>

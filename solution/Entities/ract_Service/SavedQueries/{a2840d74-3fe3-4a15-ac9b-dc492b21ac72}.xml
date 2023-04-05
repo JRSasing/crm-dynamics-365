@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{a2840d74-3fe3-4a15-ac9b-dc492b21ac72}</savedqueryid>
+    <layoutxml>
+      <grid name="ract_services" jump="ract_name" select="1" icon="1" preview="1">
+        <row name="ract_service" id="ract_serviceid">
+          <cell name="ract_referencenumber" width="156" />
+          <cell name="ract_product" width="100" />
+          <cell name="ract_name" width="261" />
+          <cell name="statecode" width="100" />
+          <cell name="ract_servicedate" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="ract_service">
+          <attribute name="ract_serviceid" />
+          <attribute name="ract_name" />
+          <order attribute="ract_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="ract_referencenumber" />
+          <attribute name="ract_product" />
+          <attribute name="statecode" />
+          <attribute name="ract_servicedate" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Service Transactions Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

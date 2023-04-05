@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{ecb451c9-18e6-4222-8131-ba6fcdaa745d}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{15e1f608-d14b-4838-b3e2-11c44a25f635}" IsUserDefined="1">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{3b325658-4470-469d-bba3-e438c1fd464d}">
+                  <labels>
+                    <label description="GENERAL" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{1b71eca2-9e0c-4d2a-83a8-d0c80196d325}">
+                        <labels>
+                          <label description="Card Number" languagecode="1033" />
+                        </labels>
+                        <control id="ract_idnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="ract_idnumber" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e2899449-4123-4075-a925-c2bd327b0ea7}" locklevel="1" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Person" languagecode="1033" />
+                        </labels>
+                        <control id="ract_person" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ract_person" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{91c5f9fb-abfc-4db9-91db-adf24831d668}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Request Date" languagecode="1033" />
+                        </labels>
+                        <control id="ract_requestdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="ract_requestdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{78af82d9-7111-4b7f-abfb-e61ddbc8c370}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Issue Date" languagecode="1033" />
+                        </labels>
+                        <control id="ract_issuedate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="ract_issuedate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b66e6ab3-7d9b-4d70-a231-df2dbc78a965}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Expiry Date" languagecode="1033" />
+                        </labels>
+                        <control id="ract_expirydate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="ract_expirydate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f5e815ef-cbec-448c-86a6-398d6b38e16d}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

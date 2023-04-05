@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{986528fe-a4c6-ed11-b597-00224818ab44}" Name="RACT - Case Process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/RACT-CaseProcess-986528FE-A4C6-ED11-B597-00224818AB44.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <processorder>0</processorder>
+  <RunAs>1</RunAs>
+  <UniqueName>ract_casebpf</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.0.16</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
+  <PrimaryEntity>Incident</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="RACT - Case Process" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{921e7970-ee7c-4aa0-9c71-c38af2d2716a}">
+      <label languagecode="1033" description="Identify" />
+    </steplabels>
+    <steplabels id="{25049673-95ff-4021-9782-612edcc286d3}">
+      <label languagecode="1033" description="Find Customer" />
+    </steplabels>
+    <steplabels id="{2882f0b5-a89e-474a-aaf0-b5026db94f62}">
+      <label languagecode="1033" description="Find Contact" />
+    </steplabels>
+    <steplabels id="{010640f9-fb6b-4db1-affe-495d5a480ace}">
+      <label languagecode="1033" description="Find Case" />
+    </steplabels>
+    <steplabels id="{1eca5ba4-7cf8-4e5c-b8eb-5c504915f11a}">
+      <label languagecode="1033" description="Research" />
+    </steplabels>
+    <steplabels id="{5bef9943-2e39-451f-97fc-973a83e5f9c6}">
+      <label languagecode="1033" description="Similar Cases" />
+    </steplabels>
+    <steplabels id="{7301d760-4604-48fc-8d7f-2e73698086f1}">
+      <label languagecode="1033" description="Assign to Others" />
+    </steplabels>
+    <steplabels id="{595f6fc6-0e57-4201-8a5a-fb290ee22fb7}">
+      <label languagecode="1033" description="Resolve" />
+    </steplabels>
+    <steplabels id="{84948d77-13e8-4726-821d-875a2ec49e0d}">
+      <label languagecode="1033" description="Resolve" />
+    </steplabels>
+  </labels>
+</Workflow>

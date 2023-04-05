@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{5813a07b-c958-4be0-a477-224dd3c2895f}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="ract_name" select="1" icon="1" preview="1">
+        <row name="result" id="ract_productholdingid">
+          <cell name="ract_referencenumber" width="100" />
+          <cell name="ract_product" width="100" />
+          <cell name="ract_productstatus" width="100" />
+          <cell name="ract_startdate" width="100" />
+          <cell name="ract_expirydate" width="100" />
+          <cell name="ract_relationship" width="100" />
+          <cell name="ract_primaryproductholder" width="100" />
+          <cell name="ract_price" width="100" />
+          <cell name="ract_producttype" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="ract_productholding">
+          <attribute name="ract_productholdingid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+          <attribute name="ract_referencenumber" />
+          <attribute name="ract_product" />
+          <attribute name="ract_productstatus" />
+          <attribute name="ract_startdate" />
+          <attribute name="ract_expirydate" />
+          <attribute name="ract_relationship" />
+          <attribute name="ract_primaryproductholder" />
+          <attribute name="ract_price" />
+          <attribute name="ract_producttype" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive Product Holdings" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

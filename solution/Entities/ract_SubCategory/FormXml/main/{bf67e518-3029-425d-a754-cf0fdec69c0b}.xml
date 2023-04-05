@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{bf67e518-3029-425d-a754-cf0fdec69c0b}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{e6e91cd4-08c4-40c7-84f3-50210300ef55}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{7b436e9d-376a-41ed-bd45-6157ded36e2a}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{621bb0b2-a972-43b4-9454-d1bd56179eb8}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="ract_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="ract_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5b400ca2-1cfa-4ead-8bcf-de2d4c2174e8}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Category" languagecode="1033" />
+                        </labels>
+                        <control id="ract_category" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ract_category" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{392158cb-145f-4794-a41b-1fab3ca45ce2}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Resolution Time (Days)" languagecode="1033" />
+                        </labels>
+                        <control id="ract_resolutiontimedays" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="ract_resolutiontimedays" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{40a08d42-9efb-4afc-a4f8-646590a5c00b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="ract_description" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ract_description" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{edfb5c3f-d287-478f-8963-54c84b6e9c05}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Status" languagecode="1033" />
+                        </labels>
+                        <control id="statecode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9aac6f1e-552f-4ac0-8f73-d29812702e58}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{4cfd1364-f16b-4269-9892-7a8dcff606c7}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{a540a0ae-a7be-4a30-b7e5-aa86017edc87}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{ec8e4cf6-0c9c-4782-a500-fc4f5dbbf21a}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{920cba88-0120-480a-8ba6-494616177ae8}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{9025f10b-d6f9-4086-93b6-35a4efe65604}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{0b137079-4736-410e-97e8-06c5e6733715}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{c8fbc043-c83c-410b-849d-32cfc5a05122}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{9baa6636-39b9-4965-a93c-5daf7f5db886}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

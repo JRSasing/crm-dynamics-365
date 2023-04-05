@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{0a8a8be9-b18a-4cf5-8ce1-e654b7d49255}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="ract_idnumber" select="1" icon="1" preview="1">
+        <row name="result" id="ract_membershipcardid">
+          <cell name="ract_idnumber" width="300" />
+          <cell name="ract_requestdate" width="100" />
+          <cell name="ract_issuedate" width="100" />
+          <cell name="ract_primeaddressee" width="100" />
+          <cell name="createdon" width="125" />
+          <cell name="ract_requestedby" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="ract_membershipcard">
+          <attribute name="ract_membershipcardid" />
+          <attribute name="ract_idnumber" />
+          <attribute name="createdon" />
+          <order attribute="ract_idnumber" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+          <attribute name="ract_requestdate" />
+          <attribute name="ract_requestedby" />
+          <attribute name="ract_issuedate" />
+          <attribute name="ract_primeaddressee" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive Membership Cards" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

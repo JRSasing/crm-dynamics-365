@@ -1,0 +1,23 @@
+<duplicaterule uniquename="dr1de7cc9f255624b8f126f4579009ca7f95d27627550f577394f0b2ca245484de">
+  <baseentityname>contact</baseentityname>
+  <excludeinactiverecords>1</excludeinactiverecords>
+  <iscasesensitive>0</iscasesensitive>
+  <iscustomizable>1</iscustomizable>
+  <matchingentityname>contact</matchingentityname>
+  <name>Same DoB &amp; First 3 chars of First Name &amp; same Home Phone</name>
+  <duplicateruleconditions>
+    <duplicaterulecondition baseattributename="birthdate" matchingattributename="birthdate" operatorcode="3" uniquerulename="dr1de7cc9f255624b8f126f4579009ca7f95d27627550f577394f0b2ca245484de">
+      <ignoreblankvalues>0</ignoreblankvalues>
+      <iscustomizable>1</iscustomizable>
+    </duplicaterulecondition>
+    <duplicaterulecondition baseattributename="firstname" matchingattributename="firstname" operatorcode="1" uniquerulename="dr1de7cc9f255624b8f126f4579009ca7f95d27627550f577394f0b2ca245484de">
+      <ignoreblankvalues>0</ignoreblankvalues>
+      <iscustomizable>1</iscustomizable>
+      <operatorparam>3</operatorparam>
+    </duplicaterulecondition>
+    <duplicaterulecondition baseattributename="telephone2" matchingattributename="telephone2" operatorcode="0" uniquerulename="dr1de7cc9f255624b8f126f4579009ca7f95d27627550f577394f0b2ca245484de">
+      <ignoreblankvalues>0</ignoreblankvalues>
+      <iscustomizable>1</iscustomizable>
+    </duplicaterulecondition>
+  </duplicateruleconditions>
+</duplicaterule>

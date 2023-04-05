@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModuleSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SiteMapUniqueName>msdyn_CustomerServiceWorkspace</SiteMapUniqueName>
+  <EnableCollapsibleGroups>False</EnableCollapsibleGroups>
+  <ShowHome>True</ShowHome>
+  <ShowPinned>True</ShowPinned>
+  <ShowRecents>True</ShowRecents>
+  <SiteMap IntroducedVersion="7.0.0.0">
+    <Area Id="Service_Area" ResourceId="SitemapDesigner.NewArea" DescriptionResourceId="SitemapDesigner.NewArea" ShowGroups="true" IntroducedVersion="7.0.0.0">
+      <Titles>
+        <Title LCID="1033" Title="Service" />
+        <Title LCID="1025" Title="الخدمة" />
+        <Title LCID="1026" Title="Услуга" />
+        <Title LCID="1027" Title="Servei" />
+        <Title LCID="1029" Title="Služby" />
+        <Title LCID="1030" Title="Service" />
+        <Title LCID="1031" Title="Service" />
+        <Title LCID="1032" Title="Υπηρεσία" />
+        <Title LCID="3082" Title="Servicio" />
+        <Title LCID="1061" Title="Teenindus" />
+        <Title LCID="1069" Title="Zerbitzua" />
+        <Title LCID="1035" Title="Palvelu" />
+        <Title LCID="1036" Title="Service" />
+        <Title LCID="1110" Title="Servizo" />
+        <Title LCID="1037" Title="שירות" />
+        <Title LCID="1081" Title="सेवा" />
+        <Title LCID="1050" Title="Usluga" />
+        <Title LCID="1038" Title="Szolgáltatás" />
+        <Title LCID="1057" Title="Layanan" />
+        <Title LCID="1040" Title="Servizio" />
+        <Title LCID="1041" Title="サービス" />
+        <Title LCID="1087" Title="Қызмет" />
+        <Title LCID="1042" Title="서비스" />
+        <Title LCID="1063" Title="Aptarnavimas" />
+        <Title LCID="1062" Title="Serviss" />
+        <Title LCID="1086" Title="Perkhidmatan" />
+        <Title LCID="1044" Title="Tjeneste" />
+        <Title LCID="1043" Title="Service" />
+        <Title LCID="1045" Title="Usługa" />
+        <Title LCID="1046" Title="Serviço" />
+        <Title LCID="2070" Title="Serviço" />
+        <Title LCID="1048" Title="Servicii" />
+        <Title LCID="1049" Title="Сервис" />
+        <Title LCID="1051" Title="Služba" />
+        <Title LCID="1060" Title="Storitev" />
+        <Title LCID="3098" Title="Услуге" />
+        <Title LCID="2074" Title="Usluge" />
+        <Title LCID="1053" Title="Service" />
+        <Title LCID="1054" Title="การบริการ" />
+        <Title LCID="1055" Title="Servis" />
+        <Title LCID="1058" Title="Обслуговування" />
+        <Title LCID="1066" Title="Dịch vụ" />
+        <Title LCID="2052" Title="服务" />
+        <Title LCID="3076" Title="服務" />
+        <Title LCID="1028" Title="服務" />
+      </Titles>
+      <Group Id="App_Tabs_Group" ResourceId="SitemapDesigner.NewGroup" DescriptionResourceId="SitemapDesigner.NewGroup" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+        <Titles>
+          <Title LCID="1033" Title="My Work" />
+          <Title LCID="1025" Title="الخدمة" />
+          <Title LCID="1026" Title="Услуга" />
+          <Title LCID="1027" Title="Servei" />
+          <Title LCID="1029" Title="Služby" />
+          <Title LCID="1030" Title="Service" />
+          <Title LCID="1031" Title="Service" />
+          <Title LCID="1032" Title="Υπηρεσία" />
+          <Title LCID="3082" Title="Servicio" />
+          <Title LCID="1061" Title="Teenindus" />
+          <Title LCID="1069" Title="Zerbitzua" />
+          <Title LCID="1035" Title="Palvelu" />
+          <Title LCID="1036" Title="Service" />
+          <Title LCID="1110" Title="Servizo" />
+          <Title LCID="1037" Title="שירות" />
+          <Title LCID="1081" Title="सेवा" />
+          <Title LCID="1050" Title="Usluga" />
+          <Title LCID="1038" Title="Szolgáltatás" />
+          <Title LCID="1057" Title="Layanan" />
+          <Title LCID="1040" Title="Servizio" />
+          <Title LCID="1041" Title="サービス" />
+          <Title LCID="1087" Title="Қызмет" />
+          <Title LCID="1042" Title="서비스" />
+          <Title LCID="1063" Title="Aptarnavimas" />
+          <Title LCID="1062" Title="Serviss" />
+          <Title LCID="1086" Title="Perkhidmatan" />
+          <Title LCID="1044" Title="Tjeneste" />
+          <Title LCID="1043" Title="Service" />
+          <Title LCID="1045" Title="Usługa" />
+          <Title LCID="1046" Title="Serviço" />
+          <Title LCID="2070" Title="Serviço" />
+          <Title LCID="1048" Title="Serviciu" />
+          <Title LCID="1049" Title="Сервис" />
+          <Title LCID="1051" Title="Služba" />
+          <Title LCID="1060" Title="Storitev" />
+          <Title LCID="3098" Title="Услуга" />
+          <Title LCID="2074" Title="Usluga" />
+          <Title LCID="1053" Title="Service" />
+          <Title LCID="1054" Title="การบริการ" />
+          <Title LCID="1055" Title="Hizmet" />
+          <Title LCID="1058" Title="Обслуговування" />
+          <Title LCID="1066" Title="Dịch vụ" />
+          <Title LCID="2052" Title="服务" />
+          <Title LCID="3076" Title="服務" />
+          <Title LCID="1028" Title="服務" />
+        </Titles>
+        <SubArea Id="New_SubArea" ResourceId="Homepage_Dashboards" DescriptionResourceId="Dashboards_Description" Icon="/_imgs/imagestrips/transparent_spacer.gif" Url="/workplace/home_dashboards.aspx" DefaultDashboard="338ea94a-8f9f-ea11-a812-000d3a31a607" IntroducedVersion="7.0.0.0" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="NewSubArea_a74d4532" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="activitypointer" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="KSIReportsSubArea" Icon="$webresource:msdyn_/Analytics/imgs/KnowledgeSearchIcon.svg" VectorIcon="$webresource:msdyn_/Analytics/imgs/KnowledgeSearchIcon.svg" Entity="msdyn_dataanalyticsreport_ksinsights" Client="Web" AvailableOffline="false" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <IsVisible settings="msdyn_ksianalyticssitemapvisibility" defaultValue="false" />
+          <Titles>
+            <Title LCID="1033" Title="Knowledge analytics" />
+            <Title LCID="1025" Title="تحليلات المعرفة" />
+            <Title LCID="1026" Title="Анализ на знания" />
+            <Title LCID="1027" Title="Anàlisi de la Knowledge Base" />
+            <Title LCID="1029" Title="Analýza znalostí" />
+            <Title LCID="1030" Title="Analyse af viden" />
+            <Title LCID="1031" Title="Wissensanalyse" />
+            <Title LCID="1032" Title="Ανάλυση γνώσεων" />
+            <Title LCID="3082" Title="Análisis de conocimientos" />
+            <Title LCID="1061" Title="Teabeanalüüs" />
+            <Title LCID="1069" Title="Jakintza-edukiaren analisiak" />
+            <Title LCID="1035" Title="Tietämysanalytiikka" />
+            <Title LCID="1036" Title="Analyse de la base de connaissances" />
+            <Title LCID="1110" Title="Análises de Knowledge" />
+            <Title LCID="1037" Title="ניתוח ידע" />
+            <Title LCID="1081" Title="नॉलेज विश्लेषण" />
+            <Title LCID="1050" Title="Analitika baze znanja" />
+            <Title LCID="1038" Title="Tudásbázis-elemzések" />
+            <Title LCID="1057" Title="Analitik pengetahuan" />
+            <Title LCID="1040" Title="Analisi della Knowledge Base" />
+            <Title LCID="1041" Title="サポート情報分析" />
+            <Title LCID="1087" Title="Білім қорын талдау" />
+            <Title LCID="1042" Title="참조 문서 분석" />
+            <Title LCID="1063" Title="Žinių analizė" />
+            <Title LCID="1062" Title="Zināšanu bāzes analīze" />
+            <Title LCID="1086" Title="Analitis pengetahuan" />
+            <Title LCID="1044" Title="Kunnskapsanalyse" />
+            <Title LCID="1043" Title="Kennisanalyses" />
+            <Title LCID="1045" Title="Analizy wiedzy" />
+            <Title LCID="1046" Title="Análise de conhecimento" />
+            <Title LCID="2070" Title="Análise do conhecimento" />
+            <Title LCID="1048" Title="Analiză articole din baza de cunoștințe" />
+            <Title LCID="1049" Title="Аналитика базы знаний" />
+            <Title LCID="1051" Title="Analýza vedomostí" />
+            <Title LCID="1060" Title="Analitika zbirke znanja" />
+            <Title LCID="3098" Title="Аналитика базе знања" />
+            <Title LCID="2074" Title="Analitika znanja" />
+            <Title LCID="1053" Title="Kunskapsanalys" />
+            <Title LCID="1054" Title="การวิเคราะห์ข้อมูลความรู้" />
+            <Title LCID="1055" Title="Bilgi bankası analizleri" />
+            <Title LCID="1058" Title="Аналітика бази знань" />
+            <Title LCID="1066" Title="Phân tích kiến thức" />
+            <Title LCID="2052" Title="知识分析" />
+            <Title LCID="3076" Title="知識分析" />
+            <Title LCID="1028" Title="知識分析" />
+          </Titles>
+          <Privilege Entity="msdyn_dataanalyticsreport_ksinsights" Privilege="Read" />
+        </SubArea>
+        <SubArea Id="CustomizedReportsSubArea" ResourceId="SitemapDesigner.NewSubArea" VectorIcon="$webresource:msdyn_/Analytics/imgs/CustomizedReportsIcon.svg" Icon="$webresource:msdyn_/Analytics/imgs/CustomizedReportsIcon.svg" Url="/main.aspx?pagetype=control&amp;controlName=MscrmControls.Analytics.ModernReportingControl&amp;data={&quot;featureIds&quot;:&quot;f2266eb4-226f-4cf1-b422-89c5f48b40cb&quot;}" Client="Web" AvailableOffline="true" PassParams="true" Sku="All,OnPremise,Live,SPLA">
+          <IsVisible settings="msdyn_customizationforcssitemapvisibility" defaultValue="false" />
+          <Titles>
+            <Title LCID="1033" Title="Customized Reports" />
+            <Title LCID="1025" Title="التقارير المخصصة" />
+            <Title LCID="1026" Title="Персонализирани отчети" />
+            <Title LCID="1027" Title="Informes personalitzats" />
+            <Title LCID="1029" Title="Přizpůsobené sestavy" />
+            <Title LCID="1030" Title="Tilpassede rapporter" />
+            <Title LCID="1031" Title="Angepasste Berichte" />
+            <Title LCID="1032" Title="Προσαρμοσμένες αναφορές" />
+            <Title LCID="3082" Title="Informes personalizados" />
+            <Title LCID="1061" Title="Kohandatud aruanded" />
+            <Title LCID="1069" Title="Txosten pertsonalizatuak" />
+            <Title LCID="1035" Title="Mukautetut raportit" />
+            <Title LCID="1036" Title="Rapports personnalisés" />
+            <Title LCID="1110" Title="Informes personalizados" />
+            <Title LCID="1037" Title="דוחות מותאמים אישית" />
+            <Title LCID="1081" Title="अनुकूलित रिपोर्ट" />
+            <Title LCID="1050" Title="Prilagođena izvješća" />
+            <Title LCID="1038" Title="Testreszabott jelentések" />
+            <Title LCID="1057" Title="Laporan Kustom" />
+            <Title LCID="1040" Title="Report personalizzati" />
+            <Title LCID="1041" Title="カスタマイズしたレポート" />
+            <Title LCID="1087" Title="Теңшелген есептер" />
+            <Title LCID="1042" Title="사용자 지정 보고서" />
+            <Title LCID="1063" Title="Tinkintos ataskaitos" />
+            <Title LCID="1062" Title="Pielāgotas atskaites" />
+            <Title LCID="1086" Title="Laporan Disesuaikan" />
+            <Title LCID="1044" Title="Tilpassede rapporter" />
+            <Title LCID="1043" Title="Aangepaste rapporten" />
+            <Title LCID="1045" Title="Dostosowane raporty" />
+            <Title LCID="1046" Title="Relatórios Personalizados" />
+            <Title LCID="2070" Title="Relatórios Personalizados" />
+            <Title LCID="1048" Title="Rapoarte particularizate" />
+            <Title LCID="1049" Title="Настроенные отчеты" />
+            <Title LCID="1051" Title="Prispôsobené zostavy" />
+            <Title LCID="1060" Title="Prilagojena poročila" />
+            <Title LCID="3098" Title="Прилагођени извештаји" />
+            <Title LCID="2074" Title="Prilagođeni izveštaji" />
+            <Title LCID="1053" Title="Anpassade rapporter" />
+            <Title LCID="1054" Title="รายงานที่กำหนดเอง" />
+            <Title LCID="1055" Title="Özelleştirilmiş Raporlar" />
+            <Title LCID="1058" Title="Настроювані звіти" />
+            <Title LCID="1066" Title="Báo cáo tùy chỉnh" />
+            <Title LCID="2052" Title="自定义的报表" />
+            <Title LCID="3076" Title="自訂報表" />
+            <Title LCID="1028" Title="自訂報表" />
+          </Titles>
+        </SubArea>
+        <SubArea Id="NewSubArea_13e34968" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="queueitem" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <Titles>
+            <Title LCID="1033" Title="Queues" />
+            <Title LCID="1025" Title="قوائم الانتظار" />
+            <Title LCID="1026" Title="Опашки" />
+            <Title LCID="1027" Title="Cues" />
+            <Title LCID="1029" Title="Fronty" />
+            <Title LCID="1030" Title="Køer" />
+            <Title LCID="1031" Title="Warteschlangen" />
+            <Title LCID="1032" Title="Ουρές" />
+            <Title LCID="3082" Title="Colas" />
+            <Title LCID="1061" Title="Tööde järjekord" />
+            <Title LCID="1069" Title="Ilarak" />
+            <Title LCID="1035" Title="Jonot" />
+            <Title LCID="1036" Title="Files d’attente" />
+            <Title LCID="1110" Title="Filas" />
+            <Title LCID="1037" Title="תורים" />
+            <Title LCID="1081" Title="क्यूज़" />
+            <Title LCID="1050" Title="Redovi čekanja" />
+            <Title LCID="1038" Title="Feldolgozási sorok" />
+            <Title LCID="1057" Title="Antrean" />
+            <Title LCID="1040" Title="Code" />
+            <Title LCID="1041" Title="キュー" />
+            <Title LCID="1087" Title="Кезектер" />
+            <Title LCID="1042" Title="큐" />
+            <Title LCID="1063" Title="Eilės" />
+            <Title LCID="1062" Title="Rindas" />
+            <Title LCID="1086" Title="Baris" />
+            <Title LCID="1044" Title="Køer" />
+            <Title LCID="1043" Title="Wachtrijen" />
+            <Title LCID="1045" Title="Kolejki" />
+            <Title LCID="1046" Title="Filas" />
+            <Title LCID="2070" Title="Filas" />
+            <Title LCID="1048" Title="Cozi" />
+            <Title LCID="1049" Title="Очереди" />
+            <Title LCID="1051" Title="Fronty" />
+            <Title LCID="1060" Title="Čakalne vrste" />
+            <Title LCID="3098" Title="Редови" />
+            <Title LCID="2074" Title="Redovi" />
+            <Title LCID="1053" Title="Köer" />
+            <Title LCID="1054" Title="คิว" />
+            <Title LCID="1055" Title="Kuyruklar" />
+            <Title LCID="1058" Title="Списки очікування" />
+            <Title LCID="1066" Title="Hàng đợi" />
+            <Title LCID="2052" Title="队列" />
+            <Title LCID="3076" Title="佇列" />
+            <Title LCID="1028" Title="佇列" />
+          </Titles>
+        </SubArea>
+        <SubArea Id="SwarmSubArea_92625d5d" Icon="$webresource:Swarming\_imgs\msdyn_swarmentityicon.svg" Entity="msdyn_swarm" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <IsVisible settings="msdyn_swarmingenabled" defaultValue="false" />
+          <Titles>
+            <Title LCID="1033" Title="Swarms" />
+            <Title LCID="1025" Title="الأسراب" />
+            <Title LCID="1026" Title="Рояци" />
+            <Title LCID="1027" Title="Eixams" />
+            <Title LCID="1029" Title="Řešitelské týmy" />
+            <Title LCID="1030" Title="Sammensætninger" />
+            <Title LCID="1031" Title="Schwärme" />
+            <Title LCID="1032" Title="Διαδικασίες επίλυσης" />
+            <Title LCID="3082" Title="Enjambres" />
+            <Title LCID="1061" Title="Parved" />
+            <Title LCID="1069" Title="Multzoak" />
+            <Title LCID="1035" Title="Parvet" />
+            <Title LCID="1036" Title="Essaims" />
+            <Title LCID="1110" Title="Enxames" />
+            <Title LCID="1037" Title="קבוצות כישרונות" />
+            <Title LCID="1081" Title="स्वार्म" />
+            <Title LCID="1050" Title="Rojevi" />
+            <Title LCID="1038" Title="Sokaságok" />
+            <Title LCID="1057" Title="Himpunan" />
+            <Title LCID="1040" Title="Aggregati" />
+            <Title LCID="1041" Title="スウォーム" />
+            <Title LCID="1087" Title="Топтамалар" />
+            <Title LCID="1042" Title="전문가 그룹" />
+            <Title LCID="1063" Title="Subūrimai" />
+            <Title LCID="1062" Title="Darbinieku piesaistes vienumi" />
+            <Title LCID="1086" Title="Kerjasama Perkumpulan" />
+            <Title LCID="1044" Title="Svermer" />
+            <Title LCID="1043" Title="Zwermen" />
+            <Title LCID="1045" Title="Roje" />
+            <Title LCID="1046" Title="Associações" />
+            <Title LCID="2070" Title="Aglomerados" />
+            <Title LCID="1048" Title="Echipe de experți" />
+            <Title LCID="1049" Title="Группы решения задач" />
+            <Title LCID="1051" Title="Roje" />
+            <Title LCID="1060" Title="Reševalne ekipe" />
+            <Title LCID="3098" Title="Ројеви" />
+            <Title LCID="2074" Title="Rojevi" />
+            <Title LCID="1053" Title="Flockar" />
+            <Title LCID="1054" Title="เครือข่ายระดมปัญญา" />
+            <Title LCID="1055" Title="İşbirlikleri" />
+            <Title LCID="1058" Title="Рої" />
+            <Title LCID="1066" Title="Nhóm chuyên viên" />
+            <Title LCID="2052" Title="召集" />
+            <Title LCID="3076" Title="群體" />
+            <Title LCID="1028" Title="群體" />
+          </Titles>
+        </SubArea>
+        <SubArea Id="NewSubArea_d5977601" ResourceId="SitemapDesigner.NewSubArea" Url="/main.aspx?pagetype=control&amp;controlName=msdyn_wemControls.MyWorkScheduleControl" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <IsVisible settings="msdyn_enableWemAgentCalendar" defaultValue="false" />
+          <Titles>
+            <Title LCID="1033" Title="My Schedule" />
+            <Title LCID="1025" Title="الجدول الخاص بي" />
+            <Title LCID="1026" Title="Моят график" />
+            <Title LCID="1027" Title="La meva planificació" />
+            <Title LCID="1029" Title="Můj rozvrh" />
+            <Title LCID="1030" Title="Min planlægning" />
+            <Title LCID="1031" Title="Mein Zeitplan" />
+            <Title LCID="1032" Title="Το χρονοδιάγραμμά μου" />
+            <Title LCID="3082" Title="Mi programación" />
+            <Title LCID="1061" Title="Minu ajakava" />
+            <Title LCID="1069" Title="Nire antolaketa" />
+            <Title LCID="1035" Title="Oma aikataulu" />
+            <Title LCID="1036" Title="Ma planification" />
+            <Title LCID="1110" Title="A miña programación" />
+            <Title LCID="1037" Title="לוח הזמנים שלי" />
+            <Title LCID="1081" Title="मेरा शेड्यूल" />
+            <Title LCID="1050" Title="Moj raspored" />
+            <Title LCID="1038" Title="Saját ütemezés" />
+            <Title LCID="1057" Title="Jadwal Saya" />
+            <Title LCID="1040" Title="Pianificazione personale" />
+            <Title LCID="1041" Title="自分のスケジュール" />
+            <Title LCID="1087" Title="Менің кестем" />
+            <Title LCID="1042" Title="내 일정" />
+            <Title LCID="1063" Title="Mano tvarkaraštis" />
+            <Title LCID="1062" Title="Mans grafiks" />
+            <Title LCID="1086" Title="Jadual Saya" />
+            <Title LCID="1044" Title="Min tidsplan" />
+            <Title LCID="1043" Title="Mijn planning" />
+            <Title LCID="1045" Title="Mój harmonogram" />
+            <Title LCID="1046" Title="Meu Agendamento" />
+            <Title LCID="2070" Title="A Minha Agenda" />
+            <Title LCID="1048" Title="Planificarea mea" />
+            <Title LCID="1049" Title="Мое расписание" />
+            <Title LCID="1051" Title="Môj harmonogram" />
+            <Title LCID="1060" Title="Moj razpored" />
+            <Title LCID="3098" Title="Мој распоред" />
+            <Title LCID="2074" Title="Moj raspored" />
+            <Title LCID="1053" Title="Mitt schema" />
+            <Title LCID="1054" Title="กำหนดการของฉัน" />
+            <Title LCID="1055" Title="Zamanlamam" />
+            <Title LCID="1058" Title="Мій розклад" />
+            <Title LCID="1066" Title="Lịch trình của tôi" />
+            <Title LCID="2052" Title="我的日程安排" />
+            <Title LCID="3076" Title="我的排程" />
+            <Title LCID="1028" Title="我的排程" />
+          </Titles>
+        </SubArea>
+      </Group>
+      <Group Id="group_e27dca97" ResourceId="SitemapDesigner.NewGroup" DescriptionResourceId="SitemapDesigner.NewGroup" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+        <Titles>
+          <Title LCID="1033" Title="Customers" />
+        </Titles>
+        <SubArea Id="NewSubArea_e3434638" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="contact" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <Titles>
+            <Title LCID="1033" Title="Persons" />
+          </Titles>
+        </SubArea>
+        <SubArea Id="NewSubArea_ed4af58a" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="account" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_620e67eb" VectorIcon="/WebResources/AppCommon/ControlWS/SummaryPageImages/EmailTemplate_HighContrast.svg" Entity="ract_membershipcard" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_64e956d5" VectorIcon="/WebResources/Sales/_imgs/productgrid/Bundle.svg" Entity="ract_productholding" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+      </Group>
+      <Group Id="group_d116c818" ResourceId="SitemapDesigner.NewGroup" DescriptionResourceId="SitemapDesigner.NewGroup" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+        <Titles>
+          <Title LCID="1033" Title="Service" />
+        </Titles>
+        <SubArea Id="NewSubArea_fd572527" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="incident" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+      </Group>
+      <Group Id="group_7b94185e" ResourceId="SitemapDesigner.NewGroup" DescriptionResourceId="SitemapDesigner.NewGroup" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+        <Titles>
+          <Title LCID="1033" Title="Notification" />
+        </Titles>
+        <SubArea Id="subarea_f855f449" VectorIcon="/WebResources/msdyn_SalesOmniChannel/Images/msdyn_SMSIcon.svg" Entity="appnotification" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <Titles>
+            <Title LCID="1033" Title="Announcements" />
+          </Titles>
+        </SubArea>
+      </Group>
+    </Area>
+    <Area Id="area_b4d41d44" ResourceId="SitemapDesigner.NewTitle" DescriptionResourceId="SitemapDesigner.NewTitle" ShowGroups="true" IntroducedVersion="7.0.0.0">
+      <Titles>
+        <Title LCID="1033" Title="Administration" />
+      </Titles>
+      <Group Id="group_ce0e5540" ResourceId="SitemapDesigner.NewGroup" DescriptionResourceId="SitemapDesigner.NewGroup" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+        <Titles>
+          <Title LCID="1033" Title="General" />
+        </Titles>
+        <SubArea Id="NewSubArea_082f1ed7" VectorIcon="/WebResources/msdyn_/Images/BrowseCards" Icon="/WebResources/msdyn_/Images/BrowseCards" Entity="ract_categorytype" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_34ad5e65" VectorIcon="/WebResources/msdyn_/Icons/SVG/CustomerAssetCategory.svg" Entity="ract_maincategory" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_6e238ee0" VectorIcon="/WebResources/msdyn_/Icons/SVG/AssetCategoryTemplateAssociation.svg" Entity="ract_subcategory" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_f5b061c6" VectorIcon="/WebResources/msdyn_csac_usermanagement" Entity="ract_partnercategory" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_2e1870a6" VectorIcon="/WebResources/msdyn_OmnichannelBase/_imgs/SitemapIcon/Users" Entity="ract_partner" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_a62523c0" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="site" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+      </Group>
+      <Group Id="NewGroup_f0b33b69" ResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+        <Titles>
+          <Title LCID="1033" Title="Cases" />
+        </Titles>
+        <SubArea Id="subarea_da7ccf5d" VectorIcon="/WebResources/msdyn_csac_serviceterms" Entity="ract_complaintdesiredoutcomes" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_f5e9a56a" VectorIcon="/WebResources/msfp_SurveyIcon_16" Entity="ract_complaintreopenedreasons" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_98d299de" VectorIcon="/WebResources/msdyn_csac_queue" Entity="ract_complaintreasonsecondary" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_0cf488e8" VectorIcon="/WebResources/msdyn_/Icons/SVG/AssetCategoryTemplateAssociation.svg" Icon="/WebResources/msdyn_/Icons/SVG/AssetCategoryTemplateAssociation.svg" Entity="ract_complaintoutcomes" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+      </Group>
+      <Group Id="NewGroup_f2bb68fa" ResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+        <Titles>
+          <Title LCID="1033" Title="Products" />
+        </Titles>
+        <SubArea Id="subarea_29abf4a4" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="product" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_23a3bbb8" VectorIcon="/WebResources/Sales/_imgs/productgrid/Bundle.svg" Icon="/WebResources/Sales/_imgs/productgrid/Bundle.svg" Entity="uomschedule" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+      </Group>
+    </Area>
+  </SiteMap>
+  <LocalizedNames>
+    <LocalizedName description="Customer Service workspace (Preview)" languagecode="1033" />
+  </LocalizedNames>
+</AppModuleSiteMap>

@@ -1,0 +1,551 @@
+/** Start of OnLoad functions */
+var _formtype; //Returns form type 0 = Undefined 1 = Create 2 = Update 3 = Read Only 4 = Disabled 6 = Bulk Edit
+var originalEmailAddress;
+function initializeFunction(formContext) {
+    originalEmailAddress = formContext.getAttribute("emailaddress1") !== null ? formContext.getAttribute("emailaddress1").getValue() : "";
+    //clear cookie
+    deleteCookie();
+}
+
+
+function onLoad(executionContext) {
+    let formContext = executionContext.getFormContext();
+    _formtype = formContext.ui.getFormType();
+    initializeFunction(formContext);
+    if (_formtype === 1) {
+        prePopulatePreferenceFields(formContext);
+        getEnvironmentVariable("ract_privacymessage").then(function (value) {
+            if (value !== null) {
+                //createalertDialog(value);
+                formContext.ui.setFormNotification(value, "WARNING", "notificationID");
+            }
+        });
+        
+    }
+
+    if (_formtype !== 1) {
+        ContactDetailsConfirmed(formContext);
+    }
+    if (_formtype !== 3 && _formtype !== 6) {
+        prePopulatePhoneNumbers(formContext);
+    }
+
+}
+
+//prepopulate phone numbers with 03 and 04 and set country to Australia if form is in create mode
+function prePopulatePhoneNumbers(formContext) {
+    if (formContext.getAttribute("telephone1").getValue() === null)
+        formContext.getAttribute("telephone1").setValue("03");
+    if (formContext.getAttribute("telephone2").getValue() === null)
+        formContext.getAttribute("telephone2").setValue("03");
+    if (formContext.getAttribute("mobilephone").getValue() === null)
+        formContext.getAttribute("mobilephone").setValue("04");
+
+    if (_formtype === 1) {
+        formContext.getAttribute("address1_country").setValue("AUSTRALIA");
+        //formContext.getAttribute("address2_country").setValue("AUSTRALIA");
+    }
+    
+
+}
+
+function prePopulatePreferenceFields(formContext){
+    formContext.getAttribute("ract_digitaljourneysoptin").setValue(true);
+    formContext.getAttribute("ract_enewsemailoptin").setValue(true);
+    formContext.getAttribute("ract_journeysautomanage").setValue(true);
+}
+
+//set contact details confirmed field to false if the date is more than 90 days old
+function ContactDetailsConfirmed(formContext) {
+    var confirmed = formContext.getAttribute("ract_contactdetailsconfirmed");
+    var oneDay = 1000 * 60 * 60 * 24;
+    var date = new Date();
+    var confirmedOn = formContext.getAttribute("ract_contactdetailsconfirmedon").getValue();
+    var difference = Math.abs(date - confirmedOn);
+    var days = Math.round(difference / oneDay);
+    if (days >= 90) {
+        confirmed.setValue(false);
+    } else {
+        confirmed.setValue(true);
+    }
+}
+
+//create alert dialog
+function createalertDialog(message) {
+    var alertStrings = { confirmButtonLabel: "Ok", text: message, title: "Alert" };
+    var alertOptions = { height: 300, width: 300 };
+    Xrm.Navigation.openAlertDialog(alertStrings, alertOptions).then(
+        function (success) {
+            console.log("Alert dialog closed");
+        },
+        function (error) {
+            console.log(error.message);
+        }
+    );
+}
+
+//get Environment Variable Value
+async function getEnvironmentVariable(schemaName) {
+    var value = null;
+
+   // Get the matching environment variable definition with related values
+    var data = await Xrm.WebApi.retrieveMultipleRecords("environmentvariabledefinition", "?$top=1" +
+        "&$select=environmentvariabledefinitionid,defaultvalue" +
+        "&$expand=environmentvariabledefinition_environmentvariablevalue($select=value)" +
+        `&$filter=schemaname eq '${schemaName}'`);
+
+   if (data && data.entities && data.entities.length > 0) {
+        // Definition exists
+        var definition = data.entities[0];
+
+       // Use the default value only if no related values
+        value = definition.defaultvalue;
+
+       // Get the related value if provided
+        if (definition.environmentvariabledefinition_environmentvariablevalue.length > 0) {
+            value = definition.environmentvariabledefinition_environmentvariablevalue[0].value;
+        }
+    }
+
+   return value;
+}
+/** Start of OnChange functions */
+//Force capitalization of first, last and middle name
+function forceCapitalize(executionContext){
+    var formContext = executionContext.getFormContext();
+    var sourceField = executionContext.getEventSource().getName();
+    var nameField = formContext.getAttribute(sourceField);
+    var nameValue = nameField.getValue();
+    console.log(sourceField + "" + nameValue + "" + nameField)
+    if(nameValue !== null){
+        nameValue = nameValue.toUpperCase();
+        nameField.setValue(nameValue);
+    }
+}
+    /*
+    Gender
+    On Change: Depending on what Title is set the Gender will be set according to these rules:
+    If the Title is "Mr" set Gender to "Male". If the Title is "Mrs/Miss/Ms" set Gender to "Female"
+    If the Title is not "MR/Mrs/Miss/Ms" unlock the Gender field.
+    */
+
+function GenderSet(executionContext){
+    try {
+        setGender(executionContext);
+      }
+      catch(err) {
+       console.log(err.message);
+      }
+
+}
+
+function setGender(executionContext) {
+    var formContext = executionContext.getFormContext();
+    var titleexist = formContext.getAttribute("ract_title1");
+    if (formContext) {
+        if (titleexist) {
+            var title = formContext.getAttribute("ract_title1").getText() !== null ? formContext.getAttribute("ract_title1").getText().toLowerCase() : null;
+            if (title === "adm" || title === "bishop" || title === "brother" || title === "duke" || title === "emer arch" || title === "emr rach dr" || title === "fr." || title === "lord" || title === "master" || title === "most rev" || title === "most rev dr" || title === "mr" || title === "sir") {
+                formContext.getAttribute("gendercode").setValue(1);
+                formContext.getControl("gendercode").setDisabled(true);;
+            } else if (title === "dame" || title === "duchess" || title === "group captain raaf" || title === "lady" || title === "miss" || title === "mother" || title === "mrs" || title === "ms" || title === "sister") {
+                formContext.getAttribute("gendercode").setValue(2);
+                formContext.getControl("gendercode").setDisabled(true);
+            } 
+            /**
+             * Current gendercode does not have a value for mx
+            else if (title == "mx") {
+                formContext.getAttribute("gendercode").setValue(3);
+                formContext.getControl("gendercode").setDisabled(true);;
+            } 
+            */
+            else {
+                formContext.getAttribute("gendercode").setValue(null);
+                formContext.getControl("gendercode").setDisabled(true);;
+            }
+    
+        } else {
+            if (title === "dame" || title === "duchess" || title === "group captain raaf" || title == "lady" || title === "miss" || title === "mother" || title === "mrs" || title === "ms" || title === "sister" || title === "adm" 
+                || title === "bishop" || title === "brother" || title === "duke" || title === "emer arch" || title === "emr rach dr" || title === "fr." || title === "lord" || title === "master" || title === "most rev" 
+                || title === "most rev dr" || title === "mr" || title === "sir" || title === "mx")
+            formContext.getControl("gendercode").setDisabled(true);
+            
+        }
+        
+    }
+    
+    
+}
+
+//Set modified on of opt in fields
+function setModifiedOn(executionContext){
+    var formContext = executionContext.getFormContext();
+    var sourceField = executionContext.getEventSource().getName();
+    var _formtype = formContext.ui.getFormType();
+    var modifiedField;
+    if (_formtype !== 1) {
+        if (sourceField.toLowerCase() === "ract_roadsideservicesoptin"){
+            modifiedField = "ract_roadsideoptinmodified";
+        }
+        else {
+            modifiedField = sourceField +"modified";
+        }
+        var fieldName = formContext.getAttribute(modifiedField);
+        fieldName.setValue(new Date());
+    }
+
+   
+}
+
+//When "Postal is same as Residential" is checked, copy the Residential Address to the Postal Address
+function copyAddress(executionContext){
+    var formContext = executionContext.getFormContext();
+    var isButtonTicked = formContext.getAttribute("ract_postalsameasresidential").getValue();
+    if (isButtonTicked){
+        //copy line 1
+        formContext.getAttribute("address2_line1").setValue(formContext.getAttribute("address1_line1").getValue());
+        //copy post code
+        formContext.getAttribute("address2_postalcode").setValue(formContext.getAttribute("address1_postalcode").getValue());
+        //copy state
+        formContext.getAttribute("address2_stateorprovince").setValue(formContext.getAttribute("address1_stateorprovince").getValue());
+        //copy suburb
+        formContext.getAttribute("address2_city").setValue(formContext.getAttribute("address1_city").getValue());
+        //copy street name
+        formContext.getAttribute("address2_line2").setValue(formContext.getAttribute("address1_line2").getValue());
+        //copy street 3
+        formContext.getAttribute("address2_line3").setValue(formContext.getAttribute("address1_line3").getValue());
+        //copy country
+        formContext.getAttribute("address2_country").setValue(formContext.getAttribute("address1_country").getValue());
+        //copy region
+        formContext.getAttribute("ract_postaladdressregion").setValue(formContext.getAttribute("ract_residentialaddressregion").getValue());
+
+    }
+}
+
+//Check if the value is a number
+function isNumber(executionContext) {
+    var formContext = executionContext.getFormContext();
+    var sourceField = executionContext.getEventSource().getName();
+    var fieldValue = formContext.getAttribute(sourceField).getValue();
+    if (fieldValue !== null && fieldValue !== ""){
+        //Check if the value is a number
+        if (isNaN(parseFloat(fieldValue)) && !isFinite(fieldValue)){
+            //alert("Please enter a number");
+            formContext.getAttribute(sourceField).setValue(null);
+        }
+    }
+}
+
+/** Start of OnSave functions */
+var _formtype; //Returns form type 0 = Undefined 1 = Create 2 = Update 3 = Read Only 4 = Disabled 6 = Bulk Edit
+var _savemode; //Returns save mode 1 = Save 2 = Save and Close 5 = Save and New 59 = AutoSave 70 = Save as Completed 58 = Deactivate 5 = Assign 47 = Qualify 7 = Disqualify 32 = Save and New
+var marketingScriptWording;
+var marketinginfo_required;
+function OnSave(executionContext) {
+    var formContext = executionContext.getFormContext();
+    _savemode = executionContext.getEventArgs().getSaveMode();
+    _formtype = formContext.ui.getFormType();
+    formContext.getAttribute("firstname").setSubmitMode("always")
+    //return if save mode is Auto Save
+    console.log("saved");
+    if (_savemode === 70) {
+        console.log("form autosaved")
+        executionContext.getEventArgs().preventDefault(); // Don't save
+        return;
+    }
+    //run function if form is in create mode
+    if (_formtype === 1){
+        UpdateModifiedOn(formContext);
+        formContext.ui.clearFormNotification("notificationID");
+    }
+    if (!executionContext.getEventArgs().isDefaultPrevented()) {
+        depopulateFields(formContext);
+        var field = formContext.getAttribute("ract_marketingscriptread");
+        marketinginfo_required = CheckIfMarketingInfoRequired(formContext, field);
+        if (ValidateRequiredFields(formContext) === false) {
+            displayAlertDialog("Must contain at least one phone number, email address, residential address or postal address.", "Field Validation");
+            executionContext.getEventArgs().preventDefault(); // Don't save
+            prePopulatePhoneNumbers(formContext);
+            return;
+        }
+
+        if (_formtype !== 3 && _formtype !== 4) {
+            ManageDeceased(formContext);
+            //Field currently does not exist
+            //SetPreferredNumber(formContext);
+        }
+
+    }
+
+    if (_savemode === 1 && !executionContext.getEventArgs().isDefaultPrevented() && _formtype !== 1) {
+        if (!marketinginfo_required){
+            formContext.data.entity.removeOnPostSave(formCustomizations.openModal);
+        }
+        
+        console.log("Marketing Info Required: " + marketinginfo_required);
+        if (marketinginfo_required === true) {
+            marketingScriptWording = setScriptWording(formContext);
+            var cookieCheck = checkCookie();
+            console.log(cookieCheck);
+            if (cookieCheck) {
+                createCookie();
+                formCustomizations.runAftersave(executionContext);
+            }
+
+        }
+        else {
+            //complete wrap up
+        }
+
+    }
+
+    //wrap up on save and close
+    if (_savemode === 2 || _savemode === 5) {
+
+
+    }
+
+
+}
+
+function depopulateFields(formContext) {
+    /*
+    Populate Phone Numbers
+    Populate Home, Work or Fax Phone Number with 03 and Mobile Phone Number field with 04 if the field is empty
+    */
+    if (formContext.getAttribute("telephone1").getValue() == "03")
+        formContext.getAttribute("telephone1").setValue("")
+    if (formContext.getAttribute("telephone2").getValue() == "03")
+        formContext.getAttribute("telephone2").setValue("");
+    if (formContext.getAttribute("mobilephone").getValue() == "04")
+        formContext.getAttribute("mobilephone").setValue("");
+}
+
+function ManageDeceased(formContext) {
+
+    var deceased = formContext.getAttribute("ract_deceased");
+    if (deceased.getValue() && deceased.getIsDirty()) {
+        if (formContext.getAttribute("lastname").getValue().indexOf("ESTATE OF THE LATE") === -1)
+            formContext.getAttribute("lastname").setValue(formContext.getAttribute("lastname").getValue() + " ESTATE OF THE LATE");
+        var fields = ["ract_roadsideservicesoptin", "ract_insuranceoptin", "ract_financeoptin", "ract_journeysoptin", "ract_enewsemailoptin"];
+        for (var i = 0; i < fields.length; i++) {
+            formContext.getAttribute(fields[i]).setValue(false);
+        }
+
+        formContext.getAttribute("ract_journeysautomanage").setValue(false);
+        formContext.getAttribute("ract_journeysautomanage").setSubmitMode("always");
+
+    }
+}
+
+//open form validation
+function checkCookie() {
+    var cookie = document.cookie;
+    console.log(cookie);
+    // if cookie does not exist
+    if (cookie.indexOf("marketingRequired") === -1) {
+        return true;
+    }
+    return false;
+
+}
+
+function createCookie(){
+    document.cookie = "marketingRequired;";
+    console.log("cookie created");
+}
+function deleteCookie() {
+    document.cookie = "marketingRequired; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+    console.log("cookie deleted");
+    console.log(document.cookie);
+
+}
+
+//open form after saving
+var formCustomizations = {
+    runAftersave: function (executionContext) {
+        var formContext = executionContext.getFormContext();
+            formContext.data.entity.addOnPostSave(formCustomizations.openModal);
+    },
+
+    openModal: function (executionContext) {
+        var formContext = executionContext.getFormContext();
+        var contactid = formContext.data.entity.getId();
+        var dataArray = {};
+        dataArray["ract_marketingscript"] = marketingScriptWording;
+        Xrm.Navigation.navigateTo({ pageType: "entityrecord", entityId: contactid, entityName: "contact", formId: "b55d7916-efbe-ed11-83fe-002248e3e36c", data: dataArray, formType: 2 },
+            { target: 2, position: 1, width: { value: 40, unit: "%" }, height: { value: 50, unit: "%" } }).then(function success() {
+                formContext.data.entity.removeOnPostSave(formCustomizations.openModal);
+                deleteCookie()
+            }, function (error) {
+            });
+
+    }
+}
+
+
+
+function SetPreferredNumber(formContext) {
+    /*
+    Set Preferred Contact Number
+    */
+    var preferred = formContext.getAttribute("ract_preferredcontactnumber");
+    var ar = [formContext.getAttribute("telephone1"), formContext.getAttribute("telephone2"), formContext.getAttribute("mobilephone")];
+    var res = new Array();
+    if (ar[0].getIsDirty() || ar[1].getIsDirty() || ar[2].getIsDirty()) {
+        for (var i = 0; i < ar.length; i++) {
+            if (ar[i].getValue() !== null) {
+                if (ar[i].getValue().length > 2)
+                    res.push(ar[i].getValue());
+                else if (ar[i].getValue().length <= 2)
+                    ar[i].setValue(null);
+            }
+        }
+        if (res.length === 1) {
+            preferred.setValue(res[0]);
+        }
+        else if (res.length === 0)
+            preferred.setValue("");
+    }
+}
+
+function ValidateRequiredFields(formContext) {
+    if (RequireAny(formContext, ["telephone1", "telephone2", "mobilephone", "emailaddress1"]))
+        return true;
+    /** 	
+    if(RequireAll(formContext, ["ract_residentialstreetnumber","address1_line1","address1_city","address1_stateorprovince"]))
+        return true;
+	
+    if((RequireAll(formContext, ["ract_postalproperty"]) || RequireAll(formContext, ["ract_postalstreetnumber","address2_line1"])) && RequireAll(formContext, ["address2_city","address2_stateorprovince"]))
+        return true;
+    */
+    return false;
+}
+//Returns true if any of the specified fields exist and have a value
+function RequireAny(formContext, fields) {
+
+    var result = false;
+    for (var i = 0; i < fields.length; i++) {
+        result = result || (formContext.getAttribute(fields[i]) !== null && formContext.getAttribute(fields[i]).getValue() != null);
+    }
+    return result;
+}
+
+//Returns true only if all of the specified fields exist and have a value
+function RequireAll(formContext, fields) {
+
+    var result = true;
+    for (var i = 0; i < fields.length; i++) {
+        result = result && (formContext.getAttribute(fields[i]) !== null && formContext.getAttribute(fields[i]).getValue() != null);
+    }
+    return result;
+}
+
+function displayAlertDialog(message, title) {
+    var alertStrings = { confirmButtonLabel: "Confirm", text: message, title: title };
+    var alertOptions = { height: 120, width: 260 };
+    Xrm.Navigation.openAlertDialog(alertStrings, alertOptions);
+}
+
+//Update the Modified on of preferences fields when a preference is changed
+function UpdateModifiedOn(formContext) {
+    var roadside = formContext.getAttribute("ract_roadsideservicesoptin").getValue();
+    var finance = formContext.getAttribute("ract_financeoptin").getValue();
+    var destination = formContext.getAttribute("ract_destinationsoptin").getValue();
+    var insurance = formContext.getAttribute("ract_insuranceoptin").getValue();
+    var checkArray = [roadside, finance, destination, insurance];
+    var nameArray = ["ract_roadsideoptinmodified", "ract_financeoptinmodified", "ract_destinationsoptinmodified", "ract_insuranceoptinmodified"];
+    for (var i = 0 ;i < checkArray.length; i++){
+        if (checkArray[i] === true){
+            formContext.getAttribute(nameArray[i]).setValue(new Date());
+        }
+    }
+
+}
+
+//Marketing Information related functions
+/** Show Marketing Information Form? */
+function CheckIfMarketingInfoRequired(formContext, field) {
+    if (HaveAnyPreferencesChanged(formContext)) return false;
+    if (HasPersonModifiedAnyPreferences(formContext)) return false;
+
+    if (field === null) {
+        //If the field isn't on the form default to showing the pop up
+        return true;
+    }
+    var getValue = field.getValue();
+    return !getValue;
+
+
+}
+
+function HaveAnyPreferencesChanged(formContext) {
+    var roadsideChanged = formContext.getAttribute("ract_roadsideoptinmodified") !== null ? formContext.getAttribute("ract_roadsideoptinmodified").getValue() : false;
+    var insuranceChanged = formContext.getAttribute("ract_insuranceoptinmodified") !== null ? formContext.getAttribute("ract_insuranceoptinmodified").getValue() : false;
+    var financeChanged = formContext.getAttribute("ract_financeoptinmodified") !== null ? formContext.getAttribute("ract_financeoptinmodified").getValue() : false;
+    var destinationChanged = formContext.getAttribute("ract_destinationsoptinmodified") !== null ? formContext.getAttribute("ract_destinationsoptinmodified").getValue() : false;
+    var eNewsChanged = formContext.getAttribute("ract_enewsemailoptinmodified") !== null ? formContext.getAttribute("ract_enewsemailoptinmodified").getValue() : false;
+    var digitalJourneysChanged = formContext.getAttribute("ract_digitaljourneysoptinmodified") !== null ? formContext.getAttribute("ract_digitaljourneysoptinmodified").getValue() : false;
+
+    if (roadsideChanged || insuranceChanged || financeChanged || destinationChanged || eNewsChanged || digitalJourneysChanged) {
+        return true;
+    }
+
+    return false;
+
+}
+
+function HasPersonModifiedAnyPreferences(formContext) {
+    var roadsideModified = formContext.getAttribute("ract_roadsideoptinmodified").getValue();
+    var insuranceModified = formContext.getAttribute("ract_insuranceoptinmodified").getValue();
+    var financeModified = formContext.getAttribute("ract_financeoptinmodified").getValue();
+    var destinationModified = formContext.getAttribute("ract_destinationsoptinmodified").getValue();
+    var enewsModified = formContext.getAttribute("ract_enewsemailoptinmodified").getValue();
+    var digitalJourneysModified = formContext.getAttribute("ract_digitaljourneysoptinmodified").getValue();
+
+    if (!roadsideModified && !financeModified && !enewsModified && !destinationModified && !insuranceModified && !digitalJourneysModified) {
+        return false;
+    }
+
+    return true;
+}
+
+function setScriptWording(formContext) {
+    var currentEmailAddress = formContext.getAttribute("emailaddress1") != null ? formContext.getAttribute("emailaddress1").getValue() : "";
+    var scriptVar = "";
+    //Existing member adding email address
+    if (originalEmailAddress !== "" && (originalEmailAddress !== currentEmailAddress)) {
+        scriptVar = "ract_MScript_ExistingMemberAddsEmail"
+        return scriptVar;
+    }
+    //Existing member who hasn't changed any preferences
+    if (ArePreferencesInDefaultState(formContext)) {
+        scriptVar = "ract_MScript_NoPreference";
+        return scriptVar;
+    }
+    //No email address
+    if (currentEmailAddress === null || currentEmailAddress === "") {
+        scriptVar = "ract_MScript_NoEmail";
+        return scriptVar;
+    }
+
+    //New member
+    scriptVar = "ract_MScript_NewMember";
+    return scriptVar;
+}
+
+function ArePreferencesInDefaultState(formContext) {
+    var roadside = formContext.getAttribute("ract_roadsideservicesoptin").getValue();
+    var finance = formContext.getAttribute("ract_financeoptin").getValue();
+    var enews = formContext.getAttribute("ract_enewsemailoptin").getValue();
+    var destination = formContext.getAttribute("ract_destinationsoptin").getValue();
+    var insurance = formContext.getAttribute("ract_insuranceoptin").getValue();
+    var digitalJourneys = formContext.getAttribute("ract_digitaljourneysoptin").getValue();
+
+    if (!roadside && !finance && !destination && !insurance && enews && digitalJourneys) {
+        return true;
+    }
+
+    return false;
+}
+

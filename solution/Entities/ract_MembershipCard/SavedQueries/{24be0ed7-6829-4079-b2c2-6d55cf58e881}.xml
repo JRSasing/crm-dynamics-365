@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{24be0ed7-6829-4079-b2c2-6d55cf58e881}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="ract_idnumber" select="1" icon="1" preview="1">
+        <row name="result" id="ract_membershipcardid">
+          <cell name="ract_idnumber" width="185" />
+          <cell name="ract_person" width="164" />
+          <cell name="ract_requestdate" width="127" />
+          <cell name="ract_issuedate" width="151" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="ract_membershipcard">
+          <attribute name="ract_membershipcardid" />
+          <attribute name="ract_idnumber" />
+          <attribute name="createdon" />
+          <order attribute="ract_idnumber" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="ract_idnumber" operator="like" value="{0}" />
+            <condition attribute="ract_person" operator="like" value="{0}" />
+          </filter>
+          <attribute name="ract_person" />
+          <attribute name="ract_requestdate" />
+          <attribute name="ract_issuedate" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Membership Cards" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
