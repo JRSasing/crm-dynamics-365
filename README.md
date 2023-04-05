@@ -2,7 +2,7 @@
 
 ### What is this repository for? ###
 
-This repository contains the Dynamics 365 Solution for RACT CRM Customisations
+This repository contains the RACT implementation of Dynamics 365 CRM.
 
 ### How do I get set up? ###
 
@@ -13,12 +13,16 @@ Running any kind of <code>build</code> from the command line (repository root) w
 Default configuration settings are held in <code>settings.json</code> in the **setup** folder. These are configured to allow development against the [RACT Dev 1](https://org88bea879.crm6.dynamics.com) Dynamics 365 environment
 
 ### Deployment instructions
+#### Pipeline
+The ALM (_Application Lifecycle Management_) has been scripted to automate the process with targets to invoke each part of the delivery process.
+![Pipeline](https://lucid.app/publicSegments/view/fabdf474-eca9-4fc0-bf03-18560e2dc288/image.png)
+
+#### Build targets
 The following build targets are available from the root folder, by running <code>**build _target_**</code>.
 
 By default, running <code>build</code> with no target will perform a **clean** and **generate** automatically
 
 **Please note**, _default environment_ refers to **RACT Dev 1**
-
 
 * <code>clean</code> - clean the build folder
 * <code>generate</code> - pack the solution files into a Dynamics 365 _unmamaged_ solution archive (zip file), ready for deployment
