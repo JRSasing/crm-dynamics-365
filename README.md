@@ -14,7 +14,7 @@ Default configuration settings are held in <code>settings.json</code> in the **s
 
 ### Deployment instructions
 #### Pipeline
-The ALM has been scripted to automate the process with targets to invoke each part of the delivery process.
+The ALM (_Application Lifecycle Management_) has been scripted to automate the process with targets to invoke each part of the delivery process.
 ![Pipeline](https://lucid.app/publicSegments/view/fabdf474-eca9-4fc0-bf03-18560e2dc288/image.png)
 
 #### Build targets
