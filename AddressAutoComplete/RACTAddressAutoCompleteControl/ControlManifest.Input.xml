@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="ReusablePCFs" constructor="RACTAddressAutoCompleteControl" version="0.1.11" display-name-key="RACTAddressAutoCompleteControl" description-key="RACT AddressAutoCompleteControl description" control-type="standard">
+    <property name="AddressInput" display-name-key="AddressInput" description-key="AddressInput" of-type="SingleLine.Text" usage="bound" required="true" />
+    <property name="UnitFlatNumber" display-name-key="UnitFlatNumber" description-key="UnitFlatNumber" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="AddressStreet3" display-name-key="AddressStreet3" description-key="AddressStreet3" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="StreetNumber" display-name-key="StreetNumber" description-key="StreetNumber" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="StreetName" display-name-key="StreetName" description-key="StreetName" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="Suburb" display-name-key="Suburb" description-key="Suburb" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="State" display-name-key="State" description-key="State" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="Country" display-name-key="Country" description-key="Country" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="Postcode" display-name-key="Postcode" description-key="Postcode" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="GNAF_ID" display-name-key="GNAF ID" description-key="GNAF ID" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="Longitude" display-name-key="Longitude" description-key="Longitude" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="Latitude" display-name-key="Latitude" description-key="Latitude" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="DPID" display-name-key="DPID" description-key="DPID" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="Ausbar" display-name-key="Ausbar" description-key="Ausbar" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="AddressOneLine" display-name-key="AddressOneLine" description-key="AddressOneLine" of-type="SingleLine.Text" usage="bound" required="false" />
+    
+    <resources>
+      <code path="index.ts" order="1" />
+      <css path="css/style.css" order="1" />
+    </resources>
+    <feature-usage>
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+  </control>
+</manifest>
