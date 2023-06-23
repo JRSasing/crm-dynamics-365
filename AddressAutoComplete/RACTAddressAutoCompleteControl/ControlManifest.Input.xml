@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="ReusablePCFs" constructor="RACTAddressAutoCompleteControl" version="0.1.11" display-name-key="RACTAddressAutoCompleteControl" description-key="RACT AddressAutoCompleteControl description" control-type="standard">
+  <control namespace="ReusablePCFs" constructor="RACTAddressAutoCompleteControl" version="0.1.16" display-name-key="RACTAddressAutoCompleteControl" description-key="RACT AddressAutoCompleteControl description" control-type="standard">
     <property name="AddressInput" display-name-key="AddressInput" description-key="AddressInput" of-type="SingleLine.Text" usage="bound" required="true" />
     <property name="UnitFlatNumber" display-name-key="UnitFlatNumber" description-key="UnitFlatNumber" of-type="SingleLine.Text" usage="bound" required="false" />
     <property name="AddressStreet3" display-name-key="AddressStreet3" description-key="AddressStreet3" of-type="SingleLine.Text" usage="bound" required="false" />

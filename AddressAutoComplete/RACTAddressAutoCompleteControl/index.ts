@@ -215,7 +215,7 @@ export class RACTAddressAutoCompleteControl implements ComponentFramework.Standa
 						});
 
 
-	
+
 						newDiv.addEventListener("mouseover", function () { self.elementHover = true; });
 						newDiv.addEventListener("mouseout", function () { self.elementHover = false; });
 	
@@ -237,9 +237,49 @@ export class RACTAddressAutoCompleteControl implements ComponentFramework.Standa
 		});
 	}
 	
-	
+	public getLongLat(globalAddressKey: string): void {
+		const api = this.APIkey;
+		const url = "https://api.experianaperture.io/enrichment/v2";
+		const data = {
+			country_iso: "AUS",
+			keys: { global_address_key: globalAddressKey},
+			attributes: {
+				AUS_CV_Household: [
+					"gnaf_latitude",
+					"gnaf_longitude"
+				]
+			}
+		};
+		const self = this;
+
+		$.ajax({
+			url: url,
+			type: "POST",
+			dataType: "json",
+			contentType: "application/json",
+			data: JSON.stringify(data),
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader("Auth-Token", api);
+			},
+			success: function (response) {
+				if (response) {
+					self.longitude = response.result.aus_cv_household.gnaf_longitude ? self.longitude = response.result.aus_cv_household.gnaf_longitude : self.longitude = "";
+					self.latitude = response.result.aus_cv_household.gnaf_latitude ? self.latitude = response.result.aus_cv_household.gnaf_latitude : self.latitude = "";
+				}
+				else{
+					console.log("response: "+response);
+				}
+			},
+			error: function (error) {
+				console.log(error);
+				// Handle error response
+			}
+		})
+	}
+
 	public selectValue(): void {
 		
+		//selectedAddress is the global address key
 		const selectedAddress = (<HTMLDataListElement>document.getElementById(this.fieldLogicalName + "_addressList")).innerHTML;
 		const oneLiner = this.inputElement.value;
 		console.log("selected address: "+ selectedAddress);
@@ -281,16 +321,24 @@ export class RACTAddressAutoCompleteControl implements ComponentFramework.Standa
 							self.suburb = "";
 							self.state = "";
 							self.country = "";
-							self.dpid = "";
 							self.postCode = "";
+
 							self.longitude = "";
 							self.latitude = "";
 							
+							self.GNaf = "";
+							self.ausbar	= "";
+							self.dpid = "";
+							
 						    const selectedSuggestion = response.result.address;
+							//response.result.address;
 							// Remove Address Input from the field
 							self.inputElement.value = oneLiner;
 							self.addressOneLine = oneLiner;
-							self.addressLine3 = selectedSuggestion.address_line_3 || "";
+
+							//Used by "Address (number): Name" Similar to addressOneLine, but is used to determine if there's a change on selected address. because the AddressOneLine is modified based on the other address fields.
+							self.addressLine3 = oneLiner || "";
+
 							self.streetName = response.result.components.street.full_name || "";
 							self.streetNumber = response.result.components.building.building_number || "";
 							self.suburb = selectedSuggestion.locality || "";
@@ -302,9 +350,21 @@ export class RACTAddressAutoCompleteControl implements ComponentFramework.Standa
 
 							//Commented out because it's not working. Response body: Metadata might not be available for utilization
 							//self.GNaf = response.metadata.address_info.identifier.gnafPid || "";
-							self.longitude = selectedSuggestion.Longitude || "";
-							self.latitude = selectedSuggestion.Latitude || "";
-				
+							self.GNaf = response.metadata.address_info.identifier.gnafPid ? self.GNaf = response.metadata.address_info.identifier.gnafPid : self.GNaf = "";
+
+							self.dpid = response.metadata.address_info.identifier.dpid ? self.dpid = response.metadata.address_info.identifier.dpid : self.dpid = "";
+
+							//delivery_point_barcode is the ausbar in experian format v1 api
+							self.ausbar = response.metadata.barcode.delivery_point_barcode ? self.ausbar = response.metadata.barcode.delivery_point_barcode : self.ausbar = "";
+
+							
+							//no longitude and latitude found. Supposed to be in enrichment v1 api. but the dataset provided is limited, and cannot utilize the enrichment v1, and even the fomart v1 api's full response.
+							// self.longitude = selectedSuggestion.Longitude || "";
+							// self.latitude = selectedSuggestion.Latitude || "";
+							
+							//Get the value of Longitude and Latitude from enrichment v2 api
+							self.getLongLat(selectedAddress);
+
 							self._notifyOutputChanged();
 				
 							console.log("Address broken down and fields have been updated");
